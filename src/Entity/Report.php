@@ -28,6 +28,11 @@ class Report
     #[ORM\JoinColumn(nullable: false)]
     private $recipe;
 
+    public function __toString()
+    {
+        return "Report #" . $this->id . " • " . $this->recipe . " • " . $this->reason . " • " . $this->user;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

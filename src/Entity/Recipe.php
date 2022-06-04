@@ -44,6 +44,11 @@ class Recipe
         $this->recipeIngredients = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->title . " • " . $this->author;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

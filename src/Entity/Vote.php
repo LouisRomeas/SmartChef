@@ -24,6 +24,11 @@ class Vote
     #[ORM\JoinColumn(nullable: false)]
     private $recipe;
 
+    public function __toString()
+    {
+        return $this->isPositive ? 'Upvote' : 'Downvote';
+    }
+
     public function getId(): ?int
     {
         return $this->id;

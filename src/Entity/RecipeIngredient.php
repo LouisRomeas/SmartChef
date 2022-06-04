@@ -27,6 +27,11 @@ class RecipeIngredient
     #[ORM\JoinColumn(nullable: false)]
     private $recipe;
 
+    public function __toString()
+    {
+        return $this->quantity . $this->ingredient->getUnit() . " " . $this->ingredient;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

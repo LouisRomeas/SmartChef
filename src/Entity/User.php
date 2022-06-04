@@ -50,6 +50,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->reports = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->nickname;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
