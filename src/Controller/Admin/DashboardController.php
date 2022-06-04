@@ -19,11 +19,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
-    public function __construct(private TranslatorInterface $translator)
-    {
-        
-    }
-
     #[IsGranted('ROLE_ADMIN')]
     #[Route('/admin', name: 'admin')]
     public function index(): Response
@@ -53,12 +48,12 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard($this->translator->trans('admin.dashboard'), 'fa fa-home');
-        yield MenuItem::linkToCrud($this->translator->trans('admin.crudEntities.users'), 'fas fa-user', User::class);
-        yield MenuItem::linkToCrud($this->translator->trans('admin.crudEntities.categories'), 'fas fa-list', Category::class);
-        yield MenuItem::linkToCrud($this->translator->trans('admin.crudEntities.ingredients'), 'fas fa-apple-whole', Ingredient::class);
-        yield MenuItem::linkToCrud($this->translator->trans('admin.crudEntities.reportReasons'), 'fas fa-flag', ReportReason::class);
-        yield MenuItem::linkToCrud($this->translator->trans('admin.crudEntities.units'), 'fas fa-scale-balanced', Unit::class);
-        yield MenuItem::linkToRoute($this->translator->trans('admin.backToFront'), 'fas fa-right-from-bracket', 'app_login');
+        yield MenuItem::linkToDashboard('admin.dashboard', 'fa fa-home');
+        yield MenuItem::linkToCrud('entity.user._plural', 'fas fa-user', User::class);
+        yield MenuItem::linkToCrud('entity.category._plural', 'fas fa-list', Category::class);
+        yield MenuItem::linkToCrud('entity.ingredient._plural', 'fas fa-apple-whole', Ingredient::class);
+        yield MenuItem::linkToCrud('entity.reportReason._plural', 'fas fa-flag', ReportReason::class);
+        yield MenuItem::linkToCrud('entity.unit._plural', 'fas fa-scale-balanced', Unit::class);
+        yield MenuItem::linkToRoute('admin.backToFront', 'fas fa-right-from-bracket', 'app_login');
     }
 }

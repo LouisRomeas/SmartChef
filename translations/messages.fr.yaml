@@ -1,12 +1,10 @@
 user:
-  login: Se connecter
-  register: S'inscrire
-  email: E-mail
-  password: Mot de passe
-  nickname: Pseudo
   myAccount: Mon compte
+  login:
+    login: Se connecter
   registration:
-    agreeTerms: J'accepte les conditions d'utilisation.
+    register: S'inscrire
+    agreeTerms: J'accepte les conditions d'utilisation
 
 messages:
   user:
@@ -18,12 +16,55 @@ mail:
   confirmEmail:
     _subject: Veuillez confirmer votre addresse e-mail
 
+entity:
+  _id: ID
+  category:
+    _singular: Catégorie
+    _plural: Catégories
+    name: Nom
+  ingredient:
+    _singular: Ingrédient
+    _plural: Ingrédients
+    name: Nom
+    emoji: Emoticône
+  recipe:
+    _singular: Recette
+    _plural: Recettes
+    title: Titre
+    body: Corps
+    duration: Durée
+    author: Auteur
+  recipeIngredient:
+    _singular: Ingrédient de recette
+    _plural: Ingrédients de recette
+    quantity: Quantité
+    isOptional: Facultatif
+  report:
+    _singular: Signalement
+    _plural: Signalements
+    body: Corps
+  reportReason:
+    _singular: Motif de signalement
+    _plural: Motifs de signalement
+    name: Nom
+  unit:
+    _singular: Unité de mesure
+    _plural: Unités de mesure
+    name: Nom
+  user:
+    _singular: Utilisateur
+    _plural: Utilisateurs
+    email: E-mail
+    password: Mot de passe
+    nickname: Pseudo
+    isVerified: Vérifié
+    roles: Roles
+  vote:
+    _singular: Vote
+    _plural: Votes
+    isPositive: Positif
+
+
 admin:
   dashboard: Tableau de bord
-  backToFront: Retour à la façade
-  crudEntities:
-    users: Utilisateurs
-    categories: Catégories
-    ingredients: Ingrédients
-    reportReasons: Motifs de signalement
-    units: Unités de mesure
+  backToFront: Retour en façade

@@ -1,11 +1,9 @@
 user:
-  login: Log-in
-  register: Register
-  email: E-mail
-  password: Password
-  nickname: Nickname
   myAccount: My account
+  login:
+    login: Log-in
   registration:
+    register: Register
     agreeTerms: I agree with the Terms and Conditions
 
 messages:
@@ -18,12 +16,53 @@ mail:
   confirmEmail:
     _subject: Please confirm your e-mail
 
+entity:
+  _id: ID
+  category:
+    _singular: Category
+    _plural: Categories
+    name: Name
+  ingredient:
+    _singular: Ingredient
+    _plural: Ingredients
+    name: Name
+    emoji: Emoji
+  recipe:
+    _singular: Recipe
+    _plural: Recipes
+    title: Title
+    body: Body
+    duration: Duration
+    author: Author
+  recipeIngredient:
+    _singular: Recipe ingredient
+    _plural: Recipe ingredients
+    quantity: Quantity
+    isOptional: Optional
+  report:
+    _singular: Report
+    _plural: Reports
+    body: Body
+  reportReason:
+    _singular: Report reason
+    _plural: Report reasons
+    name: Name
+  unit:
+    _singular: Unit of measurement
+    _plural: Units of measurement
+    name: Name
+  user:
+    _singular: User
+    _plural: Users
+    password: Password
+    nickname: Nickname
+    isVerified: Verified
+    roles: Roles
+  vote:
+    _singular: Vote
+    _plural: Votes
+    isPositive: Positive
+
 admin:
   dashboard: Dashboard
   backToFront: Back to front
-  crudEntities:
-    users: Users
-    categories: Categories
-    ingredients: Ingredients
-    reportReasons: Report reasons
-    units: Units of measurement
