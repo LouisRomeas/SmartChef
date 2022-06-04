@@ -13,3 +13,7 @@ messages:
     registration:
       passwordBlank: Please enter a password.
       agreeTerms: You need to agree to our Terms and Conditions.
+
+mail:
+  confirmEmail:
+    _subject: Please confirm your e-mail

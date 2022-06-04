@@ -13,3 +13,7 @@ messages:
     registration:
       passwordBlank: Veuillez entrer un mot de passe.
       agreeTerms: Vous devez accepter les conditions d'utilisation.
+
+mail:
+  confirmEmail:
+    _subject: Veuillez confirmer votre addresse e-mail
