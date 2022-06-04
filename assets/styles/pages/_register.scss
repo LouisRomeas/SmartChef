@@ -1,0 +1,10 @@
+body {
+  form.register-form {
+    display: flex;
+    flex-direction: column;
+
+    > * {
+      margin-top: 2.5vw;
+    }
+  }
+}

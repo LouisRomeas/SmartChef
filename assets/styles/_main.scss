@@ -41,6 +41,10 @@ html {
           opacity: 50%;
         }
       }
+
+      &[type=checkbox].checkbox-first {
+        float: left;
+      }
     }
 
     button,

@@ -5,10 +5,10 @@
     </div>
     <nav id="side-menu-nav">
       {% if app.user %}
-        <a href="">My account</a>
+        <a href="">{{ 'user.myAccount' | t }}</a>
       {% else %}
-        <a href="{{ path('app_login') }}">{{ 'user.login' | trans }}</a>
-        <a href="{{ path('app_register') }}">{{ 'user.register' | trans }}</a>
+        <a href="{{ path('app_login') }}">{{ 'user.login' | t }}</a>
+        <a href="{{ path('app_register') }}">{{ 'user.register' | t }}</a>
       {% endif %}
     </nav>
   </aside>

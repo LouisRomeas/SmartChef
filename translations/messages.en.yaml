@@ -4,6 +4,9 @@ user:
   email: E-mail
   password: Password
   nickname: Nickname
+  myAccount: My account
+  registration:
+    agreeTerms: I agree with the Terms and Conditions
 
 messages:
   user:
