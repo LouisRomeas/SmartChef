@@ -8,4 +8,16 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
 import '@fortawesome/fontawesome-free/js/all.js';
+import Menu from './menu';
+
+document.addEventListener('DOMContentLoaded', () => {
+  const menu = new Menu(
+    document.getElementById('side-menu'),
+    {
+      open: document.getElementById('side-menu-open-handle'),
+      close: document.getElementById('side-menu-close-handle')
+    },
+    document.getElementById('shadow-on-page')
+  );
+})
 

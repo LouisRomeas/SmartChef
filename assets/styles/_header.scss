@@ -7,6 +7,8 @@ header#top-header {
   align-items: center;
   justify-content: center;
 
+  $menu-transition-duration: 200ms;
+
   aside#side-menu {
     position: fixed;
     z-index: 99;
@@ -16,7 +18,15 @@ header#top-header {
     max-width: 90vw;
     height: 100vh;
     background-color: $dark-green;
-    box-shadow: 0 0 5vw  #{scale-color($color: $black, $alpha: 25%)};
+    --box-shadow-size: 5vw;
+    box-shadow: 0 0 var(--box-shadow-size)  #{scale-color($color: $black, $alpha: 25%)};
+
+    transform: translateX(calc(-100% - var(--box-shadow-size)));
+    transition: transform ease-in-out $menu-transition-duration;
+
+    &.expanded {
+      transform: translateX(0);
+    }
 
     .top-bar {
       display: flex;
@@ -72,7 +82,15 @@ header#top-header {
     height: 100vh;
     z-index: 98;
     background-color: $black;
-    opacity: 50%;
+
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity $menu-transition-duration;
+    
+    &.shown {
+      pointer-events: initial;
+      opacity: 50%;
+    }
   }
 
   #side-menu-open-handle {
