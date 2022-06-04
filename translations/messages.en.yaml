@@ -17,3 +17,13 @@ messages:
 mail:
   confirmEmail:
     _subject: Please confirm your e-mail
+
+admin:
+  dashboard: Dashboard
+  backToFront: Back to front
+  crudEntities:
+    users: Users
+    categories: Categories
+    ingredients: Ingredients
+    reportReasons: Report reasons
+    units: Units of measurement

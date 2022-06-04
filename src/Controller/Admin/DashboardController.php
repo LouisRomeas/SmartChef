@@ -53,12 +53,12 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard($this->translator->trans('Dashboard'), 'fa fa-home');
-        yield MenuItem::linkToCrud($this->translator->trans('Users'), 'fas fa-user', User::class);
-        yield MenuItem::linkToCrud($this->translator->trans('Categories'), 'fas fa-list', Category::class);
-        yield MenuItem::linkToCrud($this->translator->trans('Ingredients'), 'fas fa-apple-whole', Ingredient::class);
-        yield MenuItem::linkToCrud($this->translator->trans('Report reasons'), 'fas fa-flag', ReportReason::class);
-        yield MenuItem::linkToCrud($this->translator->trans('Units of measurement'), 'fas fa-scale-balanced', Unit::class);
-        yield MenuItem::linkToRoute($this->translator->trans('Back to front'), 'fas fa-right-from-bracket', 'app_home');
+        yield MenuItem::linkToDashboard($this->translator->trans('admin.dashboard'), 'fa fa-home');
+        yield MenuItem::linkToCrud($this->translator->trans('admin.crudEntities.users'), 'fas fa-user', User::class);
+        yield MenuItem::linkToCrud($this->translator->trans('admin.crudEntities.categories'), 'fas fa-list', Category::class);
+        yield MenuItem::linkToCrud($this->translator->trans('admin.crudEntities.ingredients'), 'fas fa-apple-whole', Ingredient::class);
+        yield MenuItem::linkToCrud($this->translator->trans('admin.crudEntities.reportReasons'), 'fas fa-flag', ReportReason::class);
+        yield MenuItem::linkToCrud($this->translator->trans('admin.crudEntities.units'), 'fas fa-scale-balanced', Unit::class);
+        yield MenuItem::linkToRoute($this->translator->trans('admin.backToFront'), 'fas fa-right-from-bracket', 'app_login');
     }
 }

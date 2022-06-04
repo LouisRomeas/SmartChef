@@ -17,3 +17,13 @@ messages:
 mail:
   confirmEmail:
     _subject: Veuillez confirmer votre addresse e-mail
+
+admin:
+  dashboard: Tableau de bord
+  backToFront: Retour à la façade
+  crudEntities:
+    users: Utilisateurs
+    categories: Catégories
+    ingredients: Ingrédients
+    reportReasons: Motifs de signalement
+    units: Unités de mesure
