@@ -9,6 +9,7 @@ export default class Menu {
   ) {
     this.menuHandleElements.open.onclick = () => this.toggleSideMenu(false);
     this.menuHandleElements.close.onclick = () => this.toggleSideMenu(true);
+    shadowOnPageElement.onclick = () => this.toggleSideMenu(true);
   }
 
   public toggleSideMenu(close: boolean = false) {
