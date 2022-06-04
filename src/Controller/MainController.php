@@ -8,10 +8,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
-    public function index(): Response
+    #[Route('/', name: 'app_home_without_locale')]
+    #[Route('/{_locale}', name: 'app_home', requirements:[ '_locale' => '%app.locales%' ])]
+    public function home(): Response
     {
-        return $this->render('main/index.html.twig', [
+        return $this->render('main/home.html.twig', [
             'controller_name' => 'MainController',
         ]);
     }

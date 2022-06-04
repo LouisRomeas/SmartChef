@@ -1,0 +1,10 @@
+body {
+  form.login-form {
+    display: flex;
+    flex-direction: column;
+
+    > * {
+      margin-top: 2.5vw;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+user:
+  login: Se connecter
+  register: S'inscrire
+  email: E-mail
+  password: Mot de passe
+  nickname: Pseudo
+
+messages:
+  user:
+    registration:
+      passwordBlank: Veuillez entrer un mot de passe.
+      agreeTerms: Vous devez accepter les conditions d'utilisation.

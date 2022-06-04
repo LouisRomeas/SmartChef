@@ -1,0 +1,16 @@
+.error-message {
+  font-weight: 800;
+  color: $red;
+  border: 1px solid scale-color($red, $lightness: 25%);
+  background-color: scale-color($color: $red, $lightness: 90%);
+
+  display: flex;
+  align-items: center;
+  padding: 2.5vw 5vw;
+  margin: 2.5vw 0;
+  border-radius: 5vw;
+
+  .fa-triangle-exclamation {
+    margin-right: 2.5vw;
+  }
+}

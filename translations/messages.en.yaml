@@ -1,3 +1,12 @@
 user:
-  login: 'Log-in'
-  register: 'Register'
+  login: Log-in
+  register: Register
+  email: E-mail
+  password: Password
+  nickname: Nickname
+
+messages:
+  user:
+    registration:
+      passwordBlank: Please enter a password.
+      agreeTerms: You need to agree to our Terms and Conditions.

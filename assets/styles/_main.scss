@@ -5,6 +5,11 @@ html {
     background-color: $white;
     color: $black;
     font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+
+    #container {
+      margin: 0 2.5vw;
+    }
 
     a {
       color: inherit;
@@ -13,6 +18,52 @@ html {
 
       &:hover {
         opacity: 0.85;
+      }
+    }
+
+    input {
+      font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
+      font-weight: 600;
+
+      &[type=text],
+      &[type=password] {
+        height: 12.5vw;
+        background-color: $white;
+        font-size: 5.625vw;
+        border-radius: 5vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        border: 2px solid $bright-green;
+        color: $dark-green;
+        
+        &::placeholder {
+          color: $gray-green;
+          opacity: 50%;
+        }
+      }
+    }
+
+    button,
+    input[type=button],
+    input[type=submit] {
+      font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      color: $black;
+      background-color: $bright-green;
+      height: 15.625vw;
+      border-radius: 5vw;
+      border: none;
+      cursor: pointer;
+      font-size: 5.625vw;
+
+      transition: color 150ms, background-color 150ms;
+
+      &:hover, &:active {
+        color: $white;
+
+        &:active {
+          background: $dark-green;
+        }
       }
     }
   }

@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LoginController extends AbstractController
 {
-    #[Route('/login', name: 'app_login')]
+    #[Route('{_locale}/login/', name: 'app_login', requirements:[ '_locale' => '%app.locales%' ])]
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
         if ($this->getUser()) return $this->redirectToRoute('app_home');
