@@ -18,7 +18,7 @@ header#top-header {
     max-width: 90vw;
     height: 100vh;
     background-color: $dark-green;
-    --box-shadow-size: 5vw;
+    --box-shadow-size: 1rem;
     box-shadow: 0 0 var(--box-shadow-size)  #{scale-color($color: $black, $alpha: 25%)};
 
     transform: translateX(calc(-100% - var(--box-shadow-size)));
@@ -31,20 +31,20 @@ header#top-header {
     .top-bar {
       display: flex;
       align-items: center;
-      height: 15vw;
+      height: 3rem;
 
       #side-menu-close-handle {
-        height: 12.5vw;
-        width: 12.5vw;
+        height: 2.5rem;
+        width: 2.5rem;
         background-color: $bright-green;
-        border-radius: 5vw 0 0 5vw;
+        border-radius: 1rem 0 0 1rem;
         cursor: pointer;
     
         margin-left: auto;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 6.25vw;
+        font-size: 1.25rem;
 
         transition: color 200ms;
 
@@ -57,13 +57,13 @@ header#top-header {
     nav#side-menu-nav {
       display: flex;
       flex-direction: column;
-      padding: 0 5vw;
+      padding: 0 1rem;
 
       a {
-        font-size: 5.625vw;
+        font-size: 1.125rem;
         font-weight: bold;
         color: white;
-        height: 12.5vw;
+        height: 2.5rem;
         display: flex;
         align-items: center;
 
@@ -94,17 +94,17 @@ header#top-header {
   }
 
   #side-menu-open-handle {
-    height: 12.5vw;
-    width: 12.5vw;
+    height: 2.5rem;
+    width: 2.5rem;
     background-color: $bright-green;
-    border-radius: 0 5vw 5vw 0;
+    border-radius: 0 1rem 1rem 0;
     cursor: pointer;
 
     margin-right: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 6.25vw;
+    font-size: 1.25rem;
 
     transition: color 200ms;
 
@@ -116,8 +116,8 @@ header#top-header {
   #website-title {
     display: block;
     font-family: Lobster, cursive;
-    font-size: 11.25vw;
-    height: 15vw;
+    font-size: 2.25rem;
+    height: 3rem;
     color: $red;
     margin-right: auto;
   }

@@ -1,4 +1,5 @@
 html {
+  font-size: 5vw;
 
   body {
     margin: 0;
@@ -8,7 +9,7 @@ html {
     font-weight: 600;
 
     #container {
-      margin: 0 2.5vw;
+      margin: 0 0.5rem;
     }
 
     a {
@@ -27,12 +28,12 @@ html {
 
       &[type=text],
       &[type=password] {
-        height: 12.5vw;
+        height: 2.5rem;
         background-color: $white;
-        font-size: 5.625vw;
-        border-radius: 5vw;
-        padding-left: 5vw;
-        padding-right: 5vw;
+        font-size: 1.125rem;
+        border-radius: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
         border: 2px solid $bright-green;
         color: $dark-green;
         
@@ -54,11 +55,11 @@ html {
       font-weight: 700;
       color: $black;
       background-color: $bright-green;
-      height: 15.625vw;
-      border-radius: 5vw;
+      height: 3.125rem;
+      border-radius: 1rem;
       border: none;
       cursor: pointer;
-      font-size: 5.625vw;
+      font-size: 1.125rem;
 
       transition: color 150ms, background-color 150ms;
 
