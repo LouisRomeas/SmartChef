@@ -1,0 +1,33 @@
+@font-face {
+  font-family: Lobster;
+  src: url('./fonts/Lobster/Lobster-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+$font-weights: (
+  200: 'ExtraLight',
+  300: 'Light',
+  400: 'Regular',
+  600: 'SemiBold',
+  700: 'Bold',
+  800: 'ExtraBold',
+  900: 'Black'
+);
+
+$font-styles: (
+  'normal': '',
+  'italic': 'Italic'
+);
+
+@each $weight, $weight-text in $font-weights {
+  @each $style, $style-text in 'normal', 'italic' {
+    @font-face {
+      font-family: 'Nunito Sans';
+      src: url('./fonts/NunitoSans/NunitoSans-#{$weight-text}#{$style-text}.ttf');
+      font-weight: $weight;
+      font-style: $style;
+    }
+  }
+}

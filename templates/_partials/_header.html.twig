@@ -1,0 +1,18 @@
+<header id="top-header">
+  <aside id="side-menu">
+    <div class="top-bar">
+      <div id="side-menu-close-handle"><i class="fa-solid fa-angles-left"></i></div>
+    </div>
+    <nav id="side-menu-nav">
+      {% if app.user %}
+        <a href="">My account</a>
+      {% else %}
+        <a href="{{ path('app_login') }}">{{ 'user.login' | trans }}</a>
+        <a href="{{ path('app_register') }}">{{ 'user.register' | trans }}</a>
+      {% endif %}
+    </nav>
+  </aside>
+  <div id="shadow-on-page"></div>
+  <div id="side-menu-open-handle"><i class="fa-solid fa-bars"></i></div>
+  <strong id="website-title"><a href="{{ path('app_home') }}">SmartChef</a></strong>
+</header>

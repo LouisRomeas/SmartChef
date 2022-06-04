@@ -1,0 +1,19 @@
+html {
+
+  body {
+    margin: 0;
+    background-color: $white;
+    color: $black;
+    font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+      transition: opacity 200ms;
+
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+  }
+}
