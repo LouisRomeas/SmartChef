@@ -1,0 +1,17 @@
+body {
+  form.register-form {
+    > * {
+      margin-bottom: 0.5rem;
+
+      &:last-of-type {
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: flex-end;
+
+        input[type=checkbox] {
+          margin-right: 0.25rem;
+        }
+      }
+    }
+  }
+}

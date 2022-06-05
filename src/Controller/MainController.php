@@ -24,8 +24,10 @@ class MainController extends AbstractController
         $ingredients = $ingredientRepository->search($request->get('query', ''));
         $response = [];
         foreach ($ingredients as $key => $ingredient) {
+            $response[$key]['id'] = $ingredient->getId();
             $response[$key]['label'] = $ingredient->getName();
-            $response[$key]['value'] = $ingredient->getId();
+            $response[$key]['emoji'] = $ingredient->getEmoji() ?? null;
+            $response[$key]['unit'] = $ingredient->getUnit()->getName();
         }
 
         return $this->json($response);

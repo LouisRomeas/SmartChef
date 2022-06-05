@@ -18,5 +18,12 @@
     >
     {{ form_row(form.recipeIngredients) }}
     {{ encore_entry_script_tags('recipeIngredientsForm') }}
-    <button class="btn">{{ 'form.publish' | t }}</button>
+
+    <hr>
+
+    {{ form_row(form.body, {
+        label: 'entity.recipe.body'
+    }) }}
+
+    <button class="btn" id="publish-button">{{ 'form.publish' | t }}</button>
 {{ form_end(form) }}

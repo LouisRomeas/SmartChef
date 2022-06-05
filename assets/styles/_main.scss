@@ -12,6 +12,10 @@ html {
       margin: 0 0.5rem;
     }
 
+    h1 {
+      font-size: 1.5rem;
+      line-height: 1em;
+    }
     
     a {
       color: inherit;
@@ -36,9 +40,7 @@ html {
       display: flex;
       flex-direction: column;
   
-      > * {
-        margin-top: 0.25rem;
-        margin-bottom: 0.25rem;
+      > *:not(button, script) {
         display: flex;
         flex-direction: column;
         
@@ -58,6 +60,11 @@ html {
       & > div {
         padding: 0.25rem;
         cursor: pointer;
+        color: mix($dark-green, $black);
+
+        &::first-letter {
+          margin-right: 0.125rem;
+        }
 
         &.selected {
           background-color: scale-color($color: $bright-green, $lightness: 50%);
@@ -83,7 +90,8 @@ html {
       font-weight: 600;
 
       &[type=text],
-      &[type=password] {
+      &[type=password],
+      &[type=time] {
         height: 2.5rem;
         background-color: $white;
         font-size: 1.125rem;
@@ -101,6 +109,15 @@ html {
 
       &[type=checkbox].checkbox-first {
         float: left;
+      }
+
+      &[type=number] {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $bright-green;
+        font-size: 1.125rem;
+        padding-top: 0.25rem;
+        color: $gray-green;
       }
     }
 

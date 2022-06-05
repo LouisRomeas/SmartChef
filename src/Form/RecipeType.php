@@ -18,8 +18,7 @@ class RecipeType extends AbstractType
             ->add('title')
             ->add('body', CKEditorType::class)
             ->add('duration', null, [
-                'widget' => 'single_text',
-                'required' => false
+                'widget' => 'single_text'
             ])
             ->add('recipeIngredients', CollectionType::class, [
                 'entry_type' => RecipeIngredientType::class,

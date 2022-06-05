@@ -40,7 +40,7 @@ entity:
     _singular: Recette
     _plural: Recettes
     title: Titre
-    body: Corps
+    body: Contenu de la recette
     duration: Durée
     author: Auteur
   recipeIngredient:

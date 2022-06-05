@@ -6,6 +6,9 @@
     <nav id="side-menu-nav">
       {% if app.user %}
         <a href="">{{ 'user.myAccount' | t }}</a>
+        {% if is_granted('ROLE_EDITOR') %}
+          <a href="{{ path('app_recipe_new') }}">{{ 'form.recipeForm.createNewRecipe' | t }}</a>
+        {% endif %}
         <a href="{{ path('app_logout') }}">{{ 'user.login.logout' | t }}</a>
         {% if is_granted('ROLE_ADMIN') %}
           <a href="{{ path('admin') }}">{{ 'admin.dashboard' | t }}</a>

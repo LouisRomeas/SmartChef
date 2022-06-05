@@ -13,7 +13,7 @@ class RecipeIngredientType extends AbstractType
     {
         $builder
             ->add('quantity', options: [
-                'label' => 'entity.recipeIngredient.quantity'
+                'label' => false
             ])
             ->add('isOptional', options: [
                 'label' => 'entity.recipeIngredient.isOptional'
