@@ -34,7 +34,7 @@ class Recipe
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Report::class, orphanRemoval: true)]
     private $reports;
 
-    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: RecipeIngredient::class)]
+    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: RecipeIngredient::class, cascade: ['persist'])]
     private $recipeIngredients;
 
     public function __construct()

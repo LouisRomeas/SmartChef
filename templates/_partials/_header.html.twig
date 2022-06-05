@@ -6,6 +6,7 @@
     <nav id="side-menu-nav">
       {% if app.user %}
         <a href="">{{ 'user.myAccount' | t }}</a>
+        <a href="{{ path('app_logout') }}">{{ 'user.login.logout' | t }}</a>
         {% if is_granted('ROLE_ADMIN') %}
           <a href="{{ path('admin') }}">{{ 'admin.dashboard' | t }}</a>
         {% endif %}

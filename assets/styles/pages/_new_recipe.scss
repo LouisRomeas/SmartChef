@@ -1,0 +1,8 @@
+body {
+  form[name=recipe] {
+    .recipe-ingredients-list {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+}

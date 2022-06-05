@@ -2,9 +2,15 @@ user:
   myAccount: My account
   login:
     login: Log-in
+    logout: Log-out
   registration:
     register: Register
     agreeTerms: I agree with the Terms and Conditions
+
+form:
+  save: Save
+  publish: Publish
+  optional: Optional
 
 messages:
   user:

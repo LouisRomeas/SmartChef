@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+    <input type="text"
+        id="ingredient-picker"
+        data-ingredients-query-url="{{ path('app_ingredients_search_json') }}"
+        data-index="{{ form.recipeIngredients|length > 0 ? form.recipeIngredients|last.vars.name + 1 : 0 }}"
+        placeholder="{{ 'entity.ingredient._singular' | t }}"
+    >
+    {{ form_row(form.recipeIngredients) }}
+    {{ encore_entry_script_tags('recipeIngredientsForm') }}
+    <button class="btn">{{ 'form.publish' | t }}</button>
+{{ form_end(form) }}

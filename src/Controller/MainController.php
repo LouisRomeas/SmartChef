@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Repository\IngredientRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -15,5 +17,17 @@ class MainController extends AbstractController
         return $this->render('main/home.html.twig', [
             'controller_name' => 'MainController',
         ]);
+    }
+
+    #[Route('/ingredients/search', name: 'app_ingredients_search_json')]
+    public function searchIngredients(Request $request, IngredientRepository $ingredientRepository): Response {
+        $ingredients = $ingredientRepository->search($request->get('query', ''));
+        $response = [];
+        foreach ($ingredients as $key => $ingredient) {
+            $response[$key]['label'] = $ingredient->getName();
+            $response[$key]['value'] = $ingredient->getId();
+        }
+
+        return $this->json($response);
     }
 }

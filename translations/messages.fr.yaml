@@ -2,9 +2,15 @@ user:
   myAccount: Mon compte
   login:
     login: Se connecter
+    logout: Se déconnecter
   registration:
     register: S'inscrire
     agreeTerms: J'accepte les conditions d'utilisation
+
+form:
+  save: Enregistrer
+  publish: Publier
+  optional: Facultatif
 
 messages:
   user:

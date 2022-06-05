@@ -39,6 +39,22 @@ class IngredientRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @return Ingredient[] Returns an array of Ingredient objects
+     */
+    public function search(string $query): array
+    {
+        return $this->createQueryBuilder('i')
+            ->andWhere('i.name LIKE :query')
+            ->setParameter('query', '%' . $query . '%')
+            // ->addOrderBy('i.name = :query', 'DESC')
+            ->addOrderBy('i.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 //    /**
 //     * @return Ingredient[] Returns an array of Ingredient objects
 //     */

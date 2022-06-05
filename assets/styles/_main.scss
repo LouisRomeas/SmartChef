@@ -12,6 +12,7 @@ html {
       margin: 0 0.5rem;
     }
 
+    
     a {
       color: inherit;
       text-decoration: inherit;
@@ -19,6 +20,49 @@ html {
 
       &:hover {
         opacity: 0.85;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+  
+      > * {
+        margin-top: 0.5rem;
+        
+        > div {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+
+    .autocomplete-container {
+      background-color: $beige;
+      border-radius: 1rem;
+      margin-top: 0.5rem;
+      box-shadow: 0 0 1rem scale-color($black, $alpha: -75%);
+
+      & > div {
+        padding: 0.25rem;
+        cursor: pointer;
+
+        &.selected {
+          background-color: scale-color($color: $bright-green, $lightness: 50%);
+        }
+
+        &:first-child {
+          border-radius: 1rem 1rem 0 0;
+        }
+        
+        &:last-child {
+          border-end-end-radius: 1rem;
+          border-end-start-radius: 1rem;
+        }
+
+        &:not(:last-child) {
+          border-bottom: 1px solid scale-color($color: $dark-green, $alpha: -50%);
+        }
       }
     }
 
