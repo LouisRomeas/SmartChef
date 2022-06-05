@@ -11,6 +11,9 @@ form:
   save: Save
   publish: Publish
   optional: Optional
+  recipeForm:
+    createNewRecipe: Create a new recipe
+    addIngredient: Add an ingredient...
 
 messages:
   user:

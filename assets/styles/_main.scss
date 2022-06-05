@@ -23,12 +23,24 @@ html {
       }
     }
 
+    hr {
+      $side-margin: 0.5rem;
+      $vertical-margin: 1rem;
+      width: calc(100% - #{$side-margin * 2});
+      margin: $vertical-margin $side-margin !important;
+      border: none;
+      border-top: 1px solid $bright-green;
+    }
+
     form {
       display: flex;
       flex-direction: column;
   
       > * {
-        margin-top: 0.5rem;
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+        display: flex;
+        flex-direction: column;
         
         > div {
           display: flex;
@@ -66,7 +78,7 @@ html {
       }
     }
 
-    input {
+    input, select {
       font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
       font-weight: 600;
 
@@ -90,6 +102,17 @@ html {
       &[type=checkbox].checkbox-first {
         float: left;
       }
+    }
+
+    select {
+      height: 2.5rem;
+      background-color: $white;
+      font-size: 1.125rem;
+      border-radius: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border: 2px solid $bright-green;
+      color: $dark-green;
     }
 
     button,

@@ -3,7 +3,7 @@
 {% block title %}New Recipe{% endblock %}
 
 {% block body %}
-    <h1>Create new Recipe</h1>
+    <h1>{{ 'form.recipeForm.createNewRecipe' | t }}</h1>
 
     {{ include('recipe/_form.html.twig') }}
 
