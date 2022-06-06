@@ -9,9 +9,16 @@
                 <i class="fa-solid fa-clock"></i>
                 <span class="duration">{{ recipe.duration|date("H\\hi\\m") }}</span>
             </div>
-            <div class="score-wrapper" data-score-wrapper="true">
+            <div class="score-wrapper"
+            data-score-wrapper
+            data-vote-check-url="{{ path('app_vote_check', { recipe: recipe.id }) }}"
+            data-upvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 1 }) }}"
+            data-downvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 0 }) }}"
+            >
                 <span class="score">{{ recipe.score }}</span>
+                <div class="voting-wrapper"></div>
             </div>
+            {{ encore_entry_script_tags('voting') }}
         </aside>
         <h1>{{ recipe.title }}</h1>
         <hr>
