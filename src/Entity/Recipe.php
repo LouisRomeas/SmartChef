@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\RecipeRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Vote;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\RecipeRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: RecipeRepository::class)]
 class Recipe
@@ -190,5 +191,19 @@ class Recipe
         }
 
         return $this;
+    }
+
+
+    public function getScore(): int {
+        $score = 0;
+
+        /**
+         * @var Vote $vote
+         */
+        foreach ($this->votes as $vote) {
+            $score += (($vote->isPositive())*2)-1;
+        }
+
+        return $score;
     }
 }

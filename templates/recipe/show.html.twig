@@ -1,41 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recipe{% endblock %}
+{% block title %}“{{ recipe.title }}”{% endblock %}
 
 {% block body %}
-    <h1>Recipe</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ recipe.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ recipe.title }}</td>
-            </tr>
-            <tr>
-                <th>Body</th>
-                <td>{{ recipe.body|raw }}</td>
-            </tr>
-            <tr>
-                <th>Duration</th>
-                <td>{{ recipe.duration ? recipe.duration|date("H\\hi\\m") : '' }}</td>
-            </tr>
+    <section id="recipe">
+        <aside class="recipe-top">
+            <div class="duration-wrapper">
+                <i class="fa-solid fa-clock"></i>
+                <span class="duration">{{ recipe.duration|date("H\\hi\\m") }}</span>
+            </div>
+            <div class="score-wrapper" data-score-wrapper="true">
+                <span class="score">{{ recipe.score }}</span>
+            </div>
+        </aside>
+        <h1>{{ recipe.title }}</h1>
+        <hr>
+        <section id="recipe-ingredients">
             {% for recipeIngredient in recipe.recipeIngredients %}
-                <tr>
-                    <th>{{ recipeIngredient.quantity }}</th>
-                    <td>{{ recipeIngredient.ingredient }}{% if recipeIngredient.isOptional %}  <b>({{ 'form.optional' | t }})</b>{% endif %}
-                    </td>
-                </tr>
+                <div class="recipe-ingredient">
+                    <div class="ingredient">
+                        <span class="ingredient-emoji">{{ recipeIngredient.ingredient.emoji }}</span>
+                        <span class="ingredient-name">{{ recipeIngredient.ingredient.name }}</span>
+                    </div>
+                    <div class="quantity">
+                        <span class="quantity-value">{{ recipeIngredient.quantity }}</span>
+                        <span class="unit">{{ recipeIngredient.ingredient.unit.name }}</span>
+                    </div>
+                </div>
             {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_recipe_index') }}">back to list</a>
-
-    <a href="{{ path('app_recipe_edit', {'id': recipe.id}) }}">edit</a>
-
-    {{ include('recipe/_delete_form.html.twig') }}
+        </section>
+        <hr>
+        <article id="recipe-body">
+            {{ recipe.body | raw }}
+        </article>
+        <a href="{{ path('app_recipe_index') }}">back to list</a>
+        <a href="{{ path('app_recipe_edit', {'id': recipe.id}) }}">edit</a>
+        {{ include('recipe/_delete_form.html.twig') }}
+    </section>
 {% endblock %}

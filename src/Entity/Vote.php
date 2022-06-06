@@ -34,7 +34,7 @@ class Vote
         return $this->id;
     }
 
-    public function isIsPositive(): ?bool
+    public function isPositive(): ?bool
     {
         return $this->isPositive;
     }

@@ -49,7 +49,7 @@ class RecipeIngredient
         return $this;
     }
 
-    public function isIsOptional(): ?bool
+    public function isOptional(): ?bool
     {
         return $this->isOptional;
     }
