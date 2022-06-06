@@ -39,11 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
   
       const tempWrapper = document.createElement('div');
       tempWrapper.innerHTML = prototypeHTML;
-      const newFormEntryElement = tempWrapper.querySelector(':first-child');
-      newFormEntryElement.classList.add('recipe-ingredient-subform');
-      subFormParent.appendChild(newFormEntryElement);
+      const newSubFormElement = tempWrapper.querySelector(':first-child');
+      newSubFormElement.classList.add('recipe-ingredient-subform');
+      subFormParent.appendChild(newSubFormElement);
   
-      newFormEntryElement.querySelector('label').textContent = ingredient.label;
+      newSubFormElement.querySelector('label').textContent = ingredient.label;
 
       const removeSubFormButton: HTMLElement = document.createElement('div');
       removeSubFormButton.classList.add('remove-subform');
@@ -51,14 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
       removeSubFormButton.onclick = (e: Event) => {
         e.preventDefault();
 
-        newFormEntryElement.remove();
+        newSubFormElement.remove();
+        inputTextElement.dataset.index = String(parseInt(inputTextElement.dataset.index) - 1);
       }
-      newFormEntryElement.appendChild(removeSubFormButton);
+      newSubFormElement.appendChild(removeSubFormButton);
 
-      const ingredientLabel: HTMLLabelElement = newFormEntryElement.querySelector('label');
+      const ingredientLabel: HTMLLabelElement = newSubFormElement.querySelector('label');
       ingredientLabel.classList.add('ingredient-label');
   
-      const quantityInput: HTMLInputElement = newFormEntryElement.querySelector('input[name*=quantity]');
+      const quantityInput: HTMLInputElement = newSubFormElement.querySelector('input[name*=quantity]');
       quantityInput.type = 'number';
       quantityInput.value = quantityInput.min = String(1);
 
@@ -92,12 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
       quantityInput.parentElement.classList.add('quantity');
 
 
-      const isOptionalInput: HTMLInputElement = newFormEntryElement.querySelector('input[name*=isOptional');
+      const isOptionalInput: HTMLInputElement = newSubFormElement.querySelector('input[name*=isOptional');
       isOptionalInput.classList.add('checkbox-first');
       isOptionalInput.parentElement.classList.add('is-optional');
       
 
-      const ingredientSelect: HTMLSelectElement = newFormEntryElement.querySelector('select[name*=ingredient]');
+      const ingredientSelect: HTMLSelectElement = newSubFormElement.querySelector('select[name*=ingredient]');
       
       const ingredientInput: HTMLInputElement = document.createElement('input');
       [ingredientInput.id, ingredientSelect.id] = [ingredientSelect.id, ingredientInput.id];
