@@ -1,1 +1,1 @@
-* recipe edit still populated by symfony so pretty ugly
+* Add default values for association fields (e.g. default unit for an ingrédient is unit id 1)

@@ -16,7 +16,19 @@
         data-index="{{ form.recipeIngredients|length > 0 ? form.recipeIngredients|last.vars.name + 1 : 0 }}"
         placeholder="{{ 'form.recipeForm.addIngredient' | t }}"
     >
-    {{ form_row(form.recipeIngredients) }}
+    <div id="recipe-ingredients-subform">
+        <div id="recipe-ingredients-subform-prototype" data-prototype="{{ form_row(form.recipeIngredients.vars.prototype) | e }}"></div>
+        {% for subForm in form.recipeIngredients %}
+            {{ form_row(subForm, {
+                attr: {
+                    'data-id': subForm.vars.data.ingredient.id,
+                    'data-label': subForm.vars.data.ingredient.name,
+                    'data-emoji': subForm.vars.data.ingredient.emoji,
+                    'data-unit': subForm.vars.data.ingredient.unit
+                }
+            }) }}
+        {% endfor %}
+    </div>
     {{ encore_entry_script_tags('recipeIngredientsForm') }}
 
     <hr>
