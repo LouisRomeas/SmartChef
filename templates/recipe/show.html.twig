@@ -7,7 +7,7 @@
         <aside class="recipe-top">
             <div class="duration-wrapper">
                 <i class="fa-solid fa-clock"></i>
-                <span class="duration">{{ recipe.duration|date("H\\hi\\m") }}</span>
+                <div class="duration">{{ recipe.duration|date("H\\hm\\m") }}</div>
             </div>
             <div class="score-wrapper"
             data-score-wrapper
@@ -15,7 +15,7 @@
             data-upvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 1 }) }}"
             data-downvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 0 }) }}"
             >
-                <span class="score">{{ recipe.score }}</span>
+                <div class="score">{{ recipe.score }}</div>
                 <div class="voting-wrapper"></div>
             </div>
             {{ encore_entry_script_tags('voting') }}
@@ -41,7 +41,9 @@
             {{ recipe.body | raw }}
         </article>
         <a href="{{ path('app_recipe_index') }}">back to list</a>
-        <a href="{{ path('app_recipe_edit', {'id': recipe.id}) }}">edit</a>
-        {{ include('recipe/_delete_form.html.twig') }}
+        {% if app.user == recipe.author or is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('app_recipe_edit', {'id': recipe.id}) }}" class="button">{{ 'form.recipeForm.editRecipe' | t }}</a>
+            {{ include('recipe/_delete_form.html.twig') }}
+        {% endif %}
     </section>
 {% endblock %}

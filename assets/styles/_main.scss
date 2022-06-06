@@ -134,7 +134,11 @@ html {
 
     button,
     input[type=button],
-    input[type=submit] {
+    input[type=submit],
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
       font-weight: 700;
       color: $black;
