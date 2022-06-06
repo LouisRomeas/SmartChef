@@ -13,6 +13,7 @@ form:
   optional: Optional
   recipeForm:
     createNewRecipe: Create a new recipe
+    editRecipe: Edit recipe
     addIngredient: Add an ingredient...
 
 messages:
