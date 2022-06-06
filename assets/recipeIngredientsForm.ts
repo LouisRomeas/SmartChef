@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Quantity Input
     const quantityInput: HTMLInputElement = subFormElement.querySelector('input[name*=quantity]');
     quantityInput.type = 'number';
-    quantityInput.value = quantityInput.min = String(1);
+    if (!quantityInput.value) quantityInput.value = quantityInput.min = String(1);
 
     {  
       // Add +/- buttons to quantityInput
