@@ -10,11 +10,13 @@ user:
 form:
   save: Enregistrer
   publish: Publier
+  remove: Supprimer
   optional: Facultatif
   recipeForm:
     createNewRecipe: Créer une nouvelle recette
     editRecipe: Éditer la recette
     addIngredient: Ajouter un ingrédient...
+    confirmRemove: Êtes-vous sûr de vouloir supprimer cette recette ?
 
 messages:
   user:

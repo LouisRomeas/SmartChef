@@ -10,11 +10,13 @@ user:
 form:
   save: Save
   publish: Publish
+  remove: Remove
   optional: Optional
   recipeForm:
     createNewRecipe: Create a new recipe
     editRecipe: Edit recipe
     addIngredient: Add an ingredient...
+    confirmRemove: Are you sure you want to remove this recipe?
 
 messages:
   user:
