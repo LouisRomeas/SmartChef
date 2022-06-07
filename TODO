@@ -1,3 +1,1 @@
 * Add report button below recipe unless it's yours
-
-* IMPROVEMENT: make a front-end live update when voting, so that you don't wait for fetch response to show a pseudo-newCount & selected class switch

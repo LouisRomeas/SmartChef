@@ -5,6 +5,5 @@ document.addEventListener('DOMContentLoaded', () => {
     const voteWrapper = new VoteWrapper(
       wrapperElement,
     );
-    console.log(voteWrapper)
   })
 });

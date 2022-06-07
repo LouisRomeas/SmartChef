@@ -20,4 +20,3 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('shadow-on-page')
   );
 })
-

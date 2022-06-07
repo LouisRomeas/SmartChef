@@ -66,7 +66,6 @@ export default class VoteWrapper {
 
         // Actual fetching then real refreshing
         const response: VoteActionResponse = await fetch(conditionalUrl).then(res => res.json());
-        console.log(response);
 
         this.scoreSpan.textContent = String(response.newScore);
         this.resetSelectedVoteElements();
