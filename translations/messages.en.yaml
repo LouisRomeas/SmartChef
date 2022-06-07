@@ -46,6 +46,7 @@ entity:
     body: Body
     duration: Duration
     author: Author
+    portions: Portions
   recipeIngredient:
     _singular: Recipe ingredient
     _plural: Recipe ingredients

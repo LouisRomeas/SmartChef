@@ -17,6 +17,7 @@ class RecipeType extends AbstractType
         $builder
             ->add('title')
             ->add('body', CKEditorType::class)
+            ->add('portions')
             ->add('duration', null, [
                 'widget' => 'single_text'
             ])

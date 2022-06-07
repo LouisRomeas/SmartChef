@@ -9,6 +9,10 @@
                 <i class="fa-solid fa-clock"></i>
                 <div class="duration">{{ recipe.duration|date("H\\hi\\m") }}</div>
             </div>
+            <div class="portions-wrapper">
+                <i class="fa-solid fa-plate-wheat"></i>
+                <div class="portions">{{ recipe.portions }} {{ 'entity.recipe.portions' | t | lower }}</div>
+            </div>
             {% if app.user and app.user.isVerified %}
                 <div class="score-wrapper"
                 data-score-wrapper

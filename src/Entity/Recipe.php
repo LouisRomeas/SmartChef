@@ -38,6 +38,9 @@ class Recipe
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: RecipeIngredient::class, cascade: ['persist'])]
     private $recipeIngredients;
 
+    #[ORM\Column(type: 'integer')]
+    private $portions;
+
     public function __construct()
     {
         $this->votes = new ArrayCollection();
@@ -205,5 +208,17 @@ class Recipe
         }
 
         return $score;
+    }
+
+    public function getPortions(): ?int
+    {
+        return $this->portions;
+    }
+
+    public function setPortions(int $portions): self
+    {
+        $this->portions = $portions;
+
+        return $this;
     }
 }

@@ -15,6 +15,18 @@ body {
         }
       }
 
+      .portions-wrapper {
+        margin-left: 0.25rem;
+        display: flex;
+        align-items: center;
+        color: mix($black, $gray-green);
+
+        .svg-inline--fa {
+          transform: translateY(-7.5%);
+          margin-right: 0.25rem;
+        }
+      }
+
       .score-wrapper {
         margin-left: auto;
         display: flex;
