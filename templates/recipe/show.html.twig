@@ -15,6 +15,7 @@
                 data-vote-check-url="{{ path('app_vote_check', { recipe: recipe.id }) }}"
                 data-upvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 1 }) }}"
                 data-downvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 0 }) }}"
+                data-remove-vote-url="{{ path('app_vote_remove', { recipe: recipe.id }) }}"
                 >
                     <div class="score">{{ recipe.score }}</div>
                     <div class="voting-wrapper"></div>

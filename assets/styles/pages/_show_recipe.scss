@@ -32,8 +32,13 @@ body {
 
           .vote {
             margin-left: 0.25rem;
+
             &.selected {
               color: $dark-green;
+            }
+
+            &.waiting {
+              animation: blinking 1.5s ease 0s infinite normal forwards;
             }
           }
         }

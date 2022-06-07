@@ -1,4 +1,3 @@
 * Add report button below recipe unless it's yours
-* Creating option to remove vote if click on already selected vote (add new route, fetch function, etc.)
 
 * IMPROVEMENT: make a front-end live update when voting, so that you don't wait for fetch response to show a pseudo-newCount & selected class switch
