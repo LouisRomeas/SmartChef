@@ -9,16 +9,23 @@
                 <i class="fa-solid fa-clock"></i>
                 <div class="duration">{{ recipe.duration|date("H\\hi\\m") }}</div>
             </div>
-            <div class="score-wrapper"
-            data-score-wrapper
-            data-vote-check-url="{{ path('app_vote_check', { recipe: recipe.id }) }}"
-            data-upvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 1 }) }}"
-            data-downvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 0 }) }}"
-            >
-                <div class="score">{{ recipe.score }}</div>
-                <div class="voting-wrapper"></div>
-            </div>
-            {{ encore_entry_script_tags('voting') }}
+            {% if app.user and app.user.isVerified %}
+                <div class="score-wrapper"
+                data-score-wrapper
+                data-vote-check-url="{{ path('app_vote_check', { recipe: recipe.id }) }}"
+                data-upvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 1 }) }}"
+                data-downvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 0 }) }}"
+                >
+                    <div class="score">{{ recipe.score }}</div>
+                    <div class="voting-wrapper"></div>
+                </div>
+                {{ encore_entry_script_tags('voting') }}
+            {% else %}
+                <div class="score-wrapper">
+                    <div class="score">{{ recipe.score }}</div>
+                    <span class="score-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></span>
+                </div>
+            {% endif %}
         </aside>
         <h1>{{ recipe.title }}</h1>
         <hr>

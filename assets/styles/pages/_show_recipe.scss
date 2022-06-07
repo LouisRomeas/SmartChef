@@ -2,11 +2,17 @@ body {
   section#recipe {
     .recipe-top {
       display: flex;
-
+      
       .duration-wrapper {
         display: flex;
         align-items: center;
+        padding: 0.5rem 0;
         color: $gray-green;
+
+        .svg-inline--fa {
+          transform: translateY(-7.5%);
+          margin-right: 0.25rem;
+        }
       }
 
       .score-wrapper {
@@ -30,6 +36,11 @@ body {
               color: $dark-green;
             }
           }
+        }
+
+        .score-icon {
+          margin-left: 0.25rem;
+          color: $gray-green;
         }
       }
     }

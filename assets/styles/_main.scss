@@ -132,6 +132,10 @@ html {
       color: $dark-green;
     }
 
+    .fa-arrow-right-arrow-left {
+      transform: rotate(90deg);
+    }
+
     button,
     input[type=button],
     input[type=submit],
