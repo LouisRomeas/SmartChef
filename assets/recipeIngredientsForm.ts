@@ -1,4 +1,4 @@
-import autocomplete, { AutocompleteItem } from "autocompleter";
+import autocomplete from "autocompleter";
 
 type Ingredient = {
   id: number,

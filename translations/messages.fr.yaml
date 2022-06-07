@@ -47,6 +47,7 @@ entity:
     duration: Durée
     author: Auteur
     portions: Portions
+    portion: Portion
   recipeIngredient:
     _singular: Ingrédient de recette
     _plural: Ingrédients de recette
