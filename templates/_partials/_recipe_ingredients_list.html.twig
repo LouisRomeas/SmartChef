@@ -1,0 +1,14 @@
+<section id="" class="recipe-ingredients">
+  {% for recipeIngredient in recipeIngredients %}
+      <div class="recipe-ingredient">
+          <div class="ingredient">
+              <span class="ingredient-emoji">{{ recipeIngredient.ingredient.emoji }}</span>
+              <span class="ingredient-name">{{ recipeIngredient.ingredient.name }}</span>
+          </div>
+          <div class="quantity">
+              <span class="quantity-value">{{ recipeIngredient.quantity }}</span>
+              <span class="unit">{{ recipeIngredient.ingredient.unit.name }}</span>
+          </div>
+      </div>
+  {% endfor %}
+</section>

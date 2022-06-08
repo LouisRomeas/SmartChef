@@ -17,12 +17,19 @@ form:
     editRecipe: Edit recipe
     addIngredient: Add an ingredient...
     confirmRemove: Are you sure you want to remove this recipe?
+  searchForm:
+    search: Search
+    search_action: Search
+    searchResults: Search results
 
 messages:
   user:
     registration:
       passwordBlank: Please enter a password.
       agreeTerms: You need to agree to our Terms and Conditions.
+  recipe:
+    search:
+      noRecipeFound: Found no recipe matching your ingredients.
 
 mail:
   confirmEmail:

@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Recipe;
 use App\Form\RecipeType;
+use App\Form\SearchType;
 use App\Repository\RecipeRepository;
+use App\Service\SearchContainer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,6 +49,28 @@ class RecipeController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    #[Route('/search', name: 'app_search_builder', methods: ['GET', 'POST'])]
+    public function searchBuilder(Request $request, SearchContainer $searchContainer): Response {
+        $form = $this->createForm(SearchType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $recipes = $searchContainer->search($form->getData());
+
+            return $this->render('main/search_results.html.twig', [
+                'recipes' => $recipes,
+                'recipeIngredients' => $form->getData()['recipeIngredients'],
+                'portions' => $form->getData()['portions']
+            ]);
+        }
+
+        return $this->renderForm('main/search.html.twig', [
+            'form' => $form,
+        ]);
+    }
+
+    // Routes starting with a recipe's ID
 
     #[Route('/{id}', name: 'app_recipe_show', methods: ['GET'])]
     public function show(Recipe $recipe): Response

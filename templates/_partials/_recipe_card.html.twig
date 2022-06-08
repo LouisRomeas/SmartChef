@@ -1,0 +1,17 @@
+<article class="recipe-card">
+  <a href="{{ path('app_recipe_show', { id: recipe.id }) }}" class="card-link"></a>
+  <div class="img-wrapper">
+    <img src="" alt="THUMBNAILS ARE STILL W.I.P">
+  </div>
+  <div class="details-wrapper">
+    <h4>{{ recipe.title }}</h4>
+    <div class="score-display-wrapper">
+      <i class="fa-solid fa-arrow-right-arrow-left"></i>
+      <span class="score">{{ recipe.score }}</span>
+    </div>
+    <div class="author-wrapper">
+      <i class="fa-solid fa-circle-user"></i>
+      <span class="author">{{ recipe.author }}</span>
+    </div>
+  </div>
+</article>

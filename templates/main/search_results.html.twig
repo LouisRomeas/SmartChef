@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ 'form.searchForm.searchResults' | t }}{% endblock %}
+
+{% block body %}
+<h1>{{ 'form.searchForm.searchResults' | t }}</h1>
+{% include "_partials/_recipe_ingredients_list.html.twig" with {
+  id: 'recipe-ingredients'
+} %}
+
+<hr>
+
+{% for recipe in recipes %}
+  {% include "_partials/_recipe_card.html.twig" %}
+{% else %}
+  <div class="no-recipe-found">{{ 'messages.recipe.search.noRecipeFound' | t }}</div>  
+{% endfor %}
+{% endblock %}

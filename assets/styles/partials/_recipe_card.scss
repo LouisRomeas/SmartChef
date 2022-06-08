@@ -1,0 +1,58 @@
+.recipe-card {
+  position: relative;
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px;
+  max-width: 22.5rem;
+  height: auto;
+  aspect-ratio: 3 / 1;
+  background-color: $white;
+  border: 2px solid $bright-green;
+  border-radius: 0.5rem;
+
+  transition: opacity 150ms;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  a.card-link {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+  }
+
+  .img-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .details-wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0.5rem;
+
+    font-size: 0.75rem;
+    color: $gray-green;
+    font-weight: 800;
+
+    h4 {
+      font-size: 1.125rem;
+      color: $bright-green;
+      font-weight: 700;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

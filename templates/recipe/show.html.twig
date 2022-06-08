@@ -11,7 +11,7 @@
             </div>
             <div class="portions-wrapper">
                 <i class="fa-solid fa-plate-wheat"></i>
-                <div class="portions">{{ recipe.portions }} {{ recipe.portions > 1 ? 'entity.recipe.portions' : 'entity.recipe.portion' | t | lower }}</div>
+                <div class="portions">{{ recipe.portions }} {{ (recipe.portions > 1 ? 'entity.recipe.portions' : 'entity.recipe.portion') | t | lower }}</div>
             </div>
             {% if app.user and app.user.isVerified %}
                 <div class="score-wrapper"
@@ -34,20 +34,10 @@
         </aside>
         <h1>{{ recipe.title }}</h1>
         <hr>
-        <section id="recipe-ingredients">
-            {% for recipeIngredient in recipe.recipeIngredients %}
-                <div class="recipe-ingredient">
-                    <div class="ingredient">
-                        <span class="ingredient-emoji">{{ recipeIngredient.ingredient.emoji }}</span>
-                        <span class="ingredient-name">{{ recipeIngredient.ingredient.name }}</span>
-                    </div>
-                    <div class="quantity">
-                        <span class="quantity-value">{{ recipeIngredient.quantity }}</span>
-                        <span class="unit">{{ recipeIngredient.ingredient.unit.name }}</span>
-                    </div>
-                </div>
-            {% endfor %}
-        </section>
+        {% include "_partials/_recipe_ingredients_list.html.twig" with {
+            recipeIngredients: recipe.recipeIngredients,
+            id: 'recipe-ingredients'
+        } %}
         <hr>
         <article id="recipe-body">
             {{ recipe.body | raw }}

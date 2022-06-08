@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Recipe;
+use App\Entity\RecipeIngredient;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -37,6 +38,62 @@ class RecipeRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    /**
+     * @param RecipeIngredient[] $recipeIngredients
+     * 
+     * @return Recipe[] Returns an array of Recipe objects
+     */
+    public function getExactMatches(array $recipeIngredients, int $portions): array
+    {
+        $allowedIngredients = [];
+        foreach ($recipeIngredients as $recipeIngredient) {
+            $allowedIngredients[] = $recipeIngredient->getIngredient();
+        }
+
+        $queryBuilder = $this->createQueryBuilder('r');
+        $queryBuilder
+            ->join('r.recipeIngredients', 'ri')
+            ->groupBy('r')
+            ->andHaving('
+            SUM(
+                IFELSE(
+                    ri.ingredient NOT IN(:allowedIngredients),
+                    1,
+                    0
+                )
+            ) = 0
+            ')
+        ;
+
+        // Loop through every RecipeIngredient searched, and add a condition for quantity
+        $quantityExpression = "SUM( IFELSE(";
+        foreach ($recipeIngredients as $index => $recipeIngredient) {
+            // Sanitizing just in case
+            $index = intval($index);
+
+            $quantityExpression .= "(
+                ri.ingredient = :ingredient_$index AND (ri.quantity / r.portions) > (:quantity_$index / :portions)
+            )";
+            $quantityExpression .= array_key_last($recipeIngredients) !== $index ?' OR ' : ', ';
+
+            $queryBuilder->setParameter("ingredient_$index", $recipeIngredient->getIngredient());
+            $queryBuilder->setParameter("quantity_$index", $recipeIngredient->getQuantity());
+        }
+        $quantityExpression .= '1, 0)) = 0';
+        $queryBuilder->setParameter('portions', $portions);
+
+        $queryBuilder->andHaving($quantityExpression);
+
+
+        $queryBuilder
+            ->setParameter('allowedIngredients', $allowedIngredients)
+            ->orderBy('r.id', 'ASC')
+            ->setMaxResults(10)
+        ;
+
+        return $queryBuilder->getQuery()->getResult();
     }
 
 //    /**

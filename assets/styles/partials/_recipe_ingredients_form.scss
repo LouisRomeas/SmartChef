@@ -1,0 +1,72 @@
+.recipe-ingredients-list {
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 0;
+
+  .recipe-ingredient-subform {
+    position: relative;
+
+    border: 2px solid $bright-green;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+
+    .remove-subform {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      font-size: 1.25rem;
+      color: $red;
+      cursor: pointer;
+    }
+    
+    label.ingredient-label {
+      font-size: 1.25rem;
+      color: $dark-green;
+      font-weight: bold;
+
+      &::first-letter {
+        margin-right: 0.125rem;
+      }
+    }
+    
+    .quantity {
+      display: flex;
+      align-items: center;
+      font-size: 1.75rem;
+      margin-bottom: 0.25rem;
+      
+      .quantity-increment {
+        cursor: pointer;
+        color: $bright-green;
+        aspect-ratio: 1 / 1;
+        width: min-content;
+        display: inline-flex;
+        align-items: center;
+        margin-right: 0.25rem;
+
+        transition: color 100ms;
+
+        &:active {
+          color: $dark-green;
+        }
+      }
+
+      input {
+        min-width: 0;
+      }
+
+      .unit {
+        color: $gray-green;
+        margin-left: 0.25rem;
+      }
+    }
+
+    .is-optional {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+  }
+}

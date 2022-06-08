@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ 'form.searchForm.search' | t }}{% endblock %}
+
+{% block body %}
+  {{ form_start(form) }}
+
+  {{ form_row(form.portions, {
+      label: 'entity.recipe.portions',
+      attr: {
+          value: 1,
+          min: 1
+      }
+  }) }}
+
+  <hr>
+
+  <input type="text"
+      id="ingredient-picker"
+      data-ingredients-query-url="{{ path('app_ingredients_search_json') }}"
+      data-index="{{ form.recipeIngredients|length > 0 ? form.recipeIngredients|last.vars.name + 1 : 0 }}"
+      placeholder="{{ 'form.recipeForm.addIngredient' | t }}"
+  >
+  <div id="recipe-ingredients-subform">
+      <div id="recipe-ingredients-subform-prototype" data-prototype="{{ form_row(form.recipeIngredients.vars.prototype) | e }}"></div>
+      {% for subForm in form.recipeIngredients %}
+          {{ form_row(subForm, {
+              attr: {
+                  'data-id': subForm.vars.data.ingredient.id,
+                  'data-label': subForm.vars.data.ingredient.name,
+                  'data-emoji': subForm.vars.data.ingredient.emoji,
+                  'data-unit': subForm.vars.data.ingredient.unit
+              }
+          }) }}
+      {% endfor %}
+  </div>
+  {{ encore_entry_script_tags('recipeIngredientsForm') }}
+
+  <hr>
+
+  <button class="btn" id="search-button">{{ 'form.searchForm.search_action' | t }}</button>
+  {{ form_end(form) }}
+
+{% endblock %}

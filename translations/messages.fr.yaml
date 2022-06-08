@@ -17,12 +17,19 @@ form:
     editRecipe: Éditer la recette
     addIngredient: Ajouter un ingrédient...
     confirmRemove: Êtes-vous sûr de vouloir supprimer cette recette ?
+  searchForm:
+    search: Recherche
+    search_action: Rechercher
+    searchResults: Résultats de la recherche
 
 messages:
   user:
     registration:
       passwordBlank: Veuillez entrer un mot de passe.
       agreeTerms: Vous devez accepter les conditions d'utilisation.
+  recipe:
+    search:
+      noRecipeFound: Aucune recette ne correspond à vos ingrédients.
 
 mail:
   confirmEmail:

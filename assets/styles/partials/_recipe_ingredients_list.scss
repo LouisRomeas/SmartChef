@@ -1,0 +1,32 @@
+.recipe-ingredients {
+  display: flex;
+  flex-direction: column;
+
+  .recipe-ingredient {
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+    border: 2px solid $bright-green;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    font-size: 1.125rem;
+    font-weight: bold;
+
+    &:not(:last-child) {
+      margin-bottom: 0.25rem;
+    }
+
+    .ingredient {
+      display: flex;
+      align-items: center;
+      color: $dark-green;
+    }
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      color: $gray-green;
+    }
+  }
+}

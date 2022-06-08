@@ -5,6 +5,10 @@
 @import './header';
 @import './main';
 
+@import './partials/recipe_ingredients_form';
+@import './partials/recipe_card';
+@import './partials/recipe_ingredients_list';
+
 @import './pages/register';
 @import './pages/login';
 @import './pages/new_recipe';
