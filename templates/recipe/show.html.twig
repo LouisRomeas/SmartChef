@@ -32,6 +32,12 @@
                 </div>
             {% endif %}
         </aside>
+        {% if recipe.imageUrl %}
+            <div class="thumbnail-wrapper">
+                <img src="{{ asset( 'upload/' ~ recipe.imageUrl) }}" alt="{{ 'entity.recipe.thumbnail' | t }} - {{ recipe.title }}">
+            </div>
+        {% endif %}
+
         <h1>{{ recipe.title }}</h1>
         <hr>
         {% include "_partials/_recipe_ingredients_list.html.twig" with {

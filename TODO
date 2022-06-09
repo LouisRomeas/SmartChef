@@ -1,1 +1,2 @@
 * Add report button below recipe unless it's yours
+* ABSOLUTELY FIX the way ingredients are showed in RecipeIngredientType prototype => select (which is later converted into an input hidden, but that's not viable)

@@ -1,0 +1,5 @@
+forms:
+  constraints:
+    imageUrl:
+      maxSizeMessage: 'Le fichier est trop volumineux ({{ size }} {{ suffix }}). La taille maximale est de {{ limit }} {{ suffix }}.'
+      mimeTypesMessage: 'Veuillez téléverser une image.'

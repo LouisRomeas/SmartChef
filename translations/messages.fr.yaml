@@ -55,6 +55,7 @@ entity:
     author: Auteur
     portions: Portions
     portion: Portion
+    thumbnail: Miniature
   recipeIngredient:
     _singular: Ingrédient de recette
     _plural: Ingrédients de recette

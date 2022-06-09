@@ -61,6 +61,21 @@ body {
         }
       }
     }
+
+    .thumbnail-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      max-height: 33vh;
+      margin-bottom: 0.5rem;
+
+      img {
+        object-fit: cover;
+        border-radius: calc(1rem / 3);
+      }
+    }
+
     h1 {
       margin: 0;
       color: $dark-green;

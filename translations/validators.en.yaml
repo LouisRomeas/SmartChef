@@ -1,0 +1,5 @@
+forms:
+  constraints:
+    imageUrl:
+      maxSizeMessage: 'The file is too large ({{ size }} {{ suffix }}). Allowed maximum size is {{ limit }} {{ suffix }}.'
+      mimeTypesMessage: 'Please upload an image.'

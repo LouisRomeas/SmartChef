@@ -41,6 +41,9 @@ class Recipe
     #[ORM\Column(type: 'integer')]
     private $portions;
 
+    #[ORM\Column(type: 'string', length: 2048, nullable: true)]
+    private $imageUrl;
+
     public function __construct()
     {
         $this->votes = new ArrayCollection();
@@ -218,6 +221,18 @@ class Recipe
     public function setPortions(int $portions): self
     {
         $this->portions = $portions;
+
+        return $this;
+    }
+
+    public function getImageUrl(): ?string
+    {
+        return $this->imageUrl;
+    }
+
+    public function setImageUrl(?string $imageUrl): self
+    {
+        $this->imageUrl = $imageUrl;
 
         return $this;
     }

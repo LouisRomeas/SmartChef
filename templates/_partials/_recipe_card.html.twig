@@ -1,17 +1,26 @@
 <article class="recipe-card">
   <a href="{{ path('app_recipe_show', { id: recipe.id }) }}" class="card-link"></a>
-  <div class="img-wrapper">
-    <img src="" alt="THUMBNAILS ARE STILL W.I.P">
-  </div>
+  <div class="img-wrapper" style="--background-image-url: url('{{ recipe.imageUrl ? asset('upload/' ~ recipe.imageUrl) : asset('img/recipe_placeholder.svg') }}');"></div>
   <div class="details-wrapper">
     <h4>{{ recipe.title }}</h4>
-    <div class="score-display-wrapper">
-      <i class="fa-solid fa-arrow-right-arrow-left"></i>
-      <span class="score">{{ recipe.score }}</span>
-    </div>
     <div class="author-wrapper">
       <i class="fa-solid fa-circle-user"></i>
       <span class="author">{{ recipe.author }}</span>
+    </div>
+    <div class="score-and-duration-wrapper">
+      <div class="score-wrapper">
+        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+        <span class="score">{{ recipe.score }}</span>
+      </div>
+      <div class="dot">·</div>
+      <div class="duration-wrapper">
+        <i class="fa-solid fa-clock"></i>
+        <span class="duration">{{ recipe.duration|date("H\\hi\\m") }}</span>
+      </div>
+    </div>
+    <div class="portions-wrapper">
+      <i class="fa-solid fa-plate-wheat"></i>
+      <span class="portions">{{ recipe.portions }} {{ (recipe.portions > 1 ? 'entity.recipe.portions' : 'entity.recipe.portion') | t | lower }}</span>
     </div>
   </div>
 </article>

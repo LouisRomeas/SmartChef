@@ -10,6 +10,7 @@
   background-color: $white;
   border: 2px solid $bright-green;
   border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
 
   transition: opacity 150ms;
 
@@ -28,11 +29,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: var(--background-image-url);
+    background-size: cover;
+    background-position: center;
 
-    img {
-      max-width: 100%;
-      height: auto;
-    }
+    border-radius: calc(0.5rem - 1px) 0 0 calc(0.5rem - 1px);
   }
 
   .details-wrapper {
@@ -53,6 +58,21 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    @for $i from 0 through 2 {
+      :nth-child(#{$i+2}) {
+        opacity: #{1 - (0.15 * $i)};
+      }
+    }
+
+    .score-and-duration-wrapper {
+      display: flex;
+      align-items: center;
+
+      > :not(:first-child) {
+        margin-left: 0.25rem;
+      }
     }
   }
 }
