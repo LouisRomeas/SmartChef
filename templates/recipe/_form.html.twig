@@ -27,6 +27,7 @@
         data-ingredients-query-url="{{ path('app_ingredients_search_json') }}"
         data-index="{{ form.recipeIngredients|length > 0 ? form.recipeIngredients|last.vars.name + 1 : 0 }}"
         placeholder="{{ 'form.recipeForm.addIngredient' | t }}"
+        autocomplete="off"
     >
     <div id="recipe-ingredients-subform">
         <div id="recipe-ingredients-subform-prototype" data-prototype="{{ form_widget(form.recipeIngredients.vars.prototype) | e }}"></div>
