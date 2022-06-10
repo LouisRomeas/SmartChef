@@ -76,15 +76,20 @@ document.addEventListener('DOMContentLoaded', () => {
     
   
     const ingredientSelect: HTMLSelectElement = subFormElement.querySelector('select[name*=ingredient]');
-    
-    const ingredientInput: HTMLInputElement = document.createElement('input');
-    [ingredientInput.id, ingredientSelect.id] = [ingredientSelect.id, ingredientInput.id];
-    ingredientInput.name = ingredientSelect.name;
+    let ingredientInput: HTMLInputElement;
+    if (ingredientSelect) {
+      ingredientInput = document.createElement('input');
+      [ingredientInput.id, ingredientSelect.id] = [ingredientSelect.id, ingredientInput.id];
+      ingredientInput.name = ingredientSelect.name;
+      
+      ingredientSelect.parentElement.appendChild(ingredientInput);
+      ingredientSelect.remove();
+    } else {
+      ingredientInput = subFormElement.querySelector('input[name*=ingredient]');
+    }
     ingredientInput.type = 'hidden';
     ingredientInput.value = String(ingredient.id);
-  
-    ingredientSelect.parentElement.appendChild(ingredientInput);
-    ingredientSelect.remove();
+    
   
     return subFormElement;
   }
