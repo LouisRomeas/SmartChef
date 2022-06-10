@@ -29,7 +29,7 @@
         placeholder="{{ 'form.recipeForm.addIngredient' | t }}"
     >
     <div id="recipe-ingredients-subform">
-        <div id="recipe-ingredients-subform-prototype" data-prototype="{{ form_row(form.recipeIngredients.vars.prototype) | e }}"></div>
+        <div id="recipe-ingredients-subform-prototype" data-prototype="{{ form_widget(form.recipeIngredients.vars.prototype) | e }}"></div>
         {% for subForm in form.recipeIngredients %}
             {{ form_row(subForm, {
                 attr: {

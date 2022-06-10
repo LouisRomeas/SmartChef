@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
     subFormElement.appendChild(removeSubFormButton);
     
     // Ingredient name label
-    const ingredientLabel: HTMLLabelElement = subFormElement.querySelector('label');
+    const ingredientLabel: HTMLLabelElement = document.createElement('label');
+    subFormElement.insertBefore(ingredientLabel, subFormElement.firstChild);
     ingredientLabel.textContent = (ingredient.emoji ?? defaultEmoji) + ingredient.label;
     ingredientLabel.classList.add('ingredient-label');
   
