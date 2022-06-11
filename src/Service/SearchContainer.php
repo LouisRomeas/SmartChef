@@ -4,7 +4,6 @@ namespace App\Service;
 
 use App\Entity\Recipe;
 use App\Repository\RecipeRepository;
-use Symfony\Component\Form\FormInterface;
 
 class SearchContainer {
   public function __construct(private RecipeRepository $recipeRepository)
