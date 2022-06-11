@@ -2,23 +2,30 @@
 
 namespace App\Twig;
 
+use DateTime;
+use DateTimeImmutable;
 use Symfony\Bridge\Twig\Extension\TranslationExtension;
+use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\Extra\Intl\IntlExtension;
 use Twig\TwigFilter;
 
 class AppExtension extends AbstractExtension
 {
-  public function __construct(private TranslationExtension $translationExtension, private IntlExtension $intlExtension)
-  {
-    
-  }
+    public function __construct(
+        private TranslationExtension $translationExtension,
+        private IntlExtension $intlExtension,
+    )
+    {
+        
+    }
 
     public function getFilters()
     {
         return [
             new TwigFilter('t', [$this->translationExtension, 'trans']),
-            new TwigFilter('format_score', [$this, 'formatScore'])
+            new TwigFilter('format_score', [$this, 'formatScore']),
+            new TwigFilter('format_date_auto', [$this, 'formatDate'], [ 'needs_environment' => true ]),
         ];
     }
 
@@ -33,5 +40,18 @@ class AppExtension extends AbstractExtension
         return $this->intlExtension->formatNumber($score, [
             'fraction_digit' => ( ($score >= 100 || $suffixPointer == 0) ? 0 : 1)
         ]) . $suffixes[$suffixPointer];
+    }
+
+    public function formatDate(
+        Environment $environment,
+        DateTime | DateTimeImmutable $datetime,
+        $timezone = null
+
+    ) {
+        $format = ( $datetime < (new DateTime('today')) ) ? 'd/m/Y' : 'H:i';
+
+        $datetimeString = twig_date_format_filter($environment, $datetime, $format, $timezone);
+
+        return $datetimeString;
     }
 }

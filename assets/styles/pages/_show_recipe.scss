@@ -81,6 +81,27 @@ body {
       color: $dark-green;
     }
 
+    .author-and-date-wrapper {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.875rem;
+
+      .author-wrapper,
+      .dot,
+      .date-wrapper {
+        display: flex;
+        align-items: center;
+        margin-right: calc(1em / 2.5);
+        color: $gray-green;
+
+        .author,
+        .date {
+          margin-left: 0.25rem;
+        }
+      }
+    }
+
     #recipe-body {
       text-align: justify;
     }

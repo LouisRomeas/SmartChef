@@ -39,6 +39,17 @@
         {% endif %}
 
         <h1>{{ recipe.title }}</h1>
+        <div class="author-and-date-wrapper">
+            <div class="author-wrapper">
+                <i class="fa-solid fa-circle-user"></i>
+                <span class="author">{{ recipe.author.nickname }}</span>
+            </div>
+            <div class="dot">·</div>
+            <div class="date-wrapper">
+                <i class="fa-solid fa-calendar-day"></i>
+                <span class="date">{{ recipe.createdAt | format_date_auto }}</span>
+            </div>
+        </div>
         <hr>
         {% include "_partials/_recipe_ingredients_list.html.twig" with {
             recipeIngredients: recipe.recipeIngredients,

@@ -44,8 +44,12 @@ class Recipe
     #[ORM\Column(type: 'string', length: 2048, nullable: true)]
     private $imageUrl;
 
+    #[ORM\Column(type: 'datetime_immutable')]
+    private $createdAt;
+
     public function __construct()
     {
+        if ($this->getCreatedAt() === null) $this->setCreatedAt(new \DateTimeImmutable());
         $this->votes = new ArrayCollection();
         $this->reports = new ArrayCollection();
         $this->recipeIngredients = new ArrayCollection();
@@ -233,6 +237,18 @@ class Recipe
     public function setImageUrl(?string $imageUrl): self
     {
         $this->imageUrl = $imageUrl;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
