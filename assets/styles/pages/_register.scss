@@ -3,7 +3,7 @@ body {
     > * {
       margin-bottom: 0.5rem;
 
-      &:last-of-type {
+      &:last-of-type:not(button) {
         flex-direction: row-reverse;
         align-items: center;
         justify-content: flex-end;

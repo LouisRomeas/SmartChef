@@ -74,5 +74,13 @@
         margin-left: 0.25rem;
       }
     }
+
+    .portions-and-date-wrapper {
+      display: flex;
+      align-items: center;
+      > :not(:first-child) {
+        margin-left: 0.25rem;
+      }
+    }
   }
 }

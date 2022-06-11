@@ -29,7 +29,11 @@ messages:
       agreeTerms: You need to agree to our Terms and Conditions.
   recipe:
     search:
+      tellUsFridge: Tell us what's in your fridge...
       noRecipeFound: Found no recipe matching your ingredients.
+    write:
+      writeRecipe: Write a recipe
+      loginToWriteRecipe: Log--in to write a recipe
 
 mail:
   confirmEmail:

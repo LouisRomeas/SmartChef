@@ -29,7 +29,11 @@ messages:
       agreeTerms: Vous devez accepter les conditions d'utilisation.
   recipe:
     search:
+      tellUsFridge: Dites-nous ce qui se trouve dans votre frigo...
       noRecipeFound: Aucune recette ne correspond à vos ingrédients.
+    write:
+      writeRecipe: Écrire une recette
+      loginToWriteRecipe: Connectez-vous pour écrire une recette
 
 mail:
   confirmEmail:

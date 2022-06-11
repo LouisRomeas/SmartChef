@@ -3,12 +3,12 @@
 namespace App\Twig;
 
 use DateTime;
-use DateTimeImmutable;
-use Symfony\Bridge\Twig\Extension\TranslationExtension;
-use Twig\Environment;
-use Twig\Extension\AbstractExtension;
-use Twig\Extra\Intl\IntlExtension;
 use Twig\TwigFilter;
+use Twig\Environment;
+use DateTimeInterface;
+use Twig\Extra\Intl\IntlExtension;
+use Twig\Extension\AbstractExtension;
+use Symfony\Bridge\Twig\Extension\TranslationExtension;
 
 class AppExtension extends AbstractExtension
 {
@@ -44,7 +44,7 @@ class AppExtension extends AbstractExtension
 
     public function formatDate(
         Environment $environment,
-        DateTime | DateTimeImmutable $datetime,
+        DateTimeInterface $datetime,
         $timezone = null
 
     ) {

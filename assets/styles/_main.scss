@@ -148,13 +148,15 @@ html {
       input[type=submit],
       .button {
         display: flex;
+        text-align: center;
         align-items: center;
         justify-content: center;
         font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
         font-weight: 700;
         color: $black;
         background-color: $bright-green;
-        height: 3.125rem;
+        padding: 0.5rem 1rem;
+        // min-height: 3.125rem;
         border-radius: 1rem;
         border: none;
         cursor: pointer;

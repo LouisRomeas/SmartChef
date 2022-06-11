@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use App\Entity\Recipe;
 use App\Entity\RecipeIngredient;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -94,6 +96,25 @@ class RecipeRepository extends ServiceEntityRepository
         ;
 
         return $queryBuilder->getQuery()->getResult();
+    }
+
+    /**
+     * @return Recipe[] Returns an array of Recipe objects
+     */
+    public function findRecent(
+        DateTimeInterface $earliest,
+        $limit = null,
+        $offset = null
+    ): array
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.createdAt >= :earliest')
+            ->setParameter('earliest', $earliest)
+            ->setMaxResults($limit)
+            ->setFirstResult($offset)
+            ->getQuery()
+            ->getResult()
+        ;
     }
 
 //    /**
