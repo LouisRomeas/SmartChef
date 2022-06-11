@@ -33,6 +33,7 @@
         <div id="recipe-ingredients-subform-prototype" data-prototype="{{ form_widget(form.recipeIngredients.vars.prototype) | e }}"></div>
         {% for subForm in form.recipeIngredients %}
             {{ form_row(subForm, {
+                label: false,
                 attr: {
                     'data-id': subForm.vars.data.ingredient.id,
                     'data-label': subForm.vars.data.ingredient.name,
