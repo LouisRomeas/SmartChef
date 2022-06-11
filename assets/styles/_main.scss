@@ -8,94 +8,127 @@ html {
     font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
     font-weight: 600;
 
-    img {
-      max-width: 100%;
-    }
-
-    #container {
-      margin: 0 0.5rem;
-    }
-
-    h1 {
-      font-size: 1.5rem;
-      line-height: 1em;
-    }
-    
-    a {
-      color: inherit;
-      text-decoration: inherit;
-      transition: opacity 200ms;
-
-      &:hover {
-        opacity: 0.85;
-      }
-    }
-
-    hr {
-      $side-margin: 0.5rem;
-      $vertical-margin: 1rem;
-      width: calc(100% - #{$side-margin * 2});
-      margin: $vertical-margin $side-margin !important;
-      border: none;
-      border-top: 1px solid $bright-green;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
+    > *:not(.sf-toolbar), 
+    > {
   
-      > *:not(button, script) {
+      img {
+        max-width: 100%;
+      }
+  
+      #container {
+        margin: 0 0.5rem;
+      }
+  
+      h1 {
+        font-size: 1.5rem;
+        line-height: 1em;
+      }
+      
+      a {
+        color: inherit;
+        text-decoration: inherit;
+        transition: opacity 200ms;
+  
+        &:hover {
+          opacity: 0.85;
+        }
+      }
+  
+      hr {
+        $side-margin: 0.5rem;
+        $vertical-margin: 1rem;
+        width: calc(100% - #{$side-margin * 2});
+        margin: $vertical-margin $side-margin !important;
+        border: none;
+        border-top: 1px solid $bright-green;
+      }
+  
+      form {
         display: flex;
         flex-direction: column;
-        
-        > div {
+    
+        > *:not(button, script) {
           display: flex;
           flex-direction: column;
+          
+          > div {
+            display: flex;
+            flex-direction: column;
+          }
         }
       }
-    }
-
-    .autocomplete-container {
-      background-color: $beige;
-      border-radius: 1rem;
-      margin-top: 0.5rem;
-      box-shadow: 0 0 1rem scale-color($black, $alpha: -75%);
-
-      & > div {
-        padding: 0.25rem;
-        cursor: pointer;
-        color: mix($dark-green, $black);
-
-        &::first-letter {
-          margin-right: 0.125rem;
-        }
-
-        &.selected {
-          background-color: scale-color($color: $bright-green, $lightness: 50%);
-        }
-
-        &:first-child {
-          border-radius: 1rem 1rem 0 0;
-        }
-        
-        &:last-child {
-          border-end-end-radius: 1rem;
-          border-end-start-radius: 1rem;
-        }
-
-        &:not(:last-child) {
-          border-bottom: 1px solid scale-color($color: $dark-green, $alpha: -50%);
+  
+      .autocomplete-container {
+        background-color: $beige;
+        border-radius: 1rem;
+        margin-top: 0.5rem;
+        box-shadow: 0 0 1rem scale-color($black, $alpha: -75%);
+  
+        & > div {
+          padding: 0.25rem;
+          cursor: pointer;
+          color: mix($dark-green, $black);
+  
+          &::first-letter {
+            margin-right: 0.125rem;
+          }
+  
+          &.selected {
+            background-color: scale-color($color: $bright-green, $lightness: 50%);
+          }
+  
+          &:first-child {
+            border-radius: 1rem 1rem 0 0;
+          }
+          
+          &:last-child {
+            border-end-end-radius: 1rem;
+            border-end-start-radius: 1rem;
+          }
+  
+          &:not(:last-child) {
+            border-bottom: 1px solid scale-color($color: $dark-green, $alpha: -50%);
+          }
         }
       }
-    }
-
-    input, select {
-      font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
-      font-weight: 600;
-
-      &[type=text],
-      &[type=password],
-      &[type=time] {
+  
+      input, select {
+        font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
+        font-weight: 600;
+  
+        &[type=text],
+        &[type=password],
+        &[type=time] {
+          height: 2.5rem;
+          background-color: $white;
+          font-size: 1.125rem;
+          border-radius: 1rem;
+          padding-left: 1rem;
+          padding-right: 1rem;
+          border: 2px solid $bright-green;
+          color: $dark-green;
+          
+          &::placeholder {
+            color: $gray-green;
+            opacity: 50%;
+          }
+        }
+  
+        &[type=checkbox].checkbox-first {
+          float: left;
+        }
+  
+        &[type=number] {
+          background-color: transparent;
+          border: none;
+          border-bottom: 1px solid $bright-green;
+          font-size: 1.125rem;
+          padding-top: 0.25rem;
+          color: $gray-green;
+        }
+      }
+  
+      select {
         height: 2.5rem;
         background-color: $white;
         font-size: 1.125rem;
@@ -104,68 +137,40 @@ html {
         padding-right: 1rem;
         border: 2px solid $bright-green;
         color: $dark-green;
-        
-        &::placeholder {
-          color: $gray-green;
-          opacity: 50%;
-        }
       }
-
-      &[type=checkbox].checkbox-first {
-        float: left;
+  
+      .fa-arrow-right-arrow-left {
+        transform: rotate(90deg);
       }
-
-      &[type=number] {
-        background-color: transparent;
+  
+      button,
+      input[type=button],
+      input[type=submit],
+      .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        color: $black;
+        background-color: $bright-green;
+        height: 3.125rem;
+        border-radius: 1rem;
         border: none;
-        border-bottom: 1px solid $bright-green;
+        cursor: pointer;
         font-size: 1.125rem;
-        padding-top: 0.25rem;
-        color: $gray-green;
-      }
-    }
-
-    select {
-      height: 2.5rem;
-      background-color: $white;
-      font-size: 1.125rem;
-      border-radius: 1rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      border: 2px solid $bright-green;
-      color: $dark-green;
-    }
-
-    .fa-arrow-right-arrow-left {
-      transform: rotate(90deg);
-    }
-
-    button,
-    input[type=button],
-    input[type=submit],
-    .button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
-      font-weight: 700;
-      color: $black;
-      background-color: $bright-green;
-      height: 3.125rem;
-      border-radius: 1rem;
-      border: none;
-      cursor: pointer;
-      font-size: 1.125rem;
-
-      transition: color 150ms, background-color 150ms;
-
-      &:hover, &:active {
-        color: $white;
-
-        &:active {
-          background: $dark-green;
+  
+        transition: color 150ms, background-color 150ms;
+  
+        &:hover, &:active {
+          color: $white;
+  
+          &:active {
+            background: $dark-green;
+          }
         }
       }
+
     }
   }
 }
