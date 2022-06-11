@@ -21,13 +21,13 @@
                 data-downvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 0 }) }}"
                 data-remove-vote-url="{{ path('app_vote_remove', { recipe: recipe.id }) }}"
                 >
-                    <div class="score">{{ recipe.score }}</div>
+                    <div class="score">{{ recipe.score | format_score }}</div>
                     <div class="voting-wrapper"></div>
                 </div>
                 {{ encore_entry_script_tags('voting') }}
             {% else %}
                 <div class="score-wrapper">
-                    <div class="score">{{ recipe.score }}</div>
+                    <div class="score">{{ recipe.score | format_score }}</div>
                     <span class="score-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></span>
                 </div>
             {% endif %}
