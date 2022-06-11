@@ -1,1 +1,6 @@
 * Add report button below recipe unless it's yours
+* Add twig extension with number formatting (1.2k, 1.5M) => (decimal point depending on locale)
+
+
+LATER:
+* Format & style verification e-mail
