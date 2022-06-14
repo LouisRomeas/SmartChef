@@ -5,7 +5,7 @@ html {
     margin: 0;
     background-color: $white;
     color: $black;
-    font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
+    font-family: $font-main;
     font-weight: 600;
 
     > *:not(.sf-toolbar), 
@@ -17,6 +17,7 @@ html {
   
       #container {
         margin: 0 0.5rem;
+        // max-width: 1200px;
       }
   
       h1 {
@@ -93,7 +94,7 @@ html {
       }
   
       input, select {
-        font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
+        font-family: $font-main;
         font-weight: 600;
   
         &[type=text],
@@ -151,7 +152,7 @@ html {
         text-align: center;
         align-items: center;
         justify-content: center;
-        font-family: 'Nunito Sans', 'Open Sans', Arial, Helvetica, sans-serif;
+        font-family: $font-main;
         font-weight: 700;
         color: $black;
         background-color: $bright-green;
