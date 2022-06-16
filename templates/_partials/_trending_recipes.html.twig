@@ -1,0 +1,16 @@
+<section class="trending-recipes">
+  <div class="trending-header">
+    <div>{{ 'headings.trendingRecipes' | t }}</div>
+  </div>
+  <div class="recipes-list-wrapper">
+    {% for recipe in recipes %}
+      {% include "_partials/_recipe_card.html.twig" with { 'recipe': recipe } %}
+      {% include "_partials/_recipe_card.html.twig" with { 'recipe': recipe } %}
+      {% include "_partials/_recipe_card.html.twig" with { 'recipe': recipe } %}
+      {% include "_partials/_recipe_card.html.twig" with { 'recipe': recipe } %}
+      {% include "_partials/_recipe_card.html.twig" with { 'recipe': recipe } %}
+    {% else %}
+      <div class="no-recipe"></div>
+    {% endfor %}
+  </div>
+</section>

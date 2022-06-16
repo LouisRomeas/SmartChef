@@ -1,5 +1,9 @@
 html {
   font-size: 5vw;
+  
+  @media screen and (min-width: $bp-desktop) {
+    font-size: 16px;
+  }
 
   body {
     margin: 0;
@@ -17,7 +21,13 @@ html {
   
       #container {
         margin: 0 0.5rem;
-        // max-width: 1200px;
+        padding-top: 0.5rem;
+        @media screen and (min-width: $bp-desktop) {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 1rem;
+          box-shadow: 0 0 calc( (100vw - 1232px) / 2 )  scale-color($color: black, $alpha: -50%);
+        }
       }
   
       h1 {
@@ -30,7 +40,7 @@ html {
         text-decoration: inherit;
         transition: opacity 200ms;
   
-        &:hover {
+        &:not(.button):hover {
           opacity: 0.85;
         }
       }
@@ -42,6 +52,24 @@ html {
         margin: $vertical-margin $side-margin !important;
         border: none;
         border-top: 1px solid $bright-green;
+      }
+  
+      .hide-on-large {
+        @media screen and (min-width: $bp-large) {
+          display: none !important;
+        }
+      }
+  
+      .hide-on-desktop {
+        @media screen and (min-width: $bp-desktop) {
+          display: none !important;
+        }
+      }
+
+      .hide-on-mobile {
+        @media screen and (max-width: calc(#{$bp-desktop} - 1px)) {
+          display: none !important;
+        }
       }
   
       form {
@@ -166,9 +194,10 @@ html {
         transition: color 150ms, background-color 150ms;
   
         &:hover, &:active {
-          color: $white;
+          background-color: mix($bright-green, $dark-green);
   
           &:active {
+            color: $beige;
             background: $dark-green;
           }
         }

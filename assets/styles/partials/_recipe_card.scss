@@ -5,6 +5,7 @@
   grid-template-rows: 1fr; 
   gap: 0px 0px;
   max-width: 22.5rem;
+  min-width: 18rem;
   height: auto;
   aspect-ratio: 3 / 1;
   background-color: $white;
@@ -16,6 +17,10 @@
 
   &:hover {
     opacity: 0.85;
+  }
+
+  @media screen and (min-width: $bp-desktop) {
+    min-width: 22.5rem;
   }
 
   a.card-link {
@@ -50,14 +55,22 @@
     color: $gray-green;
     font-weight: 800;
 
+    @media screen and (min-width: $bp-desktop) {
+      font-size: 0.85rem;
+    }
+
     h4 {
-      font-size: 1.125rem;
+      font-size: 1.25em;
       color: $bright-green;
       font-weight: 700;
       margin: 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+
+      @media screen and (min-width: $bp-desktop) {
+        font-size: 1.5em;
+      }
     }
 
     @for $i from 0 through 2 {

@@ -3,11 +3,10 @@
 {% block title %}Hello MainController!{% endblock %}
 
 {% block body %}
-<a href="{{ path('app_search_builder') }}" class="button">{{ 'messages.recipe.search.tellUsFridge' | t }}</a>
-<a href="{{ path('app_recipe_new') }}" class="button">{{ (is_granted('ROLE_EDITOR') ? 'messages.recipe.write.writeRecipe' : 'messages.recipe.write.loginToWriteRecipe') | t }}</a>
-{% for recipe in recipes %}
-    {% include "_partials/_recipe_card.html.twig" %}
-{% else %}
-    <div class="no-recipe"></div>
-{% endfor %}
+<div id="home-cta-buttons">
+    <a href="{{ path('app_search_builder') }}" class="button">{{ 'messages.recipe.search.tellUsFridge' | t }}</a>
+    <a href="{{ path('app_recipe_new') }}" class="button">{{ (is_granted('ROLE_EDITOR') ? 'messages.recipe.write.writeRecipe' : 'messages.recipe.write.loginToWriteRecipe') | t }}</a>
+</div>
+<hr class="hide-on-large">
+{% include "_partials/_trending_recipes.html.twig" %}
 {% endblock %}

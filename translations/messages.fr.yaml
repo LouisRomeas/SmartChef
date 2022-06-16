@@ -7,6 +7,9 @@ user:
     register: S'inscrire
     agreeTerms: J'accepte les conditions d'utilisation
 
+headings:
+  trendingRecipes: Tendances du moment
+
 form:
   save: Enregistrer
   publish: Publier

@@ -7,6 +7,9 @@ user:
     register: Register
     agreeTerms: I agree with the Terms and Conditions
 
+headings:
+  trendingRecipes: Trending recipes
+
 form:
   save: Save
   publish: Publish
