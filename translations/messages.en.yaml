@@ -7,6 +7,9 @@ user:
     register: Register
     agreeTerms: I agree with the Terms and Conditions
 
+pages:
+  homepage: Home
+
 headings:
   trendingRecipes: Trending recipes
 

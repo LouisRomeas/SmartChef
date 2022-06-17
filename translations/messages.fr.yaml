@@ -7,6 +7,9 @@ user:
     register: S'inscrire
     agreeTerms: J'accepte les conditions d'utilisation
 
+pages:
+  homepage: Accueil
+
 headings:
   trendingRecipes: Tendances du moment
 
