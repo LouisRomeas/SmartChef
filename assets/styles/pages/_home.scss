@@ -10,7 +10,7 @@ section.trending-recipes {
 
 @media screen and (min-width: $bp-large) {
   html > body {
-    main#container {
+    section#homepage {
       display: flex;
       
       #home-cta-buttons {
