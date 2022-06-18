@@ -31,6 +31,10 @@ form[name=search] {
 
       > :first-child {
         flex-basis: 100%;
+
+        .portions-input-wrapper {
+          margin-top: 0.25rem;
+        }
       }
 
       > .recipe-ingredients-wrapper {
