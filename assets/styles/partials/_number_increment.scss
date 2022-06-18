@@ -1,0 +1,15 @@
+.number-increment {
+  cursor: pointer;
+  color: $bright-green;
+  aspect-ratio: 1 / 1;
+  width: min-content;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.25rem;
+
+  transition: color 100ms;
+
+  &:active {
+    color: $dark-green;
+  }
+}

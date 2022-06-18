@@ -3,43 +3,46 @@
 {% block title %}{{ 'form.searchForm.search' | t }}{% endblock %}
 
 {% block body %}
-  {{ form_start(form) }}
+    {{ form_start(form) }}
 
-  {{ form_row(form.portions, {
-      label: 'entity.recipe.portions',
-      attr: {
-          value: 1,
-          min: 1
-      }
-  }) }}
+    {{ form_row(form.portions, {
+        label: 'entity.recipe.portions',
+        attr: {
+            value: 1,
+            min: 1
+        }
+    }) }}
 
-  <hr>
+    <hr class="hide-on-desktop">
 
-  <input type="text"
-      id="ingredient-picker"
-      data-ingredients-query-url="{{ path('app_ingredients_search_json') }}"
-      data-index="{{ form.recipeIngredients|length > 0 ? form.recipeIngredients|last.vars.name + 1 : 0 }}"
-      placeholder="{{ 'form.recipeForm.addIngredient' | t }}"
-      autocomplete="off"
-  >
-  <div id="recipe-ingredients-subform">
-      <div id="recipe-ingredients-subform-prototype" data-prototype="{{ form_widget(form.recipeIngredients.vars.prototype) | e }}"></div>
-      {% for subForm in form.recipeIngredients %}
-          {{ form_row(subForm, {
-              attr: {
-                  'data-id': subForm.vars.data.ingredient.id,
-                  'data-label': subForm.vars.data.ingredient.name,
-                  'data-emoji': subForm.vars.data.ingredient.emoji,
-                  'data-unit': subForm.vars.data.ingredient.unit
-              }
-          }) }}
-      {% endfor %}
-  </div>
-  {{ encore_entry_script_tags('recipeIngredientsForm') }}
+    <div class="recipe-ingredients-wrapper">
+        <label class="hide-on-mobile">{{ 'entity.ingredient._plural' | t }}</label>
+        <input type="text"
+            id="ingredient-picker"
+            data-ingredients-query-url="{{ path('app_ingredients_search_json') }}"
+            data-index="{{ form.recipeIngredients|length > 0 ? form.recipeIngredients|last.vars.name + 1 : 0 }}"
+            placeholder="{{ 'form.recipeForm.addIngredient' | t }}"
+            autocomplete="off"
+        >
+        <div id="recipe-ingredients-subform">
+            <div id="recipe-ingredients-subform-prototype" data-prototype="{{ form_widget(form.recipeIngredients.vars.prototype) | e }}"></div>
+            {% for subForm in form.recipeIngredients %}
+                {{ form_row(subForm, {
+                    attr: {
+                        'data-id': subForm.vars.data.ingredient.id,
+                        'data-label': subForm.vars.data.ingredient.name,
+                        'data-emoji': subForm.vars.data.ingredient.emoji,
+                        'data-unit': subForm.vars.data.ingredient.unit
+                    }
+                }) }}
+            {% endfor %}
+        </div>
+        {{ encore_entry_script_tags('recipeIngredientsForm') }}
+    </div>
 
-  <hr>
+    <hr class="hide-on-desktop">
 
-  <button class="btn" id="search-button">{{ 'form.searchForm.search_action' | t }}</button>
-  {{ form_end(form) }}
+    <button class="btn" id="search-button">{{ 'form.searchForm.search_action' | t }}</button>
+    {{ form_end(form) }}
 
 {% endblock %}

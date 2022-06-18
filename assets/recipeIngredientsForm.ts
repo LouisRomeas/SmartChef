@@ -10,6 +10,41 @@ type Ingredient = {
 const defaultEmoji = '🍴';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  const addPlusMinus = (inputNumberElement: HTMLInputElement) => {
+    [true, false].forEach((positive: boolean) => {
+      const button = document.createElement('span');
+      button.onclick = (e: Event) => {
+        e.preventDefault();
+        if (inputNumberElement.dataset.locked) return;
+  
+        let quantity: number = parseInt(inputNumberElement.value) ?? 0;
+        quantity += (positive ? +1 : -1);
+        if (quantity < parseInt(inputNumberElement.min)) quantity = parseInt(inputNumberElement.min);
+        inputNumberElement.value = String(quantity);
+        inputNumberElement.dataset.locked = 'true';
+        setTimeout(() => {
+          delete inputNumberElement.dataset.locked;
+        }, 20);
+      }
+      button.innerHTML = `<i class="fa-solid fa-square-${positive ? 'plus' : 'minus'}"></i>`;
+      button.classList.add('number-increment')
+      inputNumberElement.parentElement.insertBefore(button, inputNumberElement);
+    });
+  }
+  
+  // Portions Input
+  const portionsInput: HTMLInputElement = document.querySelector('input[name*=portions]');
+  if (portionsInput) {
+    portionsInput.type = 'number';
+    const newParent = document.createElement('div');
+    newParent.classList.add('portions-input-wrapper');
+    portionsInput.parentElement.appendChild(newParent);
+    newParent.appendChild(portionsInput);
+    addPlusMinus(portionsInput);
+    if (!portionsInput.value) portionsInput.value = portionsInput.min = String(1);
+  }
+
   const inputTextElement: HTMLInputElement = document.getElementById('ingredient-picker') as HTMLInputElement;
   const prototypeElement = document.getElementById('recipe-ingredients-subform-prototype');
   const subFormParent = prototypeElement.parentElement;
@@ -42,25 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     {  
       // Add +/- buttons to quantityInput
-      [true, false].forEach((positive: boolean) => {
-        const button = document.createElement('span');
-        button.onclick = (e: Event) => {
-          e.preventDefault();
-          if (quantityInput.dataset.locked) return;
-    
-          let quantity: number = parseInt(quantityInput.value) ?? 0;
-          quantity += (positive ? +1 : -1);
-          if (quantity < parseInt(quantityInput.min)) quantity = parseInt(quantityInput.min);
-          quantityInput.value = String(quantity);
-          quantityInput.dataset.locked = 'true';
-          setTimeout(() => {
-            delete quantityInput.dataset.locked;
-          }, 20);
-        }
-        button.innerHTML = `<i class="fa-solid fa-square-${positive ? 'plus' : 'minus'}"></i>`;
-        button.classList.add('quantity-increment')
-        quantityInput.parentElement.insertBefore(button, quantityInput);
-      });
+      addPlusMinus(quantityInput);
     
       // Add span with unit after quantityInput
       const unitSpan = document.createElement('span');
