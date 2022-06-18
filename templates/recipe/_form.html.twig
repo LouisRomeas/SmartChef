@@ -52,4 +52,8 @@
     }) }}
 
     <button class="btn" id="publish-button">{{ ((editing is defined and editing) ? 'form.save' : 'form.publish') | t }}</button>
+    
+    {{ form_row(form.recipeIngredients, {
+        label: false
+    }) }}
 {{ form_end(form) }}
