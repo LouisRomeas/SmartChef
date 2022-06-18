@@ -13,3 +13,16 @@
     color: $dark-green;
   }
 }
+
+.portions-input-wrapper {
+  display: flex;
+  flex-direction: row !important;
+
+  .number-increment {
+    font-size: 1.5rem;
+  }
+
+  input {
+    flex-grow: 1;
+  }
+}
