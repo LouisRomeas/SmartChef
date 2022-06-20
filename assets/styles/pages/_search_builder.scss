@@ -5,7 +5,7 @@ form[name=search] {
   }
 }
 
-@media screen and (min-width: $bp-desktop) {
+@media screen and (min-width: $bp-large) {
   html > body {
     form[name=search] {
       width: 100%;
