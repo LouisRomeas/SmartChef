@@ -35,9 +35,11 @@
       align-items: center;
       font-size: 1.75rem;
       margin-bottom: 0.25rem;
+      width: min-content;
 
       input {
         min-width: 0;
+        width: 12rem;
       }
 
       .unit {

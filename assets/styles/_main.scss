@@ -53,6 +53,12 @@ html {
         border: none;
         border-top: 1px solid $bright-green;
       }
+
+      .hide-on-extra-large {
+        @media screen and (min-width: $bp-extra-large) {
+          display: none !important;
+        }
+      }
   
       .hide-on-large {
         @media screen and (min-width: $bp-large) {
