@@ -28,6 +28,10 @@ html body form[name=recipe] {
         &.top-row-left {
           div {
             margin-top: 0.5rem;
+
+            input[name*=title] {
+              width: calc(100% - 2rem);
+            }
           }
         }
 
