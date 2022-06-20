@@ -206,3 +206,13 @@ html {
     }
   }
 }
+
+html body form {
+  &.login-form,
+  &.register-form {
+    @media screen and (min-width: $bp-desktop) {
+      max-width: $bp-desktop;
+      margin: 0 auto;
+    }
+  }
+}
