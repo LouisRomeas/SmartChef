@@ -20,6 +20,7 @@ section.trending-recipes {
   
   .recipes-list-wrapper {
     border-radius: 0 0 calc(1rem - 2px) calc(1rem - 2px);
+    flex-grow: 1;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
