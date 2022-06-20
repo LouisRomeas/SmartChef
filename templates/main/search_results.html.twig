@@ -10,9 +10,11 @@
 
 <hr>
 
-{% for recipe in recipes %}
-  {% include "_partials/_recipe_card.html.twig" %}
-{% else %}
+<section id="recipes">
+  {% for recipe in recipes %}
+    {% include "_partials/_recipe_card.html.twig" %}
+  {% else %}
+</section>
   <div class="no-recipe-found">{{ 'messages.recipe.search.noRecipeFound' | t }}</div>  
 {% endfor %}
 {% endblock %}
