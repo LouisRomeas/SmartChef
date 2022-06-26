@@ -41,6 +41,9 @@ messages:
       writeRecipe: Écrire une recette
       loginToWriteRecipe: Connectez-vous pour écrire une recette
 
+action:
+  report: Signaler
+
 mail:
   confirmEmail:
     _subject: Veuillez confirmer votre addresse e-mail
@@ -74,7 +77,7 @@ entity:
   report:
     _singular: Signalement
     _plural: Signalements
-    body: Corps
+    body: Corps du signalement
   reportReason:
     _singular: Motif de signalement
     _plural: Motifs de signalement
@@ -100,3 +103,5 @@ entity:
 admin:
   dashboard: Tableau de bord
   backToFront: Retour en façade
+  moderation: Modération
+  backOffice: Arrière-boutique

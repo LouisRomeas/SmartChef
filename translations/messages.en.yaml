@@ -41,6 +41,9 @@ messages:
       writeRecipe: Write a recipe
       loginToWriteRecipe: Log--in to write a recipe
 
+action:
+  report: Report
+
 mail:
   confirmEmail:
     _subject: Please confirm your e-mail
@@ -98,3 +101,5 @@ entity:
 admin:
   dashboard: Dashboard
   backToFront: Back to front
+  moderation: Moderation
+  backOffice: Back-office

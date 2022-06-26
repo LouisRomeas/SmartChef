@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'action.report' | t }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'action.report' | t }} “{{ recipe }}”</h1>
+    {{ form_start(form, { attr: { class: 'report-form' } }) }}
+        {{ form_row(form.body, {
+            label: 'entity.report.body',
+            attr: {
+                placeholder: 'entity.report.body'
+            }
+        }) }}
+
+        {{ form_row(form.reason, {
+            label: 'entity.reportReason._singular',
+            attr: {
+                placeholder: 'entity.reportReason._singular'
+            }
+        }) }}
+
+        <button type="submit" class="btn">{{ 'action.report' | t }}</button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -5,6 +5,8 @@ namespace App\Controller\Admin;
 use App\Entity\Category;
 use App\Entity\Ingredient;
 use App\Controller\Admin\UserCrudController;
+use App\Entity\Recipe;
+use App\Entity\Report;
 use App\Entity\ReportReason;
 use App\Entity\Unit;
 use App\Entity\User;
@@ -49,11 +51,15 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('admin.dashboard', 'fa fa-home');
+        yield MenuItem::linkToRoute('admin.backToFront', 'fas fa-right-from-bracket', 'app_login');
+        yield MenuItem::section('admin.backOffice', 'fa-solid fa-shop');
         yield MenuItem::linkToCrud('entity.user._plural', 'fas fa-user', User::class);
         yield MenuItem::linkToCrud('entity.category._plural', 'fas fa-list', Category::class);
         yield MenuItem::linkToCrud('entity.ingredient._plural', 'fas fa-apple-whole', Ingredient::class);
         yield MenuItem::linkToCrud('entity.reportReason._plural', 'fas fa-flag', ReportReason::class);
         yield MenuItem::linkToCrud('entity.unit._plural', 'fas fa-scale-balanced', Unit::class);
-        yield MenuItem::linkToRoute('admin.backToFront', 'fas fa-right-from-bracket', 'app_login');
+        yield MenuItem::section('admin.moderation', 'fas fa-shield-halved');
+        yield MenuItem::linkToCrud('entity.report._plural', 'fas fa-flag', Report::class);
+        yield MenuItem::linkToCrud('entity.recipe._plural', 'fa-solid fa-newspaper', Recipe::class);
     }
 }
