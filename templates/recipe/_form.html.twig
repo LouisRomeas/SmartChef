@@ -43,6 +43,10 @@
                             'data-unit': subForm.vars.data.ingredient.unit
                         }
                     }) }}
+                {% else %}
+                    {{ form_row(form.recipeIngredients, {
+                        label: false
+                    }) }}
                 {% endfor %}
             </div>
             {{ encore_entry_script_tags('recipeIngredientsForm') }}
@@ -56,8 +60,4 @@
     }) }}
 
     <button class="btn" id="publish-button">{{ ((editing is defined and editing) ? 'form.save' : 'form.publish') | t }}</button>
-    
-    {{ form_row(form.recipeIngredients, {
-        label: false
-    }) }}
 {{ form_end(form) }}
