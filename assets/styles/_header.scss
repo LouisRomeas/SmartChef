@@ -77,6 +77,26 @@ header#top-header {
         &:not(:last-child) {
           border-bottom: 1px solid $bright-green;
         }
+
+        &.logout {
+          color: $red;
+        }
+
+        &.admin {
+          color: $blue;
+        }
+
+        svg:first-child {
+          margin-right: 0.25rem;
+
+          &.logout-link {
+            color: $red;
+          }
+
+          &.admin-link {
+            color: $blue;
+          }
+        }
       }
     }
   }

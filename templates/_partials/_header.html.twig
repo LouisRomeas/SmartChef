@@ -4,20 +4,20 @@
       <div id="side-menu-close-handle"><i class="fa-solid fa-angles-left"></i></div>
     </div>
     <nav id="side-menu-nav">
+      <a href="{{ path('app_search_builder') }}"><i class="fa-solid fa-magnifying-glass"></i>{{ 'form.searchForm.search_action' | t }}</a>
       {% if app.user %}
-        <a href="">{{ 'user.myAccount' | t }}</a>
+        <a href=""><i class="fa-solid fa-user"></i>{{ 'user.myAccount' | t }}</a>
         {% if is_granted('ROLE_EDITOR') %}
-          <a href="{{ path('app_recipe_new') }}">{{ 'form.recipeForm.createNewRecipe' | t }}</a>
+          <a href="{{ path('app_recipe_new') }}"><i class="fa-solid fa-pen-to-square"></i>{{ 'form.recipeForm.createNewRecipe' | t }}</a>
         {% endif %}
-        <a href="{{ path('app_logout') }}">{{ 'user.login.logout' | t }}</a>
         {% if is_granted('ROLE_ADMIN') %}
-          <a href="{{ path('admin') }}">{{ 'admin.dashboard' | t }}</a>
+          <a href="{{ path('admin') }}" class="admin"><i class="fa-solid fa-shield-halved admin-link"></i>{{ 'admin.dashboard' | t }}</a>
         {% endif %}
+        <a href="{{ path('app_logout') }}" class="logout"><i class="fa-solid fa-right-from-bracket logout-link"></i>{{ 'user.login.logout' | t }}</a>
       {% else %}
-        <a href="{{ path('app_login') }}">{{ 'user.login.login' | t }}</a>
-        <a href="{{ path('app_register') }}">{{ 'user.registration.register' | t }}</a>
+        <a href="{{ path('app_login') }}"><i class="fa-solid fa-right-to-bracket"></i>{{ 'user.login.login' | t }}</a>
+        <a href="{{ path('app_register') }}"><i class="fa-solid fa-user-plus"></i>{{ 'user.registration.register' | t }}</a>
       {% endif %}
-      <a href="{{ path('app_search_builder') }}">{{ 'form.searchForm.search_action' | t }}</a>
     </nav>
   </aside>
   <div id="shadow-on-page"></div>
