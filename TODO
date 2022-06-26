@@ -1,5 +1,7 @@
-* Add report button below recipe unless it's yours
+* Style report link on recipe show page
+* Check situations where user is logged in but not an editor (unable to write a recipe for example)
 
 
 LATER:
+* Add footer
 * Format & style verification e-mail
