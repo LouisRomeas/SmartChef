@@ -104,7 +104,8 @@ class RecipeRepository extends ServiceEntityRepository
     public function findRecent(
         DateTimeInterface $earliest,
         $limit = null,
-        $offset = null
+        $offset = null,
+        bool $ascending = false
     ): array
     {
         return $this->createQueryBuilder('r')
@@ -112,6 +113,10 @@ class RecipeRepository extends ServiceEntityRepository
             ->setParameter('earliest', $earliest)
             ->setMaxResults($limit)
             ->setFirstResult($offset)
+            ->addOrderBy(
+                'r.createdAt',
+                ( $ascending ? 'asc' : 'desc' )
+            )
             ->getQuery()
             ->getResult()
         ;

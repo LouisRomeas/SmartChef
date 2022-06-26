@@ -16,8 +16,21 @@ class TrendingContainer {
   /**
    * @return Recipe[]
    */
-  public function getTrendingRecipes(?DateTimeInterface $earliest = null, int $limit = null, int $offset = null): array {
-    $recipes = $this->recipeRepository->findRecent($earliest ?? new DateTime('7 days ago'), $limit, $offset);
+  public function getTrendingRecipes(?DateTimeInterface $earliest = null, int $limit = 12, int $offset = null): array {
+    $recipes = $this->recipeRepository->findRecent($earliest ?? (new DateTime())->setTimestamp(0), $limit, $offset);
+
+    // Filter out results
+    foreach ($recipes as $key => $recipe) {
+      // Removes undesirable recipes
+      if (
+        $recipe->getScore() < 0
+      ) unset($recipes[$key]);
+    }
+
+    /** @param Recipe $recipe1
+     *  @param Recipe $recipe2 */
+    usort($recipes, fn($recipe1, $recipe2) => $recipe2->getScore() <=> $recipe1->getScore());
+
     return $recipes;
   }
 }

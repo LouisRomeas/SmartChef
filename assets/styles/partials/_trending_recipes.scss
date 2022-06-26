@@ -25,6 +25,7 @@ section.trending-recipes {
     justify-content: center;
     flex-wrap: wrap;
     overflow-y: scroll;
+    overflow-x: hidden;
     position: relative;
     z-index: 1;
 
