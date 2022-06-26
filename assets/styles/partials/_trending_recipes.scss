@@ -28,9 +28,7 @@ section.trending-recipes {
     position: relative;
     z-index: 1;
 
-    @media screen and (min-width: $bp-desktop) {
-      padding: 0.5rem;
-    }
+    padding: 0.5rem;
 
     article.recipe-card {
       margin: 0.25rem;
