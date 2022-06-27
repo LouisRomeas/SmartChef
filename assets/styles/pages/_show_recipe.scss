@@ -27,37 +27,62 @@ body {
         }
       }
 
-      .score-wrapper {
+      .top-right-wrapper {
         margin-left: auto;
         display: flex;
         align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
 
-        .score {
-          color: $bright-green;
-        }
-
-        .voting-wrapper {
+        .views-wrapper {
           display: flex;
-          flex-direction: row-reverse;
-          font-size: 1.5rem;
-          color: $bright-green;
+          align-items: center;
+          color: $gray-green;
 
-          .vote {
-            margin-left: 0.25rem;
-
-            &.selected {
-              color: $dark-green;
-            }
-
-            &.waiting {
-              animation: blinking 1.5s ease 0s infinite normal forwards;
-            }
+          .views {
+            margin-right: 0.125rem;
           }
         }
 
-        .score-icon {
-          margin-left: 0.25rem;
-          color: $gray-green;
+        .dot {
+          color: $dark-green;
+          display: flex;
+          align-items: center;
+          transform: translateY(-0.0625rem);
+          margin: 0 0.25rem;
+        }
+
+        .score-wrapper {
+          display: flex;
+          align-items: center;
+
+          .score {
+            color: $bright-green;
+          }
+
+          .voting-wrapper {
+            display: flex;
+            flex-direction: row-reverse;
+            font-size: 1.5rem;
+            color: $bright-green;
+
+            .vote {
+              margin-left: 0.25rem;
+
+              &.selected {
+                color: $dark-green;
+              }
+
+              &.waiting {
+                animation: blinking 1.5s ease 0s infinite normal forwards;
+              }
+            }
+          }
+
+          .score-icon {
+            margin-left: 0.25rem;
+            color: $gray-green;
+          }
         }
       }
     }

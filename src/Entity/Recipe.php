@@ -47,6 +47,9 @@ class Recipe
     #[ORM\Column(type: 'datetime_immutable')]
     private $createdAt;
 
+    #[ORM\Column(type: 'integer')]
+    private $views;
+
     public function __construct()
     {
         if ($this->getCreatedAt() === null) $this->setCreatedAt(new \DateTimeImmutable());
@@ -249,6 +252,25 @@ class Recipe
     public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getViews(): ?int
+    {
+        return $this->views;
+    }
+
+    public function setViews(int $views): self
+    {
+        $this->views = $views;
+
+        return $this;
+    }
+
+    public function addView(): self
+    {
+        $this->views++;
 
         return $this;
     }

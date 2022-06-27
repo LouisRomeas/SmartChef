@@ -14,6 +14,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 #[Route('{_locale}/recipe', requirements:[ '_locale' => '%app.locales%' ])]
 class RecipeController extends AbstractController
@@ -99,8 +100,20 @@ class RecipeController extends AbstractController
     // Routes starting with a recipe's ID
 
     #[Route('/{id}', name: 'app_recipe_show', methods: ['GET'])]
-    public function show(Recipe $recipe): Response
+    public function show(Recipe $recipe, RecipeRepository $recipeRepository, SessionInterface $session): Response
     {
+        // Increment view count on Recipe if not already viewed within same session
+
+        /** @var int[] $viewedRecipes */
+        $viewedRecipes = $session->get('viewed_recipes', []);
+
+        if (!in_array($recipe->getId(), $viewedRecipes)) {
+            $recipe->addView();
+            $recipeRepository->add($recipe, true);
+            $viewedRecipes[] = $recipe->getId();
+            $session->set('viewed_recipes', $viewedRecipes);
+        }
+
         return $this->render('recipe/show.html.twig', [
             'recipe' => $recipe,
         ]);

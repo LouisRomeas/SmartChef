@@ -24,12 +24,12 @@ class AppExtension extends AbstractExtension
     {
         return [
             new TwigFilter('t', [$this->translationExtension, 'trans']),
-            new TwigFilter('format_score', [$this, 'formatScore']),
+            new TwigFilter('format_big_number', [$this, 'formatBigNumber']),
             new TwigFilter('format_date_auto', [$this, 'formatDate'], [ 'needs_environment' => true ]),
         ];
     }
 
-    public function formatScore(int $score) {
+    public function formatBigNumber(int $score) {
         $suffixes = ['', 'k', 'M', 'B'];
         $suffixPointer = 0;
         while ($score >= 1000 && $suffixPointer < count($suffixes)) {

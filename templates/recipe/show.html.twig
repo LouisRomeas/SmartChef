@@ -13,24 +13,31 @@
                 <i class="fa-solid fa-plate-wheat"></i>
                 <div class="portions">{{ recipe.portions }} {{ (recipe.portions > 1 ? 'entity.recipe.portions' : 'entity.recipe.portion') | t | lower }}</div>
             </div>
-            {% if app.user and app.user.isVerified %}
-                <div class="score-wrapper"
-                data-score-wrapper
-                data-vote-check-url="{{ path('app_vote_check', { recipe: recipe.id }) }}"
-                data-upvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 1 }) }}"
-                data-downvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 0 }) }}"
-                data-remove-vote-url="{{ path('app_vote_remove', { recipe: recipe.id }) }}"
-                >
-                    <div class="score">{{ recipe.score | format_score }}</div>
-                    <div class="voting-wrapper"></div>
+            <div class="top-right-wrapper">
+                <div class="views-wrapper">
+                    <div class="views">{{ recipe.views | format_big_number }}</div>
+                    <i class="fa-solid fa-eye"></i>
                 </div>
-                {{ encore_entry_script_tags('voting') }}
-            {% else %}
-                <div class="score-wrapper">
-                    <div class="score">{{ recipe.score | format_score }}</div>
-                    <span class="score-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></span>
-                </div>
-            {% endif %}
+                <div class="dot">·</div>
+                {% if app.user and app.user.isVerified %}
+                    <div class="score-wrapper"
+                    data-score-wrapper
+                    data-vote-check-url="{{ path('app_vote_check', { recipe: recipe.id }) }}"
+                    data-upvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 1 }) }}"
+                    data-downvote-url="{{ path('app_vote', { recipe: recipe.id, positive: 0 }) }}"
+                    data-remove-vote-url="{{ path('app_vote_remove', { recipe: recipe.id }) }}"
+                    >
+                        <div class="score">{{ recipe.score | format_big_number }}</div>
+                        <div class="voting-wrapper"></div>
+                    </div>
+                    {{ encore_entry_script_tags('voting') }}
+                {% else %}
+                    <div class="score-wrapper">
+                        <div class="score">{{ recipe.score | format_big_number }}</div>
+                        <span class="score-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></span>
+                    </div>
+                {% endif %}
+            </div>
         </aside>
         {% if recipe.imageUrl %}
             <div class="thumbnail-wrapper">
