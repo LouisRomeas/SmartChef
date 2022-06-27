@@ -3,6 +3,7 @@ user:
   login:
     login: Log-in
     logout: Log-out
+    resetPassword: Forgot password?
   registration:
     register: Register
     agreeTerms: I agree with the Terms and Conditions

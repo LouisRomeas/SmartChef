@@ -6,7 +6,7 @@
     <nav id="side-menu-nav">
       <a href="{{ path('app_search_builder') }}"><i class="fa-solid fa-magnifying-glass"></i>{{ 'form.searchForm.search_action' | t }}</a>
       {% if app.user %}
-        <a href=""><i class="fa-solid fa-user"></i>{{ 'user.myAccount' | t }}</a>
+        <a href="{{ path('app_account') }}"><i class="fa-solid fa-user"></i>{{ 'user.myAccount' | t }}</a>
         {% if is_granted('ROLE_EDITOR') %}
           <a href="{{ path('app_recipe_new') }}"><i class="fa-solid fa-pen-to-square"></i>{{ 'form.recipeForm.createNewRecipe' | t }}</a>
         {% endif %}

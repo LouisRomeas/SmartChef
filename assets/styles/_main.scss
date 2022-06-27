@@ -127,13 +127,14 @@ html {
         }
       }
   
-      input, select {
+      input, select, textarea {
         font-family: $font-main;
         font-weight: 600;
   
         &[type=text],
         &[type=password],
-        &[type=time] {
+        &[type=time],
+        &[type=email] {
           height: 2.5rem;
           background-color: $white;
           font-size: 1.125rem;

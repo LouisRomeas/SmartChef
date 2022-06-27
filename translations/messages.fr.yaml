@@ -3,6 +3,7 @@ user:
   login:
     login: Se connecter
     logout: Se déconnecter
+    resetPassword: Mot de passe oublié ?
   registration:
     register: S'inscrire
     agreeTerms: J'accepte les conditions d'utilisation
