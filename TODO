@@ -1,4 +1,3 @@
-* Add viewcount to recipes -> store in session pages visited during said session, so that you can't just refresh the page in loops
 * Format & style reset password pages, form & e-mail
 * Style report link on recipe show page
 * Style report form (and textarea as a tag in main.scss)

@@ -19,6 +19,15 @@ class SearchContainer {
       $formData['recipeIngredients'],
       $formData['portions'],
     );
+
+    /**
+     * @param Recipe $recipe1
+     * @param Recipe $recipe2
+     */
+    usort($recipes, function($recipe1, $recipe2) {
+      return $recipe2->getScore() <=> $recipe1->getScore();
+    });
+
     return $recipes;
   }
 }

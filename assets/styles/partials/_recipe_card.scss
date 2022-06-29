@@ -31,6 +31,7 @@
   }
 
   .img-wrapper {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,6 +44,24 @@
     background-position: center;
 
     border-radius: calc(0.5rem - 1px) 0 0 calc(0.5rem - 1px);
+
+    .views-wrapper {
+      color: mix($gray-green, $black, 75%);
+      position: absolute;
+      inset: auto auto 0.35em 0.35em;
+      display: flex;
+      align-items: center;
+      font-size: 0.75em;
+      background-color: change-color($color: $gray-green, $alpha: 0.25);
+      padding: 0.125em 0.25em;
+      border-radius: 0.25em;
+      font-weight: 700;
+
+      svg {
+        font-size: 0.85em;
+        margin-right: 0.125rem;
+      }
+    }
   }
 
   .details-wrapper {

@@ -91,7 +91,7 @@ class RecipeRepository extends ServiceEntityRepository
 
         $queryBuilder
             ->setParameter('allowedIngredients', $allowedIngredients)
-            ->orderBy('r.id', 'ASC')
+            ->orderBy('r.views', 'DESC')
             ->setMaxResults(10)
         ;
 

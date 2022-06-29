@@ -1,6 +1,11 @@
 <article class="recipe-card">
   <a href="{{ path('app_recipe_show', { id: recipe.id }) }}" class="card-link"></a>
-  <div class="img-wrapper" style="--background-image-url: url('{{ recipe.imageUrl ? asset('upload/' ~ recipe.imageUrl) : asset('img/recipe_placeholder.svg') }}');"></div>
+  <div class="img-wrapper" style="--background-image-url: url('{{ recipe.imageUrl ? asset('upload/' ~ recipe.imageUrl) : asset('img/recipe_placeholder.svg') }}');">
+    <div class="views-wrapper">
+      <i class="fa-solid fa-eye"></i>
+      <div class="views">{{ recipe.views | format_big_number }}</div>
+    </div>
+  </div>
   <div class="details-wrapper">
     <h4>{{ recipe.title }}</h4>
     <div class="author-wrapper">

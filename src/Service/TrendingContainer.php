@@ -29,7 +29,16 @@ class TrendingContainer {
 
     /** @param Recipe $recipe1
      *  @param Recipe $recipe2 */
-    usort($recipes, fn($recipe1, $recipe2) => $recipe2->getScore() <=> $recipe1->getScore());
+    usort($recipes, function($recipe1, $recipe2) {
+      $scoreComparison = $recipe2->getScore() <=> $recipe1->getScore();
+      if ($scoreComparison !== 0) return $scoreComparison;
+
+      $viewsComparison = $recipe2->getViews() <=> $recipe1->getViews();
+      if ($viewsComparison !== 0) return $viewsComparison;
+
+      
+      return 0;
+    });
 
     return $recipes;
   }
