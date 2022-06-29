@@ -11,7 +11,11 @@
             </div>
             <div class="portions-wrapper">
                 <i class="fa-solid fa-plate-wheat"></i>
-                <div class="portions">{{ recipe.portions }} {{ (recipe.portions > 1 ? 'entity.recipe.portions' : 'entity.recipe.portion') | t | lower }}</div>
+                {% if app.user and app.user.isVerified %}
+                    <div class="portions">{{ recipe.portions }}{{ 'entity.recipe.portionAbbr' | t | lower }}</div>
+                {% else %}
+                    <div class="portions">{{ recipe.portions }} {{ (recipe.portions > 1 ? 'entity.recipe.portions' : 'entity.recipe.portion') | t | lower }}</div>
+                {% endif %}
             </div>
             <div class="top-right-wrapper">
                 <div class="views-wrapper">

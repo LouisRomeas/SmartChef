@@ -69,6 +69,7 @@ entity:
     author: Author
     portions: Portions
     portion: Portion
+    portionAbbr: p
     thumbnail: Thumbnail
   recipeIngredient:
     _singular: Recipe ingredient
