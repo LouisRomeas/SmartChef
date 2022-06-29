@@ -1,5 +1,6 @@
 * Format & style reset password pages, form & e-mail
 * Check situations where user is logged in but not an editor (unable to write a recipe for example)
+* Check situations where user is logged in but not yet verified (unable to vote for example)
 
 
 LATER:
