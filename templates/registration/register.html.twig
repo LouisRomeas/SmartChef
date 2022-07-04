@@ -16,12 +16,11 @@
                 placeholder: 'entity.user.email'
             }
         }) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'entity.user.password',
-            attr: {
-                placeholder: 'entity.user.password'
-            }
-        }) }}
+
+        <fieldset>
+            {{ form_row(registrationForm.plainPassword) }}
+        </fieldset>
+
         {{ form_row(registrationForm.nickname, {
             label: 'entity.user.nickname',
             attr: {

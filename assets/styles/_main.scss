@@ -92,6 +92,15 @@ html {
           }
         }
       }
+
+      fieldset {
+        display: flex;
+        flex-direction: column;
+
+        border-radius: 1em;
+        border: 2px solid $gray-green;
+        margin: 0.5em 0;
+      }
   
       .autocomplete-container {
         background-color: $beige;

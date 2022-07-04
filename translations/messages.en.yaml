@@ -92,6 +92,7 @@ entity:
     _singular: User
     _plural: Users
     password: Password
+    repeatPassword: Repeat password
     nickname: Nickname
     isVerified: Verified
     roles: Roles
