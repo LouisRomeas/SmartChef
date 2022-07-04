@@ -26,7 +26,7 @@ html {
           max-width: 1200px;
           margin: 0 auto;
           padding: 1rem;
-          box-shadow: 0 0 calc( (100vw - 1232px) / 2 )  scale-color($color: black, $alpha: -50%);
+          box-shadow: 0 0 min( (100vw - 1232px) / 2, #{$bp-desktop})  scale-color($color: black, $alpha: -50%);
         }
       }
   
