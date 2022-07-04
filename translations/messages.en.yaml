@@ -13,6 +13,10 @@ pages:
 
 headings:
   trendingRecipes: Trending recipes
+  welcome: Welcome to SmartChef!
+
+text:
+  websiteDescription: An automated guide to help you find recipes with what you have on hand.
 
 form:
   save: Save
@@ -28,6 +32,7 @@ form:
     search: Search
     search_action: Search
     searchResults: Search results
+    results: Results
 
 messages:
   user:

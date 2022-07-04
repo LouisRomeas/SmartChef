@@ -11,9 +11,12 @@
 <hr>
 
 <section id="recipes">
-  {% for recipe in recipes %}
-    {% include "_partials/_recipe_card.html.twig" %}
-  {% else %}
+  <h2 class="heading">{{ recipes|length }} {{ 'form.searchForm.results' | t | lower }}</h2>
+  <div class="recipes-list">
+    {% for recipe in recipes %}
+      {% include "_partials/_recipe_card.html.twig" %}
+    {% else %}
+  </div>
 </section>
   <div class="no-recipe-found">{{ 'messages.recipe.search.noRecipeFound' | t }}</div>  
 {% endfor %}

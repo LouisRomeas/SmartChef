@@ -1,19 +1,29 @@
 html body {
   section#recipes {
-    display: grid; 
-    grid-auto-rows: 1fr; 
-    grid-template-columns: 1fr;
-    gap: 0px 0px; 
-    justify-content: center; 
-    justify-items: center; 
-    align-items: center; 
-    
-    @media screen and (min-width: $bp-large) {
-      grid-template-columns: 1fr 1fr;
+
+    .heading {
+      margin: 0 0 0.5em;
+      color: $gray-green;
+      font-weight: 600;
+      font-size: 1.25rem;
     }
 
-    @media screen and (min-width: $bp-extra-large) {
-      grid-template-columns: 1fr 1fr 1fr;
+    .recipes-list {
+      display: grid; 
+      grid-auto-rows: 1fr; 
+      grid-template-columns: 1fr;
+      gap: 0px 0px; 
+      justify-content: center; 
+      justify-items: center; 
+      align-items: center; 
+      
+      @media screen and (min-width: $bp-large) {
+        grid-template-columns: 1fr 1fr;
+      }
+  
+      @media screen and (min-width: $bp-extra-large) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
     }
   }
 }

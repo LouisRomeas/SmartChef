@@ -4,11 +4,17 @@
 
 {% block body %}
 <section id="homepage">
-    <div id="home-cta-buttons">
-        <a href="{{ path('app_search_builder') }}" class="button">{{ 'messages.recipe.search.tellUsFridge' | t }}</a>
-        <a href="{{ path('app_recipe_new') }}" class="button">{{ (is_granted('ROLE_EDITOR') ? 'messages.recipe.write.writeRecipe' : 'messages.recipe.write.loginToWriteRecipe') | t }}</a>
+    <div class="heading-wrapper">
+        <h2 class="welcome-heading">{{ 'headings.welcome' | t }}</h2>
+        <strong class="subheading">{{ 'text.websiteDescription' | t }}</strong>
     </div>
-    <hr class="hide-on-large">
-    {% include "_partials/_trending_recipes.html.twig" %}
+    <div class="divided-section">
+        <div id="home-cta-buttons">
+            <a href="{{ path('app_search_builder') }}" class="button">{{ 'messages.recipe.search.tellUsFridge' | t }}</a>
+            <a href="{{ path('app_recipe_new') }}" class="button">{{ (is_granted('ROLE_EDITOR') ? 'messages.recipe.write.writeRecipe' : 'messages.recipe.write.loginToWriteRecipe') | t }}</a>
+        </div>
+        <hr class="hide-on-large">
+        {% include "_partials/_trending_recipes.html.twig" %}
+    </div>
 </section>
 {% endblock %}
