@@ -1,8 +1,8 @@
-* Format & style reset password pages, form & e-mail
+* Format & style reset password pages, form & e-mail (!!NO STYLE ON E-MAIL AS GMAIL DOESN'T CARE ABOUT STYLE TAGS)
 * Check situations where user is logged in but not an editor (unable to write a recipe for example)
 * Check situations where user is logged in but not yet verified (unable to vote for example)
 
 
 LATER:
 * Add footer
-* Format & style verification e-mail
+* Format verification e-mail
