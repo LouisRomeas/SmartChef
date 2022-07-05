@@ -30,7 +30,7 @@
       <div class="dot">·</div>
       <div class="duration-wrapper">
         <i class="fa-solid fa-clock"></i>
-        <span class="duration">{{ recipe.duration|date("H\\hi\\m") }}</span>
+        <span class="duration">{{ recipe.duration|format_duration }}</span>
       </div>
     </div>
   </div>

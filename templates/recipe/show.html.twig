@@ -1,5 +1,22 @@
 {% extends 'base.html.twig' %}
 
+{# Building meta description for SEO #}
+{% set metaDescription = '%d %s · %s: %s · %s: '|format(
+    recipe.portions,
+    (recipe.portions > 1 ? 'entity.recipe.portions' : 'entity.recipe.portion') | t | lower,
+    'entity.recipe.duration' | t,
+    recipe.duration|format_duration,
+    'entity.ingredient._plural' | t
+) %}
+{% for recipeIngredient in recipe.recipeIngredients %}
+    {% set metaDescription = metaDescription ~ recipeIngredient %}
+    {% set metaDescription = metaDescription ~ ( loop.last ? '.' : ', ' ) %}
+{% endfor %}
+
+{% block meta_description %}
+<meta name="description" content="{{ metaDescription }}">
+{% endblock %}
+
 {% block title %}“{{ recipe.title }}”{% endblock %}
 
 {% block body %}
@@ -7,7 +24,7 @@
         <aside class="recipe-top">
             <div class="duration-wrapper">
                 <i class="fa-solid fa-clock"></i>
-                <div class="duration">{{ recipe.duration|date("H\\hi\\m") }}</div>
+                <div class="duration">{{ recipe.duration|format_duration }}</div>
             </div>
             <div class="portions-wrapper">
                 <i class="fa-solid fa-plate-wheat"></i>

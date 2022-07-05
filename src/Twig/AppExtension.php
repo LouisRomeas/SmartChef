@@ -26,6 +26,7 @@ class AppExtension extends AbstractExtension
             new TwigFilter('t', [$this->translationExtension, 'trans']),
             new TwigFilter('format_big_number', [$this, 'formatBigNumber']),
             new TwigFilter('format_date_auto', [$this, 'formatDate'], [ 'needs_environment' => true ]),
+            new TwigFilter('format_duration', [$this, 'formatDuration'], [ 'needs_environment' => true ]),
         ];
     }
 
@@ -53,5 +54,18 @@ class AppExtension extends AbstractExtension
         $datetimeString = twig_date_format_filter($environment, $datetime, $format, $timezone);
 
         return $datetimeString;
+    }
+
+    public function formatDuration(
+        Environment $environment,
+        DateTimeInterface $duration
+    ) {
+        $smallerThanAnHour = ( $duration->format('G') == '0' );
+        $format = $smallerThanAnHour ? "i\m\i\\n" : "H\hi\m";
+
+
+        $datetimeString = twig_date_format_filter($environment, $duration, $format);
+
+        return preg_replace("/^0+/", '', $datetimeString);
     }
 }
