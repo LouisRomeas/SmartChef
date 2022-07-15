@@ -1,0 +1,68 @@
+footer#bottom-footer {
+  position: relative;
+  z-index: 1;
+  background-color: $black;
+  color: $white;
+  font-weight: normal;
+
+  .footer-container {
+    margin: auto;
+    max-width: $container-size;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    section.info {
+      a {
+        &:hover {
+          figure.author-logo {
+            svg {
+              color: $blue;
+            }
+          }
+        }
+
+        figure.author-logo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          margin: 0;
+  
+          svg {
+            fill: currentColor;
+            color: $beige;
+            max-width: min(75%, #{$bp-desktop / 2});
+            height: auto;
+            transition: all 200ms;
+          }
+  
+          figcaption {
+            font-size: 0.75rem;
+            opacity: 0.75;
+          }
+        }
+      }
+    }
+
+    hr {
+      border-color: mix($gray-green, $bright-green);
+    }
+
+    section.links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      a {
+        opacity: 0.75;
+        transition: all 200ms;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

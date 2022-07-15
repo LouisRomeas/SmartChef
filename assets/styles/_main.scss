@@ -23,7 +23,7 @@ html {
         margin: 0 0.5rem;
         padding-top: 0.5rem;
         @media screen and (min-width: $bp-desktop) {
-          max-width: 1200px;
+          max-width: $container-size;
           margin: 0 auto;
           padding: 1rem;
           box-shadow: 0 0 min( (100vw - 1232px) / 2, #{$bp-desktop})  scale-color($color: black, $alpha: -50%);

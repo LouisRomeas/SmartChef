@@ -15,6 +15,11 @@ headings:
   trendingRecipes: Tendances du moment
   welcome: Bienvenue sur SmartChef !
 
+footer:
+  sitemap: Plan du site
+  credits: Ce site est l'œuvre de Louis Roméas. Pour voir mes autres projets, cliquez ici.
+  contact: Contact
+
 text:
   websiteDescription: Un guide automatique pour vous aider à trouver des recettes avec ce que vous avez sous la main
 

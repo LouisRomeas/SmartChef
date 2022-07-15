@@ -15,6 +15,11 @@ headings:
   trendingRecipes: Trending recipes
   welcome: Welcome to SmartChef!
 
+footer:
+  sitemap: Sitemap
+  credits: This website is signed by Louis Roméas. To check out my other projects, click here.
+  contact: Contact
+
 text:
   websiteDescription: An automated guide to help you find recipes with what you have on hand.
 
