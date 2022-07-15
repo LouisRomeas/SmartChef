@@ -11,7 +11,13 @@
     <div class="divided-section">
         <div id="home-cta-buttons">
             <a href="{{ path('app_search_builder') }}" class="button">{{ 'messages.recipe.search.tellUsFridge' | t }}</a>
-            <a href="{{ path('app_recipe_new') }}" class="button">{{ (is_granted('ROLE_EDITOR') ? 'messages.recipe.write.writeRecipe' : 'messages.recipe.write.loginToWriteRecipe') | t }}</a>
+            {% if not app.user or is_granted('ROLE_EDITOR') %}
+                <a href="{{ path('app_recipe_new') }}" class="button">{{ (is_granted('ROLE_EDITOR') ? 'messages.recipe.write.writeRecipe' : 'messages.recipe.write.loginToWriteRecipe') | t }}</a>
+            {% elseif app.user.isVerified %}
+                <a href="mailto:{{ get_env('admin_mail') }}" class="button">{{ 'messages.user.contact.askBeEditor' | t }}</a>
+            {% else %}
+                <a href="javascript:void(0)" class="button">{{ 'messages.user.errors.notVerified' | t }}</a>
+            {% endif %}
         </div>
         <hr class="hide-on-large">
         {% include "_partials/_trending_recipes.html.twig" %}

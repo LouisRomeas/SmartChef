@@ -27,10 +27,16 @@ class RecipeController extends AbstractController
         ]);
     }
 
-    #[IsGranted('ROLE_EDITOR')]
     #[Route('/new', name: 'app_recipe_new', methods: ['GET', 'POST'])]
     public function new(Request $request, RecipeRepository $recipeRepository, SluggerInterface $slugger): Response
     {
+
+        if (!$this->isGranted('ROLE_EDITOR')) {
+            return new Response($this->renderView('errors/forbidden.html.twig', [
+                'role_needed' => 'admin.roles.editor'
+            ]), 403);
+        }
+
         $recipe = new Recipe();
         $form = $this->createForm(RecipeType::class, $recipe);
         $form->handleRequest($request);

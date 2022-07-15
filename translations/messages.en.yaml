@@ -39,6 +39,10 @@ messages:
     registration:
       passwordBlank: Please enter a password.
       agreeTerms: You need to agree to our Terms and Conditions.
+    contact:
+      askBeEditor: Ask to be an editor
+    errors:
+      notVerified: Please verify your e-mail address.
   recipe:
     search:
       tellUsFridge: Tell us what's in your fridge...
@@ -46,6 +50,10 @@ messages:
     write:
       writeRecipe: Write a recipe
       loginToWriteRecipe: Log--in to write a recipe
+  errors:
+    forbidden:
+      title: Access denied
+      message: Access to this page was denied, as you are not a %role_needed%.
 
 action:
   report: Report
@@ -111,3 +119,7 @@ admin:
   backToFront: Back to front
   moderation: Moderation
   backOffice: Back-office
+  roles:
+    admin: Admin
+    editor: Editor
+    user: User

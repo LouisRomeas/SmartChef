@@ -39,6 +39,10 @@ messages:
     registration:
       passwordBlank: Veuillez entrer un mot de passe.
       agreeTerms: Vous devez accepter les conditions d'utilisation.
+    contact:
+      askBeEditor: Demander à devenir éditeur
+    errors:
+      notVerified: Veuillez vérifier votre adresse e-mail.
   recipe:
     search:
       tellUsFridge: Dites-nous ce qui se trouve dans votre frigo...
@@ -46,6 +50,10 @@ messages:
     write:
       writeRecipe: Écrire une recette
       loginToWriteRecipe: Connectez-vous pour écrire une recette
+  errors:
+    forbidden:
+      title: Accès interdit
+      message: L'accès à cette page est interdit, car vous n'êtes pas %role_needed%.
 
 action:
   report: Signaler
@@ -101,7 +109,7 @@ entity:
     repeatPassword: Répétez le mot de passe
     nickname: Pseudo
     isVerified: Vérifié
-    roles: Roles
+    roles: Rôles
   vote:
     _singular: Vote
     _plural: Votes
@@ -113,3 +121,7 @@ admin:
   backToFront: Retour en façade
   moderation: Modération
   backOffice: Arrière-boutique
+  roles:
+    admin: Administrateur
+    editor: Éditeur
+    user: Utilisateur

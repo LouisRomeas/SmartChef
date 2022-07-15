@@ -6,6 +6,7 @@ use DateTime;
 use Twig\TwigFilter;
 use Twig\Environment;
 use DateTimeInterface;
+use Twig\TwigFunction;
 use Twig\Extra\Intl\IntlExtension;
 use Twig\Extension\AbstractExtension;
 use Symfony\Bridge\Twig\Extension\TranslationExtension;
@@ -27,6 +28,13 @@ class AppExtension extends AbstractExtension
             new TwigFilter('format_big_number', [$this, 'formatBigNumber']),
             new TwigFilter('format_date_auto', [$this, 'formatDate'], [ 'needs_environment' => true ]),
             new TwigFilter('format_duration', [$this, 'formatDuration'], [ 'needs_environment' => true ]),
+        ];
+    }
+
+    public function getFunctions()
+    {
+        return [
+            new TwigFunction('get_env', [$this, 'getEnvironmentVariable']),
         ];
     }
 
@@ -67,5 +75,10 @@ class AppExtension extends AbstractExtension
         $datetimeString = twig_date_format_filter($environment, $duration, $format);
 
         return preg_replace("/^0+/", '', $datetimeString);
+    }
+
+    public function getEnvironmentVariable($varname)
+    {
+        return $_ENV[$varname];
     }
 }

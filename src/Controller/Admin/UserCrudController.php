@@ -32,8 +32,9 @@ class UserCrudController extends AbstractCrudController
         yield TextField::new('nickname', 'entity.user.nickname');
         yield BooleanField::new('isVerified', 'entity.user.isVerified');
         yield ChoiceField::new('roles', 'entity.user.roles')->allowMultipleChoices()->setChoices([
-            'Admin' => 'ROLE_ADMIN',
-            'Editor' => 'ROLE_EDITOR'
+            'admin.roles.admin' => 'ROLE_ADMIN',
+            'admin.roles.editor' => 'ROLE_EDITOR',
+            'admin.roles.user' => 'ROLE_USER'
         ]);
     }
 }

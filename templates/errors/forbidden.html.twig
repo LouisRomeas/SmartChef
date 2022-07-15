@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'messages.errors.forbidden.title' | t }}{% endblock %}
+
+{% block body %}
+    <section id="forbidden">
+      <h1>{{ 'messages.errors.forbidden.title' | t }}</h1>
+      <p>{{ 'messages.errors.forbidden.message' | t({ '%role_needed%': role_needed|default('admin.roles.user')|t|lower }) }}</p>
+    </section>
+{% endblock %}
