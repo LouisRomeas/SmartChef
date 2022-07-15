@@ -1,5 +1,6 @@
 * Format, translate & style reset password pages, form & e-mail (!!NO STYLE ON E-MAIL AS GMAIL DOESN'T CARE ABOUT STYLE TAGS)
 * Account page
+* Clean recipe crud (remove listing page etc.)
 
 LATER:
 * Add footer (with link to sitemap.xml)
