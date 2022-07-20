@@ -6,11 +6,15 @@ html {
   }
 
   body {
+    min-height: 100vh;
     margin: 0;
     background-color: $white;
     color: $black;
     font-family: $font-main;
     font-weight: 600;
+    
+    display: flex;
+    flex-direction: column;
 
     > *:not(.sf-toolbar), 
     > {
@@ -20,13 +24,23 @@ html {
       }
   
       #container {
-        margin: 0 0.5rem;
-        padding-top: 0.5rem;
+        $margin-sides: 0.5rem;
+        $padding: 0.5rem;
+
+        width: calc(100% - #{$padding * 4});
+        align-self: center;
+        margin: 0 $margin-sides;
+        padding-top: $padding;
+        
         @media screen and (min-width: $bp-desktop) {
           max-width: $container-size;
-          margin: 0 auto;
-          padding: 1rem;
-          box-shadow: 0 0 min( (100vw - 1232px) / 2, #{$bp-desktop})  scale-color($color: black, $alpha: -50%);
+          margin: 0;
+          padding: #{$padding * 2};
+          box-shadow: 0 0 4rem scale-color($color: black, $alpha: -50%);
+        }
+
+        @media screen and (min-width: #{$container-size + 32px}) {
+          width: 100%;
         }
       }
   
