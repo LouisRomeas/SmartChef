@@ -3,7 +3,8 @@ user:
   login:
     login: Log-in
     logout: Log-out
-    resetPassword: Forgot password?
+    forgotPassword: Forgot password?
+    resetPassword: Reset your password
   registration:
     register: Register
     agreeTerms: I agree with the Terms and Conditions
@@ -38,6 +39,15 @@ form:
     search_action: Search
     searchResults: Search results
     results: Results
+  resetPasswordForm:
+    willSendYouLink: Enter your email address and we will send you a link to reset your password.
+    sendEmail: Send password reset e-mail
+    checkEmail: If an account matching your email exists, an email containing the link to reset your password has been sent to you. This link expires in %expiration_delay%.
+    ifNotReceived: If you don't receive an email please check your spam folder or try again.
+    clickLinkToReset: "To reset your password, please visit the following link:"
+    linkExpiration: This link expires in %expiration_delay%.
+    newPassword: New password
+    repeatPassword: Repeat password
 
 messages:
   user:
@@ -46,6 +56,7 @@ messages:
       agreeTerms: You need to agree to our Terms and Conditions.
     contact:
       askBeEditor: Ask to be an editor
+      helloUser: Hello %username%
     errors:
       notVerified: Please verify your e-mail address.
   recipe:

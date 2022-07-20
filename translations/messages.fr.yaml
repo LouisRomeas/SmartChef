@@ -3,7 +3,8 @@ user:
   login:
     login: Se connecter
     logout: Se déconnecter
-    resetPassword: Mot de passe oublié ?
+    forgotPassword: Mot de passe oublié ?
+    resetPassword: Réinitialiser votre mot de passe
   registration:
     register: S'inscrire
     agreeTerms: J'accepte les conditions d'utilisation
@@ -38,6 +39,15 @@ form:
     search_action: Rechercher
     searchResults: Résultats de la recherche
     results: Résultats
+  resetPasswordForm:
+    willSendYouLink: Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.
+    sendEmail: Envoyer l'e-mail
+    checkEmail: Si un compte correspond à votre adresse e-mail, un e-mail contenant le lien de réinitialisation de mot de passe vous a été envoyé. Ce lien expire dans %expiration_delay%.
+    ifNotReceived: Si vous ne recevez pas d'e-mail, vérifiez votre dossier spam ou réessayez.
+    clickLinkToReset: "Pour réinitialiser votre mot de passe, cliquez sur le lien ci-dessous :"
+    linkExpiration: Ce lien expire dans %expiration_delay%.
+    newPassword: Nouveau mot de passe
+    repeatPassword: Répétez le mot de passe
 
 messages:
   user:
@@ -46,6 +56,7 @@ messages:
       agreeTerms: Vous devez accepter les conditions d'utilisation.
     contact:
       askBeEditor: Demander à devenir éditeur
+      helloUser: Bonjour %username%
     errors:
       notVerified: Veuillez vérifier votre adresse e-mail.
   recipe:
