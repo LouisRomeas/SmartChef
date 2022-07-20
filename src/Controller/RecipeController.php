@@ -19,14 +19,6 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 #[Route('{_locale}/recipe', requirements:[ '_locale' => '%app.locales%' ])]
 class RecipeController extends AbstractController
 {
-    #[Route('/', name: 'app_recipe_index', methods: ['GET'])]
-    public function index(RecipeRepository $recipeRepository): Response
-    {
-        return $this->render('recipe/index.html.twig', [
-            'recipes' => $recipeRepository->findAll(),
-        ]);
-    }
-
     #[Route('/new', name: 'app_recipe_new', methods: ['GET', 'POST'])]
     public function new(Request $request, RecipeRepository $recipeRepository, SluggerInterface $slugger): Response
     {
