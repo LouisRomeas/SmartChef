@@ -43,10 +43,6 @@
                             'data-unit': subForm.vars.data.ingredient.unit
                         }
                     }) }}
-                {% else %}
-                    {{ form_row(form.recipeIngredients, {
-                        label: false
-                    }) }}
                 {% endfor %}
             </div>
             {{ encore_entry_script_tags('recipeIngredientsForm') }}
