@@ -29,12 +29,12 @@ html {
 
         width: calc(100% - #{$padding * 4});
         align-self: center;
-        margin: 0 $margin-sides 1rem;
-        padding-top: $padding;
+        margin: 0 $margin-sides;
+        padding: $padding 0;
         
         @media screen and (min-width: $bp-desktop) {
           max-width: $container-size;
-          margin: 0 0 1rem;
+          margin: 0;
           padding: #{$padding * 2};
           box-shadow: 0 0 4rem scale-color($color: black, $alpha: -50%);
         }
