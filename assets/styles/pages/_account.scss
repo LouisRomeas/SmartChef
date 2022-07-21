@@ -1,0 +1,29 @@
+section#my-account {
+  h1 {
+    margin-bottom: 0;
+  }
+
+  .username-title {
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  .roles-title {
+    margin: 0.5em 0 0;
+  }
+
+  ul.roles {
+    margin-top: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      background-color: $bright-green;
+      padding: 0.25em 0.5em;
+      margin: 0.25em;
+      border-radius: 0.5em;
+    }
+  }
+}

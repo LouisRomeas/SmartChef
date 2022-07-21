@@ -23,6 +23,7 @@ footer:
 
 text:
   websiteDescription: An automated guide to help you find recipes with what you have on hand.
+  passwordChangeWarningEmail: "Your password has just been modified. If you didn't make this request, please contact an administrator by responding to this e-mail, or at this address:"
 
 form:
   save: Save
@@ -48,6 +49,10 @@ form:
     linkExpiration: This link expires in %expiration_delay%.
     newPassword: New password
     repeatPassword: Repeat password
+  passwordChangeForm:
+    changePassword: Change password
+    currentPassword: Current password
+    passwordChanged: Your password has been modified
 
 messages:
   user:
@@ -59,6 +64,7 @@ messages:
       helloUser: Hello %username%
     errors:
       notVerified: Please verify your e-mail address.
+      currentPasswordIncorrect: Your current password is incorrect.
   recipe:
     search:
       tellUsFridge: Tell us what's in your fridge...
