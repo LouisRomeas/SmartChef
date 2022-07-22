@@ -21,11 +21,11 @@ class Report
     private $reason;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'reports')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $user;
 
     #[ORM\ManyToOne(targetEntity: Recipe::class, inversedBy: 'reports')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $recipe;
 
     public function __toString()

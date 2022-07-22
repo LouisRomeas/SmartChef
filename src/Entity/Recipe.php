@@ -28,14 +28,14 @@ class Recipe
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'recipes')]
     #[ORM\JoinColumn(nullable: false)]
     private $author;
-
+    
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Vote::class, orphanRemoval: true)]
     private $votes;
-
+    
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Report::class, orphanRemoval: true)]
     private $reports;
-
-    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: RecipeIngredient::class, cascade: ['persist'])]
+    
+    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: RecipeIngredient::class, orphanRemoval: true)]
     private $recipeIngredients;
 
     #[ORM\Column(type: 'integer')]

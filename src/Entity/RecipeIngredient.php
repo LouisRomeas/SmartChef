@@ -24,7 +24,7 @@ class RecipeIngredient
     private $ingredient;
 
     #[ORM\ManyToOne(targetEntity: Recipe::class, inversedBy: 'recipeIngredients')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $recipe;
 
     public function __toString()

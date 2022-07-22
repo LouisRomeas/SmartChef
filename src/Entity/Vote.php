@@ -17,11 +17,11 @@ class Vote
     private $isPositive;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'votes')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $user;
 
     #[ORM\ManyToOne(targetEntity: Recipe::class, inversedBy: 'votes')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $recipe;
 
     public function __toString()
