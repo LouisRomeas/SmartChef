@@ -62,7 +62,7 @@
         </aside>
         {% if recipe.imageUrl %}
             <div class="thumbnail-wrapper">
-                <img src="{{ asset( 'upload/' ~ recipe.imageUrl) }}" alt="{{ 'entity.recipe.thumbnail' | t }} - {{ recipe.title }}">
+                <img src="{{ asset( 'upload/recipe/' ~ recipe.imageUrl) }}" alt="{{ 'entity.recipe.thumbnail' | t }} - {{ recipe.title }}">
             </div>
         {% endif %}
 
