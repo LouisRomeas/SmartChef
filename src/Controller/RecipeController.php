@@ -71,6 +71,7 @@ class RecipeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $recipe->setAuthor($this->getUser());
+            $recipe->setSlug( $this->slugger->slug($recipe->getId() . " " . strtolower($recipe->getTitle())) );
 
             /** @var UploadedFile $imageFile */
             $imageFile = $form->get('imageUrl')->getData();
@@ -114,7 +115,7 @@ class RecipeController extends AbstractController
 
     // Routes starting with a recipe's ID
 
-    #[Route('/{id}', name: 'app_recipe_show', methods: ['GET'])]
+    #[Route('/{slug}', name: 'app_recipe_show', methods: ['GET'])]
     public function show(Recipe $recipe, RecipeRepository $recipeRepository, SessionInterface $session): Response
     {
         // Increment view count on Recipe if not already viewed within same session

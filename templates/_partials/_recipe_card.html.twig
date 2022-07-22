@@ -1,5 +1,5 @@
 <article class="recipe-card">
-  <a href="{{ path('app_recipe_show', { id: recipe.id }) }}" class="card-link"></a>
+  <a href="{{ path('app_recipe_show', { slug: recipe.slug }) }}" class="card-link"></a>
   <div class="img-wrapper" style="--background-image-url: url('{{ recipe.imageUrl ? asset('upload/recipe/' ~ recipe.imageUrl) : asset('img/recipe_placeholder.svg') }}');">
     <div class="views-wrapper">
       <i class="fa-solid fa-eye"></i>

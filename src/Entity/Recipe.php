@@ -50,6 +50,9 @@ class Recipe
     #[ORM\Column(type: 'integer')]
     private $views;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $slug;
+
     public function __construct()
     {
         if ($this->getCreatedAt() === null) $this->setCreatedAt(new \DateTimeImmutable());
@@ -271,6 +274,18 @@ class Recipe
     public function addView(): self
     {
         $this->views++;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
