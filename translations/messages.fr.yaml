@@ -23,7 +23,7 @@ footer:
 
 text:
   websiteDescription: Un guide automatique pour vous aider à trouver des recettes avec ce que vous avez sous la main
-  passwordChangeWarningEmail: "Votre mot de passe vient d'être modifié. Si vous n'êtes pas à l'origine de cette demande, veuillez contacter un administateur en répondant à cet e-mail, ou à cette adresse :"
+  passwordChangeWarningEmail: "Votre mot de passe vient d'être modifié. Si vous n'êtes pas à l'origine de cette demande, veuillez contacter un·e administateur·rice en répondant à cet e-mail, ou à cette adresse :"
 
 form:
   save: Enregistrer
@@ -34,7 +34,7 @@ form:
     createNewRecipe: Créer une nouvelle recette
     editRecipe: Éditer la recette
     addIngredient: Ajouter un ingrédient...
-    confirmRemove: Êtes-vous sûr de vouloir supprimer cette recette ?
+    confirmRemove: Êtes-vous sûr·e de vouloir supprimer cette recette ?
   searchForm:
     search: Recherche
     search_action: Rechercher
@@ -64,7 +64,7 @@ messages:
         linkExpiration: Ce lien expire dans %expiration_delay%.
         confirm: Vérifier mon adresse e-mail
     contact:
-      askBeEditor: Demander à devenir éditeur
+      askBeEditor: Demander à devenir éditeur·rice
       helloUser: Bonjour %username%
     errors:
       notVerified: Veuillez vérifier votre adresse e-mail.
@@ -101,7 +101,7 @@ entity:
     title: Titre
     body: Contenu de la recette
     duration: Durée
-    author: Auteur
+    author: Auteur·rice
     portions: Portions
     portion: Portion
     portionAbbr: p
@@ -124,13 +124,13 @@ entity:
     _plural: Unités de mesure
     name: Nom
   user:
-    _singular: Utilisateur
-    _plural: Utilisateurs
+    _singular: Utilisateur·rice
+    _plural: Utilisateur·rice·s
     email: E-mail
     password: Mot de passe
     repeatPassword: Répétez le mot de passe
     nickname: Pseudo
-    isVerified: Vérifié
+    isVerified: Vérifié·e
     roles: Rôles
   vote:
     _singular: Vote
@@ -144,8 +144,8 @@ admin:
   moderation: Modération
   backOffice: Arrière-boutique
   roles:
-    admin: Administrateur
-    editor: Éditeur
-    user: Utilisateur
-    maintainer: Mainteneur
-    moderator: Modérateur
+    admin: Administrateur·rice
+    editor: Éditeur·rice
+    user: Utilisateur·rice
+    maintainer: Mainteneur·euse
+    moderator: Modérateur·rice
