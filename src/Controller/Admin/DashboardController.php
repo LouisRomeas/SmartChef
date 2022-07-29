@@ -21,12 +21,20 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
-    #[IsGranted('ROLE_ADMIN')]
-    #[IsGranted('ROLE_MAINTAINER')]
-    #[IsGranted('ROLE_MODERATOR')]
+    public function __construct(private TranslatorInterface $translator)
+    {
+        
+    }
+
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
+        if (!(
+            $this->isGranted('ROLE_ADMIN') ||
+            $this->isGranted('ROLE_MAINTAINER') ||
+            $this->isGranted('ROLE_MODERATOR')
+        )) throw $this->createAccessDeniedException();
+
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
@@ -44,10 +52,26 @@ class DashboardController extends AbstractDashboardController
         // return $this->render('some/path/my-dashboard.html.twig');
     }
 
+    // Set top left title to correspond top role user may have
     public function configureDashboard(): Dashboard
     {
+        $title = 'SmartChef';
+
+        function getTranslationKeyFromRole(string $role): string {
+            return 'admin.roles.' . strtolower(preg_replace("/^ROLE_([A-Za-z]+)$/", "$1", $role));
+        }
+
+        foreach ([
+            'ROLE_ADMIN',
+            'ROLE_MODERATOR',
+            'ROLE_MAINTAINER'
+        ] as $role) {
+            if ($this->isGranted($role)) $title = getTranslationKeyFromRole($role);
+            break;
+        }
+
         return Dashboard::new()
-            ->setTitle('SmartChef');
+            ->setTitle($this->translator->trans($title));
     }
 
     public function configureMenuItems(): iterable
