@@ -82,7 +82,7 @@ class RegistrationController extends AbstractController
             (new TemplatedEmail())
                 ->from(new Address($_ENV['admin_mail'], 'SmartChef'))
                 ->to($user->getEmail())
-                ->subject($this->translator->trans('mail.confirmEmail._subject'))
+                ->subject($this->translator->trans('messages.user.registration.confirmation.title'))
                 ->htmlTemplate('registration/confirmation_email.html.twig')
         );
 

@@ -4,4 +4,4 @@
 
 <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
 
-<p>{{ 'form.resetPasswordForm.linkExpiration' | t({ '%expiration_delay%': resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }) }}</p>
+<p>{{ 'messages.user.registration.confirmation.linkExpiration' | t({ '%expiration_delay%': resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }) }}</p>

@@ -1,11 +1,5 @@
-<h1>Hi! Please confirm your email!</h1>
+<h1>{{ 'messages.user.registration.confirmation.title' | t }}</h1>
 
-<p>
-    Please confirm your email address by clicking the following link: <br><br>
-    <a href="{{ signedUrl }}">Confirm my Email</a>.
-    This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
-</p>
-
-<p>
-    Cheers!
-</p>
+<p>{{ 'messages.user.registration.confirmation.pleaseConfirm' | t }}</p>
+<a href="{{ signedUrl }}">{{ 'messages.user.registration.confirmation.confirm' | t }}</a>
+<p>{{ 'messages.user.registration.confirmation.linkExpiration' | t({ '%expiration_delay%': expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }) }}</p>
