@@ -75,7 +75,7 @@ messages:
       noRecipeFound: Found no recipe matching your ingredients.
     write:
       writeRecipe: Write a recipe
-      loginToWriteRecipe: Log--in to write a recipe
+      loginToWriteRecipe: Log-in to write a recipe
   errors:
     forbidden:
       title: Access denied
