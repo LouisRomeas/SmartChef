@@ -15,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
@@ -30,6 +31,7 @@ class RegistrationController extends AbstractController
         Request $request,
         UserPasswordHasherInterface $userPasswordHasher,
         EntityManagerInterface $entityManager,
+        UserRepository $userRepository,
         SessionInterface $session
     ): Response
     {
@@ -38,22 +40,28 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
-            $user->setPassword(
-            $userPasswordHasher->hashPassword(
-                    $user,
-                    $form->get('plainPassword')->getData()
-                )
-            );
-
-            $entityManager->persist($user);
-            $entityManager->flush();
-
-            // generate a signed url and email it to the user
-            $this->sendConfirmationEmail($user, '', $session, true);
-            // do anything else you need here, like send an email
-
-            return $this->redirectToRoute('app_login');
+            if (!$userRepository->findBy([
+                'nickname' => $form->get('nickname')->getData()
+            ]) || true) {
+                // encode the plain password
+                $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                        $user,
+                        $form->get('plainPassword')->getData()
+                    )
+                );
+    
+                $entityManager->persist($user);
+                $entityManager->flush();
+    
+                // generate a signed url and email it to the user
+                $this->sendConfirmationEmail($user, '', $session, true);
+                // do anything else you need here, like send an email
+    
+                return $this->redirectToRoute('app_login');
+            } else {
+                $form->addError(new FormError("Can't use same nickname"));
+            }
         }
 
         return $this->render('registration/register.html.twig', [

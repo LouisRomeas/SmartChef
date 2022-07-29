@@ -3,3 +3,7 @@ forms:
     imageUrl:
       maxSizeMessage: 'The file is too large ({{ size }} {{ suffix }}). Allowed maximum size is {{ limit }} {{ suffix }}.'
       mimeTypesMessage: 'Please upload an image.'
+
+    alreadyTaken:
+      email: An account with this e-mail address already exists.
+      nickname: An account with this nickname already exists.

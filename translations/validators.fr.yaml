@@ -3,3 +3,7 @@ forms:
     imageUrl:
       maxSizeMessage: 'Le fichier est trop volumineux ({{ size }} {{ suffix }}). La taille maximale est de {{ limit }} {{ suffix }}.'
       mimeTypesMessage: 'Veuillez téléverser une image.'
+
+    alreadyTaken:
+      email: Un compte est déjà associé à cette adresse e-mail.
+      nickname: Ce pseudo est déjà utilisé.
