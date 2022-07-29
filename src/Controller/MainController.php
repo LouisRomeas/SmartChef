@@ -13,6 +13,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     #[Route('/', name: 'app_home_without_locale')]
+    public function homeWithoutLocale(): Response {
+        return $this->redirectToRoute('app_home');
+    }
+
     #[Route('/{_locale}', name: 'app_home', requirements:[ '_locale' => '%app.locales%' ])]
     public function home(TrendingContainer $trendingContainer): Response
     {
