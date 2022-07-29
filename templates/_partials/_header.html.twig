@@ -1,5 +1,10 @@
 <header id="top-header">
   <aside id="side-menu">
+    <select name="display-language" id="display-language-picker">
+      {% for locale in _locales|split('|') %}
+        <option value="{{ locale }}" {% if locale == app.request.locale %}selected{% endif %}>{{ ('language.' ~ locale) | t }}</option>
+      {% endfor %}
+    </select>
     <div class="top-bar">
       <div id="side-menu-close-handle"><i class="fa-solid fa-angles-left"></i></div>
     </div>

@@ -149,3 +149,7 @@ admin:
     user: Utilisateur·rice
     maintainer: Mainteneur·euse
     moderator: Modérateur·rice
+
+language:
+  en: Anglais
+  fr: Français

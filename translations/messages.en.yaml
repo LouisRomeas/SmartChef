@@ -147,3 +147,7 @@ admin:
     user: User
     maintainer: Maintainer
     moderator: Moderator
+
+language:
+  en: English
+  fr: French

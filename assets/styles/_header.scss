@@ -35,6 +35,11 @@ header#top-header {
       transform: translateX(0);
     }
 
+    select#display-language-picker {
+      position: absolute;
+      inset: 0.25rem auto auto 0.25rem;
+    }
+
     .top-bar {
       display: flex;
       align-items: center;

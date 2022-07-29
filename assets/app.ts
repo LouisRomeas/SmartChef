@@ -19,4 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     document.getElementById('shadow-on-page')
   );
+
+  const languagePicker: HTMLSelectElement = document.querySelector('select#display-language-picker');
+  languagePicker.onchange = () => {
+    window.location.href = window.location.pathname.replace(/(^\/)([a-z]*)(\/|$)/gm, `$1${languagePicker.value}$3`);
+  }
 })
