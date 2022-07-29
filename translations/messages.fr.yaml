@@ -147,3 +147,5 @@ admin:
     admin: Administrateur
     editor: Éditeur
     user: Utilisateur
+    maintainer: Mainteneur
+    moderator: Modérateur

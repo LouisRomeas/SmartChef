@@ -145,3 +145,5 @@ admin:
     admin: Admin
     editor: Editor
     user: User
+    maintainer: Maintainer
+    moderator: Moderator
