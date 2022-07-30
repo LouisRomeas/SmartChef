@@ -32,7 +32,7 @@ class MainController extends AbstractController
         foreach ($ingredients as $key => $ingredient) {
             $response[$key]['id'] = $ingredient->getId();
             $response[$key]['label'] = $ingredient->getName();
-            $response[$key]['emoji'] = $ingredient->getEmoji() ?? null;
+            $response[$key]['emoji'] = $ingredient->getEmoji() ?? $ingredient->getCategory()->getDefaultEmoji();
             $response[$key]['unit'] = $ingredient->getUnit()->getName();
         }
 

@@ -61,7 +61,7 @@ class Ingredient
 
     public function getEmoji(): ?string
     {
-        return $this->emoji ?? '🍴';
+        return $this->emoji;
     }
 
     public function setEmoji(?string $emoji): self

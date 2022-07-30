@@ -21,6 +21,9 @@ class Category
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Ingredient::class)]
     private $ingredients;
 
+    #[ORM\Column(type: 'string', length: 15)]
+    private $defaultEmoji;
+
     public function __construct()
     {
         $this->ingredients = new ArrayCollection();
@@ -74,6 +77,18 @@ class Category
                 $ingredient->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDefaultEmoji(): ?string
+    {
+        return $this->defaultEmoji;
+    }
+
+    public function setDefaultEmoji(string $defaultEmoji): self
+    {
+        $this->defaultEmoji = $defaultEmoji;
 
         return $this;
     }
