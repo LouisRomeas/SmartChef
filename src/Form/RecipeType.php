@@ -32,7 +32,11 @@ class RecipeType extends AbstractType
 
         $builder
             ->add('title')
-            ->add('body', CKEditorType::class)
+            ->add('body', CKEditorType::class, [
+                'config' => [
+                    'toolbar' => 'basic'
+                ]
+            ])
             ->add('portions')
             ->add('duration', null, [
                 'widget' => 'single_text'
@@ -53,7 +57,8 @@ class RecipeType extends AbstractType
                 'entry_type' => RecipeIngredientType::class,
                 'by_reference' => false,
                 'allow_add' => true,
-                'allow_delete' => false
+                'allow_delete' => false,
+                'label' => false
             ])
         ;
     }
