@@ -39,6 +39,47 @@ final class Version20220603221242 extends AbstractMigration
         $this->addSql('ALTER TABLE report ADD CONSTRAINT FK_C42F778459D8A214 FOREIGN KEY (recipe_id) REFERENCES recipe (id)');
         $this->addSql('ALTER TABLE vote ADD CONSTRAINT FK_5A108564A76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
         $this->addSql('ALTER TABLE vote ADD CONSTRAINT FK_5A10856459D8A214 FOREIGN KEY (recipe_id) REFERENCES recipe (id)');
+
+        // CUSTOM VALUES
+        $this->addSql("INSERT INTO `unit` (`id`, `name`) VALUES
+            (1, '×'),
+            (2, 'g'),
+            (3, 'mL')
+        ");
+
+        $this->addSql("INSERT INTO `report_reason` (`id`, `name`) VALUES
+            (1, 'Erreur dans la recette'),
+            (2, 'Contenu inapproprié')
+        ");
+        
+        $this->addSql("INSERT INTO `category` (`id`, `name`, `default_emoji`) VALUES
+            (1, 'Œufs et Produits latiers', '🥛'),
+            (2, 'Légumes', '🌱'),
+            (3, 'Épices, herbes et graines', '🍃'),
+            (4, 'Sucre et édulcorants', '🍯'),
+            (5, 'Fruits', '🍎'),
+            (6, 'Farines et levures', '🍰'),
+            (7, 'Huiles et graisses', '🏺'),
+            (8, 'Fromages', '🧀'),
+            (9, 'Sauces, pickles et condiments', '🧂'),
+            (10, 'Fruits séchés, en conserve et confits', '🥫'),
+            (11, 'Poissons et fruits de mer', '🐟'),
+            (12, 'Chocolat et encas sucrés', '🍫'),
+            (13, 'Alcool', '🍷'),
+            (14, 'Champignons et légumineuses', '🍄'),
+            (15, 'Charcuterie et rillettes', '🥓'),
+            (16, 'Pains, boulangerie et snacks', '🥖'),
+            (17, 'Fonds, fumets, soupes et bouillons', '🍲'),
+            (18, 'Volaille', '🍗'),
+            (19, 'Café, thé et boissons sans alcool', '🍵'),
+            (20, 'Viandes', '🥩'),
+            (21, 'Pâte réfrigérée', '🍕'),
+            (22, 'Confiserie', '🍬'),
+            (23, 'Céréales', '🌾'),
+            (24, 'Pâtes alimentaires', '🍝'),
+            (25, 'Produits végétariens et végan', '🌿'),
+            (26, 'Fleurs comestibles', '🍴')
+        ");
     }
 
     public function down(Schema $schema): void
