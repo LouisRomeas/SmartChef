@@ -25,6 +25,26 @@ body {
           transform: translateY(-7.5%);
           margin-right: 0.25rem;
         }
+
+        .portions {
+          &.abbreviation {
+            display: initial;
+          }
+
+          &:not(.abbreviation) {
+            display: none;
+          }
+
+          @media screen and (min-width: $bp-desktop) {
+            &.abbreviation {
+              display: none;
+            }
+  
+            &:not(.abbreviation) {
+              display: initial;
+            }
+          }
+        }
       }
 
       .top-right-wrapper {
