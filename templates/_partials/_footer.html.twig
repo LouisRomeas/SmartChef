@@ -1,18 +1,18 @@
 <footer id="bottom-footer">
   <div class="footer-container">
-    <section class="info">
+    <aside class="info">
       <a href="https://louisromeas.fr/">
         <figure class="author-logo">
           {{ source('_svg/louis_romeas_logo.svg') }}
           <figcaption>{{ 'footer.credits' | t }}</figcaption>
         </figure>
       </a>
-    </section>
+    </aside>
     <hr>
-    <section class="links">
+    <aside class="links">
       <a href="{{ path('app_about') }}">{{ 'pages.about' | t }}</a>
       <a href="{{ path('app_sitemap') }}">{{ 'footer.sitemap' | t }}</a>
       <a href="mailto:{{ get_env('admin_mail') }}">{{ 'footer.contact' | t }}</a>
-    </section>
+    </aside>
   </div>
 </footer>
