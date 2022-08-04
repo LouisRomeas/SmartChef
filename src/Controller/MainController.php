@@ -48,7 +48,9 @@ class MainController extends AbstractController
         $urls[] = [ 'loc' => $this->generateUrl('app_home'), 'priority' => 1.0 ];
         $urls[] = [ 'loc' => $this->generateUrl('app_search_builder'), 'priority' => 0.9 ];
         $urls[] = [ 'loc' => $this->generateUrl('app_recipe_new'), 'priority' => 0.7 ];
-
+        
+        $urls[] = [ 'loc' => $this->generateUrl('app_about'), 'priority' => 0.5 ];
+        
         $urls[] = [ 'loc' => $this->generateUrl('app_login'), 'priority' => 0.5 ];
         $urls[] = [ 'loc' => $this->generateUrl('app_register'), 'priority' => 0.5 ];
         $urls[] = [ 'loc' => $this->generateUrl('app_account'), 'priority' => 0.4 ];
@@ -83,5 +85,12 @@ class MainController extends AbstractController
 
         return $response;
  
+    }
+    
+    #[Route('/{_locale}/about', name: 'app_about', requirements:[ '_locale' => '%app.locales%' ])]
+    public function about(): Response
+    {
+        return $this->render('main/about.html.twig', [
+        ]);
     }
 }

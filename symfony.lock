@@ -2,6 +2,9 @@
     "beberlei/doctrineextensions": {
         "version": "v1.3.0"
     },
+    "dflydev/dot-access-data": {
+        "version": "v3.0.1"
+    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {
@@ -107,6 +110,12 @@
     "laminas/laminas-code": {
         "version": "4.5.1"
     },
+    "league/commonmark": {
+        "version": "2.3.5"
+    },
+    "league/config": {
+        "version": "v1.1.1"
+    },
     "masterminds/html5": {
         "version": "2.7.5"
     },
@@ -115,6 +124,12 @@
     },
     "myclabs/deep-copy": {
         "version": "1.11.0"
+    },
+    "nette/schema": {
+        "version": "v1.2.2"
+    },
+    "nette/utils": {
+        "version": "v3.2.7"
     },
     "nikic/php-parser": {
         "version": "v4.14.0"
@@ -659,6 +674,9 @@
         "version": "v3.4.0"
     },
     "twig/intl-extra": {
+        "version": "v3.4.0"
+    },
+    "twig/markdown-extra": {
         "version": "v3.4.0"
     },
     "twig/twig": {

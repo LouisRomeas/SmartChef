@@ -1,0 +1,20 @@
+section#about {
+  .content {
+    text-align: justify;
+
+    p {
+      a {
+        color: $blue;
+        text-decoration: underline;
+      }
+
+      br {
+        margin-bottom: 0.5em;
+      }
+    }
+
+    &> br:last-child {
+      display: none;
+    }
+  }
+}

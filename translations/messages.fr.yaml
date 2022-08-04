@@ -11,6 +11,7 @@ user:
 
 pages:
   homepage: Accueil
+  about: À propos
 
 headings:
   trendingRecipes: Tendances du moment
@@ -24,6 +25,11 @@ footer:
 text:
   websiteDescription: Un guide automatique pour vous aider à trouver des recettes avec ce que vous avez sous la main
   passwordChangeWarningEmail: "Votre mot de passe vient d'être modifié. Si vous n'êtes pas à l'origine de cette demande, veuillez contacter un·e administateur·rice en répondant à cet e-mail, ou à cette adresse :"
+  about: "Le concept du projet SmartChef a germé alors que je cherchais une idée pour mon projet de fin d'année au sein de la formation [Full Stack Développeur](//francecompetences.fr/recherche/rncp/34393/) de la [3W Academy](//3wa.fr).
+
+  L'idée est alors venue à ma copine et moi-même, d'un site de recettes de cuisine, qui s'assure de ne mettre en avant que les recettes dont on possède les ingrédients.
+  
+  Bien entendu, je me suis renseigné sur le sujet et me suis assez vite rendu compte que plusieurs sites de la sorte existaient déjà. Cependant, rien ne m'empêchait pour autant de créer ma propre version de ce concept. C'est donc ce que j'ai entrepris de réaliser."
 
 form:
   save: Enregistrer

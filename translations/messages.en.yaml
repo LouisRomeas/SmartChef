@@ -11,6 +11,7 @@ user:
 
 pages:
   homepage: Home
+  about: About
 
 headings:
   trendingRecipes: Trending recipes
@@ -24,6 +25,19 @@ footer:
 text:
   websiteDescription: An automated guide to help you find recipes with what you have on hand.
   passwordChangeWarningEmail: "Your password has just been modified. If you didn't make this request, please contact an administrator by responding to this e-mail, or at this address:"
+
+
+  # about: "Le concept du projet SmartChef a germé alors que je cherchais une idée pour mon projet de fin d'année au sein de la formation [Full Stack Développeur](//francecompetences.fr/recherche/rncp/34393/) de la [3W Academy](//3wa.fr).
+
+  # L'idée est alors venue à ma copine et moi-même, d'un site de recettes de cuisine, qui s'assure de ne mettre en avant que les recettes dont on possède les ingrédients.
+  
+  # Bien entendu, je me suis renseigné sur le sujet et me suis assez vite rendu compte que plusieurs sites de la sorte existaient déjà. Cependant, rien ne m'empêchait pour autant de créer ma propre version de ce concept. C'est donc ce que j'ai entrepris de réaliser."
+  
+  about: "The concept of the SmartChef project started to take seed as I was looking for an idea for my end-of-year project at the [3W Academy](//3wa.fr)'s [Full Stack Developer training course](//francecompetences.fr/recherche/rncp/34393/).
+
+  The idea then came to my girlfriend's and my minds, of a cooking recipes website which ensures that only the recipes of which one possess the ingredients are brought forward.
+  
+  Of course, I looked up info on this subject and quickly found out that multiple websites already did just that. However, nothing kept me from creating my own take at this concept. So this is what i decided to do."
 
 form:
   save: Save
