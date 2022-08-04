@@ -15,6 +15,7 @@ class SearchType extends AbstractType
     {
         $builder
             ->add('portions', NumberType::class, [
+                'html5' => true
                 // 'mapped' => false
             ])
             ->add('recipeIngredients', CollectionType::class, [

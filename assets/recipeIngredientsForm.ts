@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Portions Input
   const portionsInput: HTMLInputElement = document.querySelector('input[name*=portions]');
   if (portionsInput) {
-    portionsInput.type = 'number';
     const newParent = document.createElement('div');
     newParent.classList.add('portions-input-wrapper');
     portionsInput.parentElement.appendChild(newParent);
