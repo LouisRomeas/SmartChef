@@ -27,7 +27,7 @@ html {
         $margin-sides: 0.5rem;
         $padding: 0.5rem;
 
-        width: calc(100% - #{$padding * 4});
+        width: calc(100% - #{$padding * 2});
         align-self: center;
         margin: 0 $margin-sides;
         padding: $padding 0;
