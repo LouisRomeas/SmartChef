@@ -55,6 +55,7 @@ class RecipeController extends AbstractController
         return $newFilename;
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/new', name: 'app_recipe_new', methods: ['GET', 'POST'])]
     public function new(Request $request, RecipeRepository $recipeRepository): Response
     {
