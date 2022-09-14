@@ -72,7 +72,10 @@ class RecipeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $recipe->setAuthor($this->getUser());
-            $recipe->setSlug( $this->slugger->slug($recipe->getId() . " " . strtolower($recipe->getTitle())) );
+
+            // Set temporary slug that will be replaced soon after
+            $slug = $this->slugger->slug(strtolower($recipe->getTitle()));
+            $recipe->setSlug($slug);
 
             /** @var UploadedFile $imageFile */
             $imageFile = $form->get('imageUrl')->getData();
@@ -83,6 +86,11 @@ class RecipeController extends AbstractController
                 $recipeIngredient->setRecipe($recipe);
             }
 
+            $recipeRepository->add($recipe, true);
+            
+            // Set final slug now that we know the ID
+            $slug = $this->slugger->slug($recipe->getId() . " " . strtolower($recipe->getTitle()));
+            $recipe->setSlug($slug);
             $recipeRepository->add($recipe, true);
 
             return $this->redirectToRoute('app_recipe_show', [ 'slug' => $recipe->getSlug() ], Response::HTTP_SEE_OTHER);
