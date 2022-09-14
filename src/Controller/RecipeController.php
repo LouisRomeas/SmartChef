@@ -85,7 +85,7 @@ class RecipeController extends AbstractController
 
             $recipeRepository->add($recipe, true);
 
-            return $this->redirectToRoute('app_recipe_show', [ 'id' => $recipe->getId() ], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_recipe_show', [ 'slug' => $recipe->getSlug() ], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('recipe/new.html.twig', [
@@ -154,7 +154,7 @@ class RecipeController extends AbstractController
 
             $recipeRepository->add($recipe, true);
 
-            return $this->redirectToRoute('app_recipe_show', [ 'id' => $recipe->getId() ], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_recipe_show', [ 'slug' => $recipe->getSlug() ], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('recipe/edit.html.twig', [

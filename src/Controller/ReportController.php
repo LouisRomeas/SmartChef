@@ -29,7 +29,7 @@ class ReportController extends AbstractController
 
             $reportRepository->add($report, true);
 
-            return $this->redirectToRoute('app_recipe_show', [ 'id' => $recipe->getId() ]);
+            return $this->redirectToRoute('app_recipe_show', [ 'slug' => $recipe->getSlug() ]);
         }
 
         return $this->renderForm('report/new.html.twig', [

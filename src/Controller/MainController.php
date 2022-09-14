@@ -58,7 +58,7 @@ class MainController extends AbstractController
         // add dynamic urls, like blog posts from your DB
         foreach ($recipeRepository->findAll() as $recipe) {
             $url = [
-                'loc' => $this->generateUrl('app_recipe_show', [ 'id' => $recipe->getId() ]),
+                'loc' => $this->generateUrl('app_recipe_show', [ 'slug' => $recipe->getSlug() ]),
                 'lastmod' => $recipe->getCreatedAt()->format('c'),
                 'changefreq' => 'always',
                 'priority' => 0.7
