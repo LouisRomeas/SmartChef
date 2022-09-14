@@ -96,6 +96,7 @@ entity:
     _singular: Category
     _plural: Categories
     name: Name
+    defaultEmoji: Default emoji
   ingredient:
     _singular: Ingredient
     _plural: Ingredients

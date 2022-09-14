@@ -27,5 +27,6 @@ class CategoryCrudController extends AbstractCrudController
     {
         yield IdField::new('id', 'entity._id')->hideOnForm();
         yield TextField::new('name', 'entity.category.name');
+        yield TextField::new('defaultEmoji', 'entity.category.defaultEmoji')->setMaxLength(1);
     }
 }

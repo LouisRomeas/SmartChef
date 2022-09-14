@@ -96,6 +96,7 @@ entity:
     _singular: Catégorie
     _plural: Catégories
     name: Nom
+    defaultEmoji: Émoticône par défaut
   ingredient:
     _singular: Ingrédient
     _plural: Ingrédients
