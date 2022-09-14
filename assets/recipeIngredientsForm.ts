@@ -133,11 +133,25 @@ document.addEventListener('DOMContentLoaded', () => {
       const url = inputTextElement.dataset.ingredientsQueryUrl;
   
       const response: Ingredient[] = await fetch(url + '?' +params.toString()).then(res => res.json());
-
-      // Concatenate emoji to beginning of label, for dropdown menun display purposes
-      response.forEach(ingredient => ingredient.label = (ingredient.emoji ?? defaultEmoji) + ingredient.label)
   
       update(response);
+    },
+    render: (ingredient: Ingredient, searchTerms: string): HTMLDivElement => {
+      
+      const ingredientDiv = document.createElement('div');
+
+      const emojiSpan = document.createElement('span');
+      emojiSpan.classList.add('emoji');
+      emojiSpan.textContent = ingredient.emoji ?? defaultEmoji;
+      
+      const labelSpan = document.createElement('span');
+      labelSpan.classList.add('label');
+
+      labelSpan.textContent = ingredient.label;
+
+      ingredientDiv.append(emojiSpan, labelSpan);
+
+      return ingredientDiv;
     },
     onSelect: (ingredient: Ingredient) => {
       // Remove emoji from label, it will be added back properly in the formatting method
