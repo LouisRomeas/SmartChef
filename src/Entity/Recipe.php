@@ -35,7 +35,7 @@ class Recipe
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Report::class, orphanRemoval: true)]
     private $reports;
     
-    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: RecipeIngredient::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: RecipeIngredient::class, orphanRemoval: true, cascade: ['persist'])]
     private $recipeIngredients;
 
     #[ORM\Column(type: 'integer')]
@@ -56,6 +56,8 @@ class Recipe
     public function __construct()
     {
         if ($this->getCreatedAt() === null) $this->setCreatedAt(new \DateTimeImmutable());
+        if (!$this->getViews()) $this->views = 0;
+
         $this->votes = new ArrayCollection();
         $this->reports = new ArrayCollection();
         $this->recipeIngredients = new ArrayCollection();
