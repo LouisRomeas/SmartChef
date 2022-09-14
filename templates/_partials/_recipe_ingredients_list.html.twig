@@ -2,7 +2,7 @@
   {% for recipeIngredient in recipeIngredients %}
       <div class="recipe-ingredient">
           <div class="ingredient">
-              <span class="ingredient-emoji">{{ recipeIngredient.ingredient.emoji }}</span>
+              <span class="ingredient-emoji">{{ recipeIngredient.ingredient.emoji ?? recipeIngredient.ingredient.category.defaultEmoji }}</span>
               <span class="ingredient-name">{{ recipeIngredient.ingredient.name }}</span>
           </div>
           <div class="quantity">
