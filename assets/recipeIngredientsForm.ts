@@ -147,9 +147,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   });
   
+  /**
+   * Calls autocomplete NPM module on the ingredients search box
+   */
   autocomplete({
 
     input: inputTextElement,
+    className: 'autocomplete-container',
+    preventSubmit: true,
 
     fetch: async (text, update) => {
       const params = new URLSearchParams({ query: text });
@@ -194,10 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
       subFormParent.appendChild(formatRecipeIngredientSubForm(newSubFormElement, ingredient));
   
       inputTextElement.value = '';
-    },
-
-
-    className: 'autocomplete-container',
-    preventSubmit: true
+    }
   })
 });
