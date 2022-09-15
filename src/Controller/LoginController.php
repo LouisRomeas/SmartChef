@@ -10,6 +10,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LoginController extends AbstractController
 {
+    /**
+     * Login page
+     */
     #[Route('{_locale}/login/', name: 'app_login', requirements:[ '_locale' => '%app.locales%' ])]
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
@@ -27,6 +30,9 @@ class LoginController extends AbstractController
         ]);
     }
 
+    /**
+     * Logout route
+     */
     #[Route('/logout', name: 'app_logout', methods: ['GET'])]
     public function logout()
     {

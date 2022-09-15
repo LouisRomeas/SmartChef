@@ -19,6 +19,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[IsGranted('ROLE_USER')]
 class AccountController extends AbstractController
 {
+    /**
+     * "My account" page
+     */
     #[IsGranted('ROLE_USER')]
     #[Route('/{_locale}/account', name: 'app_account', requirements:[ '_locale' => '%app.locales%' ])]
     public function index(

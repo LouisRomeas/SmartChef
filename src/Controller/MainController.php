@@ -12,11 +12,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
+    /**
+     * Default route, which will redirect to the locale-dependent homepage
+     * after retrieving user locale
+     */
     #[Route('/', name: 'app_home_without_locale')]
     public function homeWithoutLocale(): Response {
         return $this->redirectToRoute('app_home');
     }
 
+    /**
+     * Homepage
+     */
     #[Route('/{_locale}', name: 'app_home', requirements:[ '_locale' => '%app.locales%' ])]
     public function home(TrendingContainer $trendingContainer): Response
     {
@@ -25,6 +32,9 @@ class MainController extends AbstractController
         ]);
     }
 
+    /**
+     * API endpoint for ingredients search results
+     */
     #[Route('/ingredients/search', name: 'app_ingredients_search_json')]
     public function searchIngredients(Request $request, IngredientRepository $ingredientRepository): Response {
         $ingredients = $ingredientRepository->search($request->get('query', ''));
@@ -39,6 +49,9 @@ class MainController extends AbstractController
         return $this->json($response);
     }
 
+    /**
+     * Sitemap
+     */
     #[Route('/sitemap.xml', name: 'app_sitemap', defaults:[ '_format' => 'xml' ])]
     public function showAction(Request $request, RecipeRepository $recipeRepository) {
         $urls = [];
@@ -87,6 +100,9 @@ class MainController extends AbstractController
  
     }
     
+    /**
+     * "About" page
+     */
     #[Route('/{_locale}/about', name: 'app_about', requirements:[ '_locale' => '%app.locales%' ])]
     public function about(): Response
     {
