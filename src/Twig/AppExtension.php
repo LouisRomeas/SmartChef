@@ -35,6 +35,17 @@ class AppExtension extends AbstractExtension
         ];
     }
 
+    // Custom filters & functions
+
+    /**
+     * Format a number to a specific set of rules (similar to Reddit's way of shortening big scores)
+     * - Below 1000, just output the number
+     * - After 1000, the number is divided by 1000 until it's smaller than 1000
+     * - Then, it is rounded to an integer if smaller than 100, else to 1 decimal
+     * - Then, a suffix is applied depending on the amount of times it had to be divided
+     * 
+     * Examples : [ 1248 => "1.2k", 23647859 => "23.6k", 325615 => "325k" ]
+     */
     public function formatBigNumber(int $score) {
         $suffixes = ['', 'k', 'M', 'B'];
         $suffixPointer = 0;
@@ -48,6 +59,11 @@ class AppExtension extends AbstractExtension
         ]) . $suffixes[$suffixPointer];
     }
 
+    /**
+     * Format a DateTime depending on how close it was from now
+     * - If the DateTime was today, it outputs the time
+     * - If it was before today, it outputs the date
+     */
     public function formatDate(
         Environment $environment,
         DateTimeInterface $datetime,
@@ -61,6 +77,12 @@ class AppExtension extends AbstractExtension
         return $datetimeString;
     }
 
+    /**
+     * Format a duration depending on its length
+     * - If the duration is less than an hour long, show minutes
+     * - If the duration is more than an hour long, show hours & minutes
+     * - Then, in all cases, remove leading zeroes
+     */
     public function formatDuration(
         Environment $environment,
         DateTimeInterface $duration
@@ -74,6 +96,10 @@ class AppExtension extends AbstractExtension
         return preg_replace("/^0+/", '', $datetimeString);
     }
 
+    /**
+     * Retrieves an environment variable for use in Twig
+     * (used in order to get admin mail)
+     */
     public function getEnvironmentVariable($varname)
     {
         return $_ENV[$varname];
