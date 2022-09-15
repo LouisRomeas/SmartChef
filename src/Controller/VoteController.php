@@ -13,6 +13,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/vote')]
 class VoteController extends AbstractController
 {
+    /**
+     * API endpoint for casting a vote (positive or negative) on a given recipe
+     */
     #[IsGranted('ROLE_USER')]
     #[Route('/{recipe}/cast/{positive}', name: 'app_vote')]
     public function vote(Recipe $recipe, bool $positive, VoteRepository $voteRepository): Response
@@ -41,6 +44,10 @@ class VoteController extends AbstractController
         ]);
     }
 
+    /**
+     * API endpoint for checking state of voting on a user
+     * (whether or not a user has voted for a given recipe, and if so, positive or negative)
+     */
     #[IsGranted('ROLE_USER')]
     #[Route('/{recipe}', name: 'app_vote_check')]
     public function checkVote(Recipe $recipe, VoteRepository $voteRepository): Response {
@@ -55,7 +62,10 @@ class VoteController extends AbstractController
         ]);
     }
 
-    
+
+    /**
+     * API endpoint for removing a vote
+     */
     #[IsGranted('ROLE_USER')]
     #[Route('/{recipe}/remove', name: 'app_vote_remove')]
     public function removeVote(Recipe $recipe, VoteRepository $voteRepository): Response {

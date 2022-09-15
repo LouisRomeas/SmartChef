@@ -26,6 +26,9 @@ class RegistrationController extends AbstractController
         private TranslatorInterface $translator
     ) {}
 
+    /**
+     * Registration page
+     */
     #[Route('/{_locale}/register', name: 'app_register', requirements:[ '_locale' => '%app.locales%' ])]
     public function register(
         Request $request,
@@ -69,6 +72,9 @@ class RegistrationController extends AbstractController
         ]);
     }
 
+    /**
+     * "Send confirmation e-mail" page
+     */
     #[Route('/{_locale}/sendConfirmationEmail/{email}/{token}', name: 'app_send_confirmation_email', requirements:[ '_locale' => '%app.locales%' ], defaults: [ 'token' => '' ])]
     public function sendConfirmationEmail(
         User $user,
@@ -96,6 +102,9 @@ class RegistrationController extends AbstractController
         return $this->redirectToRoute('app_login');
     }
 
+    /**
+     * Verify account URL (link received in e-mail)
+     */
     #[Route('/verify/email', name: 'app_verify_email')]
     public function verifyUserEmail(Request $request, TranslatorInterface $translator, UserRepository $userRepository): Response
     {

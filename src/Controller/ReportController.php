@@ -14,6 +14,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ReportController extends AbstractController
 {
+    /**
+     * Create a new report
+     */
     #[IsGranted('ROLE_USER')]
     #[Route('/{_locale}/recipe/report/{id}', name: 'app_report_new', requirements:[ '_locale' => '%app.locales%' ])]
     public function newReport(Recipe $recipe, Request $request, ReportRepository $reportRepository): Response
