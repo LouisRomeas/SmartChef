@@ -21,10 +21,10 @@ use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
 class RegistrationController extends AbstractController
 {
-    public function __construct(private EmailVerifier $emailVerifier, private TranslatorInterface $translator)
-    {
-
-    }
+    public function __construct(
+        private EmailVerifier $emailVerifier,
+        private TranslatorInterface $translator
+    ) {}
 
     #[Route('/{_locale}/register', name: 'app_register', requirements:[ '_locale' => '%app.locales%' ])]
     public function register(
@@ -70,7 +70,12 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/{_locale}/sendConfirmationEmail/{email}/{token}', name: 'app_send_confirmation_email', requirements:[ '_locale' => '%app.locales%' ], defaults: [ 'token' => '' ])]
-    public function sendConfirmationEmail(User $user, string $token, SessionInterface $session, bool $bypassToken = false): Response {
+    public function sendConfirmationEmail(
+        User $user,
+        string $token,
+        SessionInterface $session,
+        bool $bypassToken = false
+    ): Response {
         if (
             !$bypassToken && (
                 !$token ||

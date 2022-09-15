@@ -154,7 +154,7 @@ class RecipeController extends AbstractController
      */
     #[IsGranted('ROLE_EDITOR')]
     #[Route('/{id}/edit', name: 'app_recipe_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Recipe $recipe, RecipeRepository $recipeRepository, SluggerInterface $slugger): Response
+    public function edit(Request $request, Recipe $recipe, RecipeRepository $recipeRepository): Response
     {
         if ($this->getUser() !== $recipe->getAuthor()) return $this->redirectToRoute('app_home', status: 401);
 
