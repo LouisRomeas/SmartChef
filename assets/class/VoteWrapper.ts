@@ -19,6 +19,10 @@ export default class VoteWrapper {
   public removeVoteUrl: string;
   public vote?: boolean = null;
 
+  /**
+   * A voting system re-usable wrapper class for recipes on this website
+   * @param wrapperElement The HTML Element that will wrap every sub-elements created here
+   */
   constructor(public wrapperElement: HTMLElement) {
     
     this.votingWrapper = this.wrapperElement.querySelector('.voting-wrapper');
@@ -36,7 +40,11 @@ export default class VoteWrapper {
 
       const element = document.createElement('div');
       element.classList.add('vote');
-      element.innerHTML = positive ? '<i class="fa-solid fa-circle-chevron-up"></i>' : '<i class="fa-solid fa-circle-chevron-down"></i>';
+      
+      const fontAwesomeElement = document.createElement('i');
+      fontAwesomeElement.classList.add('fa-solid', `fa-circle-chevron-${positive ? 'up' : 'down'}`);
+      element.append(fontAwesomeElement);
+      
       element.onclick = async () => {
         // If this.vote is already equal to the vote element's positivity, then we need to remove the vote
         // With front-end pseudo-refresh
