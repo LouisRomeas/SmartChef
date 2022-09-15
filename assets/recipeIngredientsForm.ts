@@ -11,23 +11,41 @@ const defaultEmoji = '🍴';
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /**
+   * Creates plus & minus buttons besides an existing number input, to increment or decrement its value
+   * @param inputNumberElement Number input HTML element to which the plus & minus buttons are going to be linked
+   */
   const addPlusMinus = (inputNumberElement: HTMLInputElement) => {
+    const cooldownDuration = 20;
+
+    // Add both a plus & a minus button using the same forEach callback to avoid duplicating code
     [true, false].forEach((positive: boolean) => {
+
       const button = document.createElement('span');
+
       button.onclick = (e: Event) => {
+
         e.preventDefault();
+
         if (inputNumberElement.dataset.locked) return;
   
         let quantity: number = parseInt(inputNumberElement.value) ?? 0;
         quantity += (positive ? +1 : -1);
+
         if (quantity < parseInt(inputNumberElement.min)) quantity = parseInt(inputNumberElement.min);
+
         inputNumberElement.value = String(quantity);
         inputNumberElement.dataset.locked = 'true';
+        
         setTimeout(() => {
           delete inputNumberElement.dataset.locked;
-        }, 20);
+        }, cooldownDuration);
       }
-      button.innerHTML = `<i class="fa-solid fa-square-${positive ? 'plus' : 'minus'}"></i>`;
+
+      const fontAwesomeElement = document.createElement('i');
+      fontAwesomeElement.classList.add('fa-solid', `fa-square-${positive ? 'plus' : 'minus'}`);
+      button.append(fontAwesomeElement);
+      
       button.classList.add('number-increment')
       inputNumberElement.parentElement.insertBefore(button, inputNumberElement);
     });
@@ -127,7 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   autocomplete({
+
     input: inputTextElement,
+
     fetch: async (text, update) => {
       const params = new URLSearchParams({ query: text });
       const url = inputTextElement.dataset.ingredientsQueryUrl;
@@ -136,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
       update(response);
     },
+
     render: (ingredient: Ingredient, searchTerms: string): HTMLDivElement => {
       
       const ingredientDiv = document.createElement('div');
@@ -153,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       return ingredientDiv;
     },
+
     onSelect: (ingredient: Ingredient) => {
       // Remove emoji from label, it will be added back properly in the formatting method
       ingredient.label = ingredient.label.replace(ingredient.emoji ?? defaultEmoji, '');
@@ -173,6 +195,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
       inputTextElement.value = '';
     },
+
+
     className: 'autocomplete-container',
     preventSubmit: true
   })
