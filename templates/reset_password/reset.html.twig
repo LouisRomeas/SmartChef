@@ -3,7 +3,7 @@
 {% block title %}{{ 'user.login.resetPassword' | t }}{% endblock %}
 
 {% block body %}
-    <section id="reset-password">
+    <section id="reset-password" class="reset-password">
         <h1>{{ 'user.login.resetPassword' | t }}</h1>
         {{ form_start(resetForm) }}
             {{ form_row(resetForm.plainPassword) }}

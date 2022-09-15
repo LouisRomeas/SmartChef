@@ -2,7 +2,7 @@ a.button {
   margin-bottom: 0.5rem;
 }
 
-section#homepage {
+section.homepage {
 
   .heading-wrapper {
     margin-bottom: 1em;
@@ -31,12 +31,12 @@ section#homepage {
 
 @media screen and (min-width: $bp-large) {
   html > body {
-    section#homepage {
+    section.homepage {
 
       .divided-section {
         display: flex;
         
-        #home-cta-buttons {
+        .home-cta-buttons {
           flex-basis: 55%;
         }
         

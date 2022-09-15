@@ -3,7 +3,7 @@
 {% block title %}{{ 'user.myAccount' | t }}{% endblock %}
 
 {% block body %}
-<section id="my-account">
+<section id="my-account" class="my-account">
     <h1>{{ 'user.myAccount' | t }}</h1>
     <div class="username-title">{{ user }}</div>
     {% set roles = user.roles | filter(role => role != 'ROLE_USER') %}

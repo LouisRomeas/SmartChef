@@ -20,7 +20,7 @@
 {% block title %}“{{ recipe.title }}”{% endblock %}
 
 {% block body %}
-    <section id="recipe">
+    <section id="recipe" class="recipe">
         <aside class="recipe-top">
             <div class="duration-wrapper">
                 <i class="fa-solid fa-clock"></i>
@@ -81,7 +81,7 @@
             id: 'recipe-ingredients'
         } %}
         <hr>
-        <article id="recipe-body">
+        <article id="recipe-body" class="recipe-body">
             {{ recipe.body | raw }}
         </article>
         {% if app.user == recipe.author or is_granted('ROLE_ADMIN') %}

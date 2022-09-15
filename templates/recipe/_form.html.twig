@@ -55,5 +55,5 @@
         label: 'entity.recipe.body'
     }) }}
 
-    <button class="btn" id="publish-button">{{ ((editing is defined and editing) ? 'form.save' : 'form.publish') | t }}</button>
+    <button class="btn" id="publish-button" class="publish-button">{{ ((editing is defined and editing) ? 'form.save' : 'form.publish') | t }}</button>
 {{ form_end(form) }}

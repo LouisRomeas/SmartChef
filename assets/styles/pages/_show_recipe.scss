@@ -1,5 +1,5 @@
 body {
-  section#recipe {
+  section.recipe {
     .recipe-top {
       display: flex;
       
@@ -147,7 +147,7 @@ body {
       }
     }
 
-    #recipe-body {
+    .recipe-body {
       text-align: justify;
     }
 

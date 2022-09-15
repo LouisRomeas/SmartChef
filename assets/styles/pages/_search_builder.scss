@@ -29,7 +29,7 @@ form[name=search] {
         flex-basis: 100%;
       }
 
-      > button#search-button {
+      > button.search-button {
         flex-basis: 75%;
         margin-top: calc(1.625rem - 1px);
         height: calc(2.5rem + 5px);

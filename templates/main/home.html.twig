@@ -3,13 +3,13 @@
 {% block title %}{{ 'pages.homepage' | t }}{% endblock %}
 
 {% block body %}
-<section id="homepage">
+<section id="homepage" class="homepage">
     <div class="heading-wrapper">
         <h2 class="welcome-heading">{{ 'headings.welcome' | t }}</h2>
         <strong class="subheading">{{ 'text.websiteDescription' | t }}</strong>
     </div>
     <div class="divided-section">
-        <div id="home-cta-buttons">
+        <div id="home-cta-buttons" class="home-cta-buttons">
             <a href="{{ path('app_search_builder') }}" class="button">{{ 'messages.recipe.search.tellUsFridge' | t }}</a>
             {% if not app.user or is_granted('ROLE_EDITOR') %}
                 <a href="{{ path('app_recipe_new') }}" class="button">{{ (is_granted('ROLE_EDITOR') ? 'messages.recipe.write.writeRecipe' : 'messages.recipe.write.loginToWriteRecipe') | t }}</a>
