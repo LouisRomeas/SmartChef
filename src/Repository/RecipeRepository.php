@@ -43,6 +43,9 @@ class RecipeRepository extends ServiceEntityRepository
     }
 
     /**
+     * Retrieve all recipes that use only given ingredients (from non-optional ingredients),
+     * in the given quantity, proportionally adjusted for the number of portions asked
+     * 
      * @param RecipeIngredient[] $recipeIngredients
      * 
      * @return Recipe[] Returns an array of Recipe objects
@@ -99,6 +102,9 @@ class RecipeRepository extends ServiceEntityRepository
     }
 
     /**
+     * Retrieve all recipes more recent than a given DateTime,
+     * ordered by date of creation (ascending or descending)
+     * 
      * @return Recipe[] Returns an array of Recipe objects
      */
     public function findRecent(

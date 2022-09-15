@@ -40,6 +40,7 @@ class IngredientRepository extends ServiceEntityRepository
     }
 
     /**
+     * Search through the database for an ingredient whose name contains a given substring
      * @return Ingredient[] Returns an array of Ingredient objects
      */
     public function search(string $query): array
