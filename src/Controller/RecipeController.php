@@ -20,19 +20,12 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 #[Route('{_locale}/recipe', requirements:[ '_locale' => '%app.locales%' ])]
 class RecipeController extends AbstractController
 {
-    public function __construct(
-        private SluggerInterface $slugger
-    )
-    {
-        
-    }
+    public function __construct(private SluggerInterface $slugger) {}
 
     /**
      * @return string Full final filepath of thumbnail
      */
     private function handleThumbnailInput(Recipe $recipe, UploadedFile $imageFile): string {
-        // $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-        // $safeFilename = $this->slugger->slug($originalFilename);
         $destinationDir = $this->getParameter('upload_directory') . '/recipe';
 
         foreach (scandir($destinationDir) as $file) {
