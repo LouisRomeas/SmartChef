@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  // Portions Input
+  // If portions input is found, wrap it around a "portions input wrapper" and call addPlusMinus() on it
   const portionsInput: HTMLInputElement = document.querySelector('input[name*=portions]');
   if (portionsInput) {
     const newParent = document.createElement('div');
@@ -62,14 +62,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!portionsInput.value) portionsInput.value = portionsInput.min = String(1);
   }
 
+  // Ingredient picker input code
   const inputTextElement: HTMLInputElement = document.getElementById('ingredient-picker') as HTMLInputElement;
   const prototypeElement = document.getElementById('recipe-ingredients-subform-prototype');
   const subFormParent = prototypeElement.parentElement;
   subFormParent.classList.add('recipe-ingredients-list');
   
+  /**
+   * From a blank RecipeIngredient sub-form element (from Symfony form prototype) & an Ingredient object,
+   * outputs a formatted sub-form element
+   * @param subFormElement Existing sub-form element, as given by Symfony form prototype
+   * @param ingredient An Ingredient object
+   * @returns A formatted and hydrated RecipeIngredient sub-form HTML Element
+   */
   const formatRecipeIngredientSubForm = (subFormElement: HTMLElement, ingredient: Ingredient): HTMLElement => {
     subFormElement.classList.add('recipe-ingredient-subform');
     
+    // Remove ingredient button
     const removeSubFormButton: HTMLElement = document.createElement('div');
     removeSubFormButton.classList.add('remove-subform');
     removeSubFormButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
@@ -105,30 +114,35 @@ document.addEventListener('DOMContentLoaded', () => {
       quantityInput.parentElement.classList.add('quantity');
     }
   
+    // Checkbox for optional ingredient
     const isOptionalInput: HTMLInputElement = subFormElement.querySelector('input[name*=isOptional');
     isOptionalInput.classList.add('checkbox-first');
     isOptionalInput.parentElement.classList.add('is-optional');
     
   
-    const ingredientSelect: HTMLSelectElement = subFormElement.querySelector('select[name*=ingredient]');
-    let ingredientInput: HTMLInputElement;
-    if (ingredientSelect) {
-      ingredientInput = document.createElement('input');
-      [ingredientInput.id, ingredientSelect.id] = [ingredientSelect.id, ingredientInput.id];
-      ingredientInput.name = ingredientSelect.name;
+    // const ingredientSelect: HTMLSelectElement = subFormElement.querySelector('select[name*=ingredient]');
+    // let ingredientInput: HTMLInputElement;
+    // if (ingredientSelect) {
+    //   ingredientInput = document.createElement('input');
+    //   [ingredientInput.id, ingredientSelect.id] = [ingredientSelect.id, ingredientInput.id];
+    //   ingredientInput.name = ingredientSelect.name;
       
-      ingredientSelect.parentElement.appendChild(ingredientInput);
-      ingredientSelect.remove();
-    } else {
-      ingredientInput = subFormElement.querySelector('input[name*=ingredient]');
-    }
-    ingredientInput.type = 'hidden';
-    ingredientInput.value = String(ingredient.id);
+    //   ingredientSelect.parentElement.appendChild(ingredientInput);
+    //   ingredientSelect.remove();
+    // } else {
+    //   ingredientInput = subFormElement.querySelector('input[name*=ingredient]');
+    // }
+    // ingredientInput.type = 'hidden';
+    // ingredientInput.value = String(ingredient.id);
     
   
     return subFormElement;
   }
   
+  /** 
+   * In the case of an editing form, we need to retrieve info for already-existing RecipeIngredient objects,
+   * then call formatRecipeIngredientSubForm on each of them to format the sub-forms correctly
+   */
   Array.from(subFormParent.children).forEach((subFormElement: HTMLElement) => {
     const rowWrapper = subFormElement.querySelector('div');
     if (!rowWrapper) return;
@@ -175,10 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return ingredientDiv;
     },
 
-    onSelect: (ingredient: Ingredient) => {
-      // Remove emoji from label, it will be added back properly in the formatting method
-      ingredient.label = ingredient.label.replace(ingredient.emoji ?? defaultEmoji, '');
-  
+    onSelect: (ingredient: Ingredient) => {  
       const counter = parseInt(inputTextElement.dataset.index) + 1;
   
       const prototypeHTML = prototypeElement.dataset.prototype.replace(
