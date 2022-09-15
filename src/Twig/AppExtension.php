@@ -16,10 +16,7 @@ class AppExtension extends AbstractExtension
     public function __construct(
         private TranslationExtension $translationExtension,
         private IntlExtension $intlExtension,
-    )
-    {
-        
-    }
+    ) {}
 
     public function getFilters()
     {

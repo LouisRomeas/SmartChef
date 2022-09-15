@@ -6,10 +6,7 @@ use App\Entity\Recipe;
 use App\Repository\RecipeRepository;
 
 class SearchContainer {
-  public function __construct(private RecipeRepository $recipeRepository)
-  {
-    
-  }
+  public function __construct(private RecipeRepository $recipeRepository) {}
 
   /**
    * Search recipes from a given recipe search form data

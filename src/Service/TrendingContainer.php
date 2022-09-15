@@ -8,10 +8,7 @@ use DateTime;
 use DateTimeInterface;
 
 class TrendingContainer {
-  public function __construct(private RecipeRepository $recipeRepository)
-  {
-    
-  }
+  public function __construct(private RecipeRepository $recipeRepository) {}
 
   /**
    * Retrieve "trending" recipes from a set of arbitrary rules
