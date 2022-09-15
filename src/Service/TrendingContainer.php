@@ -14,6 +14,8 @@ class TrendingContainer {
   }
 
   /**
+   * Retrieve "trending" recipes from a set of arbitrary rules
+   * 
    * @return Recipe[]
    */
   public function getTrendingRecipes(?DateTimeInterface $earliest = null, int $limit = 12, int $offset = null): array {
@@ -27,8 +29,11 @@ class TrendingContainer {
       ) unset($recipes[$key]);
     }
 
-    /** @param Recipe $recipe1
-     *  @param Recipe $recipe2 */
+    /**
+     * Sort recipes first by score, then by views
+     * @param Recipe $recipe1
+     * @param Recipe $recipe2
+     * */
     usort($recipes, function($recipe1, $recipe2) {
       $scoreComparison = $recipe2->getScore() <=> $recipe1->getScore();
       if ($scoreComparison !== 0) return $scoreComparison;
@@ -36,7 +41,6 @@ class TrendingContainer {
       $viewsComparison = $recipe2->getViews() <=> $recipe1->getViews();
       if ($viewsComparison !== 0) return $viewsComparison;
 
-      
       return 0;
     });
 

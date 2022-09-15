@@ -12,6 +12,7 @@ class SearchContainer {
   }
 
   /**
+   * Search recipes from a given recipe search form data
    * @return Recipe[]
    */
   public function search($formData): array {
@@ -21,6 +22,7 @@ class SearchContainer {
     );
 
     /**
+     * Sort results by score
      * @param Recipe $recipe1
      * @param Recipe $recipe2
      */
