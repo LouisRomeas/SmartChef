@@ -48,6 +48,9 @@ class RecipeController extends AbstractController
         return $newFilename;
     }
 
+    /**
+     * Recipe creating page
+     */
     #[IsGranted('ROLE_USER')]
     #[Route('/new', name: 'app_recipe_new', methods: ['GET', 'POST'])]
     public function new(Request $request, RecipeRepository $recipeRepository): Response
@@ -95,6 +98,9 @@ class RecipeController extends AbstractController
         ]);
     }
 
+    /**
+     * Recipe search page
+     */
     #[Route('/search', name: 'app_search_builder', methods: ['GET', 'POST'])]
     public function searchBuilder(Request $request, SearchContainer $searchContainer): Response {
         $form = $this->createForm(SearchType::class);
@@ -115,8 +121,14 @@ class RecipeController extends AbstractController
         ]);
     }
 
-    // Routes starting with a recipe's ID
+    /**
+     * Routes starting with a recipe's slug (Important to put after other
+     * specific routes so that the first ones are checked first)
+     */
 
+     /**
+      * Recipe show page
+      */
     #[Route('/{slug}', name: 'app_recipe_show', methods: ['GET'])]
     public function show(Recipe $recipe, RecipeRepository $recipeRepository, SessionInterface $session): Response
     {
@@ -137,6 +149,9 @@ class RecipeController extends AbstractController
         ]);
     }
 
+    /**
+     * Recipe edit page
+     */
     #[IsGranted('ROLE_EDITOR')]
     #[Route('/{id}/edit', name: 'app_recipe_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Recipe $recipe, RecipeRepository $recipeRepository, SluggerInterface $slugger): Response
@@ -164,6 +179,9 @@ class RecipeController extends AbstractController
         ]);
     }
 
+    /**
+     * Recipe delete route
+     */
     #[Route('/{id}', name: 'app_recipe_delete', methods: ['POST'])]
     public function delete(Request $request, Recipe $recipe, RecipeRepository $recipeRepository): Response
     {
