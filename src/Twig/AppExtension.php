@@ -93,7 +93,7 @@ class AppExtension extends AbstractExtension
 
         $datetimeString = twig_date_format_filter($environment, $duration, $format);
 
-        return preg_replace("/^0+/", '', $datetimeString);
+        return preg_replace("/^0+([0-9])/", '$1', $datetimeString);
     }
 
     /**
