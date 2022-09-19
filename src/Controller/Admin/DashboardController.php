@@ -52,21 +52,17 @@ class DashboardController extends AbstractDashboardController
         // return $this->render('some/path/my-dashboard.html.twig');
     }
 
-    // Set top left title to correspond top role user may have
+    // Set top left title to correspond highest role user may have
     public function configureDashboard(): Dashboard
     {
         $title = 'SmartChef';
-
-        function getTranslationKeyFromRole(string $role): string {
-            return 'admin.roles.' . strtolower(preg_replace("/^ROLE_([A-Za-z]+)$/", "$1", $role));
-        }
 
         foreach ([
             'ROLE_ADMIN',
             'ROLE_MODERATOR',
             'ROLE_MAINTAINER'
         ] as $role) {
-            if ($this->isGranted($role)) $title = getTranslationKeyFromRole($role);
+            if ($this->isGranted($role)) $title = $this->getTranslationKeyFromRole($role);
             break;
         }
 
@@ -96,5 +92,9 @@ class DashboardController extends AbstractDashboardController
             yield MenuItem::linkToCrud('entity.report._plural', 'fas fa-flag', Report::class);
             yield MenuItem::linkToCrud('entity.recipe._plural', 'fa-solid fa-newspaper', Recipe::class);
         }
+    }
+
+    private function getTranslationKeyFromRole(string $role): string {
+        return 'admin.roles.' . strtolower(preg_replace("/^ROLE_([A-Za-z]+)$/", "$1", $role));
     }
 }
