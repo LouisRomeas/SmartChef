@@ -37,7 +37,6 @@
                 }) }}
             {% endfor %}
         </div>
-        {{ encore_entry_script_tags('recipeIngredientsForm') }}
     </div>
 
     <hr class="hide-on-large">
@@ -45,4 +44,9 @@
     <button class="btn search-button" id="search-button">{{ 'form.searchForm.search_action' | t }}</button>
     {{ form_end(form) }}
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('recipeIngredientsForm') }}
 {% endblock %}
