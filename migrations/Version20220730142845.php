@@ -48,7 +48,7 @@ final class Version20220730142845 extends AbstractMigration
             (23, 'Céréales', '🌾'),
             (24, 'Pâtes alimentaires', '🍝'),
             (25, 'Produits végétariens et végan', '🌿'),
-            (26, 'Fleurs comestibles', '🍴')
+            (26, 'Fleurs comestibles', '🌹')
         ");
     }
 
