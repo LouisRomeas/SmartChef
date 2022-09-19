@@ -146,6 +146,7 @@ entity:
 
 
 admin:
+  adminAbbr: Admin
   dashboard: Tableau de bord
   backToFront: Retour en façade
   moderation: Modération

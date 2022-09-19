@@ -1,0 +1,30 @@
+{% extends "admin/layout.html.twig" %}
+
+{% block content_title %}{{ 'admin.dashboard' | t }}{% endblock %}
+
+{% block main %}
+<div class="mb-3 display-6 text-muted">{{ user }}</div>
+
+{% set roles = user.roles | filter(role => role != 'ROLE_USER') %}
+{% if roles %}
+  <div class="rounded-3 p-3 mb-3" style="background: var(--sidebar-bg);">
+    <h2 class="h5">{{ 'entity.user.roles' | t }}</h2>
+    {% for role in roles %}
+      <span class="badge bg-primary">{{ ( 'admin.roles.' ~ ( role | replace({ 'ROLE_': '' }) | lower ) ) | t }}</span>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<div class="mb-3 p-3 row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+  {% for entity,count in stats %}
+    <div class="col p-1">
+      <div class="card text-white rounded-3 p-3" style="background: var(--sidebar-bg);">
+        <div class="card-body d-flex align-items-baseline justify-content-center">
+          <div class="h2 m-0">{{ count | format_big_number }}</div>
+          <div class="h5 m-0 ms-1" style="transform: translateY(-0.125em);">{{ entity | t }}</div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

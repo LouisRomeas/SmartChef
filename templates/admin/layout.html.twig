@@ -1,0 +1,10 @@
+{% extends "@EasyAdmin/layout.html.twig" %}
+
+{% block head_favicon %}{{ block('favicon', 'base.html.twig') }}{% endblock %}
+
+{% block head_stylesheets %}
+{{ parent() }}
+
+{% endblock %}
+
+{% set page_title_block_output %}{% block page_title %}{{ 'admin.adminAbbr' | t }} • {{ block('content_title') }}{% endblock %}{% endset %}
