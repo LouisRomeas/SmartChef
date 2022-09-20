@@ -43,6 +43,9 @@ class RecipeRepository extends ServiceEntityRepository
     }
 
     /**
+     * This is the core method of this project, as it is at the heart of the
+     * customizable search process.
+     * 
      * Retrieve all recipes that use only given ingredients (from non-optional ingredients),
      * in the given quantity, proportionally adjusted for the number of portions asked
      * 
@@ -50,13 +53,18 @@ class RecipeRepository extends ServiceEntityRepository
      * 
      * @return Recipe[] Returns an array of Recipe objects
      */
-    public function getExactMatches(array $recipeIngredients, int $portions): array
+    public function getExactMatches(array $recipeIngredients, int $portions, int $limit = 10): array
     {
+        // Add all ingredients to a list of "allowed ingredients"
         $allowedIngredients = [];
         foreach ($recipeIngredients as $recipeIngredient) {
             $allowedIngredients[] = $recipeIngredient->getIngredient();
         }
 
+        /**
+         * Start building a DQL query that only selects recipes which do not
+         * contain any ingredient *not* on the "allowed ingredients" list
+         */
         $queryBuilder = $this->createQueryBuilder('r');
         $queryBuilder
             ->join('r.recipeIngredients', 'ri')
@@ -72,16 +80,20 @@ class RecipeRepository extends ServiceEntityRepository
             ')
         ;
 
-        // Loop through every RecipeIngredient searched, and add a condition for quantity
         $quantityExpression = "SUM( IFELSE(";
-        foreach ($recipeIngredients as $index => $recipeIngredient) {
-            // Sanitizing just in case
-            $index = intval($index);
+        $index = 0;
+        /**
+         * Add a custom written DQL expression
+         * Loop through every RecipeIngredient in the search, each time add a condition for
+         * quantity, considering the ratio between the search's portions & the recipe's portions
+         */
+        foreach ($recipeIngredients as $recipeIngredient) {
+            $index++;
 
             $quantityExpression .= "(
                 ri.ingredient = :ingredient_$index AND (ri.quantity / r.portions) > (:quantity_$index / :portions)
             )";
-            $quantityExpression .= array_key_last($recipeIngredients) !== $index ?' OR ' : ', ';
+            $quantityExpression .= array_key_last($recipeIngredients) != $index ?' OR ' : ', ';
 
             $queryBuilder->setParameter("ingredient_$index", $recipeIngredient->getIngredient());
             $queryBuilder->setParameter("quantity_$index", $recipeIngredient->getQuantity());
@@ -95,7 +107,7 @@ class RecipeRepository extends ServiceEntityRepository
         $queryBuilder
             ->setParameter('allowedIngredients', $allowedIngredients)
             ->orderBy('r.views', 'DESC')
-            ->setMaxResults(10)
+            ->setMaxResults($limit)
         ;
 
         return $queryBuilder->getQuery()->getResult();
