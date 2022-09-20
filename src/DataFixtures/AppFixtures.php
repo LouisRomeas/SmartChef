@@ -19,8 +19,6 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-use function PHPUnit\Framework\objectEquals;
-
 class AppFixtures extends Fixture
 {
     private ObjectManager $objectManager;
@@ -104,15 +102,15 @@ class AppFixtures extends Fixture
     ];
     const NB_CATEGORIES = 10;
     const NB_INGREDIENTS = 2500;
-    const NB_USERS = 1000;
+    const NB_USERS = 50;
     const RATIO_EDITORS = 1/3;
-    const NB_RECIPES = 1000;
+    const NB_RECIPES = 35;
     const RANGE_RECIPE_INGREDIENTS = [
         'min' => 1,
         'max' => 7
     ];
-    const NB_RECIPES_VOTED = 500;
-    const NB_VOTES = 100000;
+    const NB_RECIPES_VOTED = 35;
+    const NB_VOTES = 10000;
 
     public function __construct(private UserPasswordHasherInterface $hasher, private SluggerInterface $slugger) {}
 
@@ -357,7 +355,7 @@ class AppFixtures extends Fixture
             );
             $recipe->setPortions($this->faker->numberBetween(1, 10));
             $recipe->setCreatedAt(DateTimeImmutable::createFromMutable($this->faker->dateTimeThisYear()));
-            $recipe->setViews( $this->faker->randomNumber( rand(1, 7) ) );
+            $recipe->setViews( $this->faker->numberBetween(500, 1500000) );
             $recipe->setSlug( $this->slugger->slug( $this->faker->randomNumber(3) . ' ' . strtolower( $recipe->getTitle() ) ) );
 
             do {
