@@ -19,6 +19,10 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
+/**
+ * These Fixtures are a little extra I created in order to simulate what this
+ * website would look like if it had a lot more activity.
+ */
 class AppFixtures extends Fixture
 {
     private ObjectManager $objectManager;
