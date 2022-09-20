@@ -134,12 +134,13 @@ html {
           &.selected {
             background-color: scale-color($color: $bright-green, $lightness: 50%);
 
-            span {
-              display: inline-block;
+          }
+          
+          span {
+            display: inline-block;
 
-              &.label::first-letter {
-                text-transform: uppercase;
-              }
+            &.label::first-letter {
+              text-transform: uppercase;
             }
           }
   
