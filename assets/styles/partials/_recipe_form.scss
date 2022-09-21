@@ -1,45 +1,51 @@
-html body form[name=recipe] {
-  .form-top-row {
+html body form {
+  .btn {
+    margin: 0.5rem 0;
+  }
 
-    .recipe-ingredients-wrapper {
-      display: flex;
-      flex-direction: column;
-    }
+  &[name=recipe] {
+    .form-top-row {
 
-    .top-row-left {
-      margin-bottom: 0.5rem;
-
-      div {
-        margin-top: 0.5rem;
-
-        label {
-          display: block;
-        }
+      .recipe-ingredients-wrapper {
+        display: flex;
+        flex-direction: column;
       }
-    }
 
-    @media screen and (min-width: $bp-extra-large) {
-      display: flex;
-      flex-direction: row;
+      .top-row-left {
+        margin-bottom: 0.5rem;
 
-      > * {
-        flex-basis: calc(100% / 3);
-
-        &.top-row-left {
-          div {
-            margin-top: 0.5rem;
-
-            input[name*=title] {
-              width: calc(100% - 2rem);
-            }
-          }
-        }
-
-        &:not(:first-child) {
-          margin-left: 1rem;
+        div {
+          margin-top: 0.5rem;
 
           label {
             display: block;
+          }
+        }
+      }
+
+      @media screen and (min-width: $bp-extra-large) {
+        display: flex;
+        flex-direction: row;
+
+        > * {
+          flex-basis: calc(100% / 3);
+
+          &.top-row-left {
+            div {
+              margin-top: 0.5rem;
+
+              input[name*=title] {
+                width: calc(100% - 2rem);
+              }
+            }
+          }
+
+          &:not(:first-child) {
+            margin-left: 1rem;
+
+            label {
+              display: block;
+            }
           }
         }
       }

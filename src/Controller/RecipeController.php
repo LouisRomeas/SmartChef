@@ -156,7 +156,7 @@ class RecipeController extends AbstractController
     #[Route('/{id}/edit', name: 'app_recipe_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Recipe $recipe, RecipeRepository $recipeRepository): Response
     {
-        if ($this->getUser() !== $recipe->getAuthor()) return $this->redirectToRoute('app_home', status: 401);
+        if ($this->getUser() !== $recipe->getAuthor() && !$this->isGranted('ROLE_ADMIN')) return $this->redirectToRoute('app_home');
 
         $form = $this->createForm(RecipeType::class, $recipe);
         $form->handleRequest($request);
