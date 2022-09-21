@@ -2,15 +2,15 @@
   {% for recipeIngredient in recipeIngredients %}
       <div class="recipe-ingredient">
           <div class="ingredient">
-              <span class="ingredient-emoji">{{ recipeIngredient.ingredient.emoji ?? recipeIngredient.ingredient.category.defaultEmoji }}</span>
-              <span class="ingredient-name">{{ recipeIngredient.ingredient.name }}</span>
+              <div class="ingredient-emoji">{{ recipeIngredient.ingredient.emoji ?? recipeIngredient.ingredient.category.defaultEmoji }}</div>
+              <div class="ingredient-name">{{ recipeIngredient.ingredient.name }}</div>
               {% if recipeIngredient.isOptional %}
-                <span class="ingredient-optional">{{ 'entity.recipeIngredient.isOptional' | t }}</span>
+                <div class="ingredient-optional">{{ 'entity.recipeIngredient.isOptional' | t }}</div>
               {% endif %}
           </div>
           <div class="quantity">
-              <span class="quantity-value">{{ recipeIngredient.quantity }}</span>
-              <span class="unit">{{ recipeIngredient.ingredient.unit.name }}</span>
+              <div class="quantity-value">{{ recipeIngredient.quantity }}</div>
+              <div class="unit">{{ recipeIngredient.ingredient.unit.name }}</div>
           </div>
       </div>
   {% endfor %}
