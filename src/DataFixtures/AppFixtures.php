@@ -379,7 +379,7 @@ class AppFixtures extends Fixture
 
             for ($j = 0; $j < $ingredientsNb; $j++) {
                 $recipeIngredient = new RecipeIngredient();
-                $recipeIngredient->setQuantity( $this->faker->randomNumber( rand(1, 3) ) );
+                $recipeIngredient->setQuantity( $this->faker->randomNumber( rand(1, 3) ) + 1 );
                 $recipeIngredient->setIsOptional(
                     rand(0, $ingredientsNb - 1) > 1 && rand(0, 3) == 0
                 );
