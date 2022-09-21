@@ -87,6 +87,7 @@ body {
             color: $bright-green;
 
             .vote {
+              cursor: pointer;
               margin-left: 0.25rem;
 
               &.selected {
