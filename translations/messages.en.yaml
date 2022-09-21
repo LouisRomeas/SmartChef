@@ -86,6 +86,9 @@ messages:
     forbidden:
       title: Access denied
       message: Access to this page was denied, as you are not a %role_needed%.
+    notFound:
+      title: Page not found
+      message: The page you're looking for doesn't exist.
 
 action:
   report: Report

@@ -86,6 +86,9 @@ messages:
     forbidden:
       title: Accès interdit
       message: L'accès à cette page est interdit, car vous n'êtes pas %role_needed%.
+    notFound:
+      title: Page non trouvée
+      message: La page que vous recherchez n'existe pas.
 
 action:
   report: Signaler
