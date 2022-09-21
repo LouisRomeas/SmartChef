@@ -4,11 +4,11 @@
           <div class="ingredient">
               <div class="ingredient-emoji">{{ recipeIngredient.ingredient.emoji ?? recipeIngredient.ingredient.category.defaultEmoji }}</div>
               <div class="ingredient-name">{{ recipeIngredient.ingredient.name }}</div>
+            </div>
+            <div class="quantity">
               {% if recipeIngredient.isOptional %}
                 <div class="ingredient-optional">{{ 'entity.recipeIngredient.isOptional' | t }}</div>
               {% endif %}
-          </div>
-          <div class="quantity">
               <div class="quantity-value">{{ recipeIngredient.quantity }}</div>
               <div class="unit">{{ recipeIngredient.ingredient.unit.name }}</div>
           </div>
