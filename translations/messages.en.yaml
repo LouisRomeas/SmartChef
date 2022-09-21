@@ -64,6 +64,9 @@ messages:
     registration:
       passwordBlank: Please enter a password.
       agreeTerms: You need to agree to our Terms and Conditions.
+      checkInbox:
+        title: Check your inbox
+        message: A confirmation e-mail has been sent to your e-mail address "%email_address%". Please click on the confirmation link inside it in order to verify your account.
       confirmation:
         title: E-mail address verification
         pleaseConfirm: "Please confirm your email address by clicking the following link:"

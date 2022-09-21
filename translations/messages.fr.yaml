@@ -64,6 +64,9 @@ messages:
     registration:
       passwordBlank: Veuillez entrer un mot de passe.
       agreeTerms: Vous devez accepter les conditions d'utilisation.
+      checkInbox:
+        title: Vérifiez votre boîte mail
+        message: Un e-mail de confirmation a été envoyé à votre adresse e-mail "%email_address%". Veuillez cliquer sur le lien de confirmation contenu dans ce dernier afin de vérifier votre compte.
       confirmation:
         title: Vérification de votre adresse e-mail
         pleaseConfirm: "Veuillez valider votre adresse e-mail en cliquant sur ce lien :"

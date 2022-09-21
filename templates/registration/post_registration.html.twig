@@ -1,0 +1,8 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ 'messages.user.registration.checkInbox.title' | t }}{% endblock %}
+
+{% block body %}
+<h1>{{ 'messages.user.registration.checkInbox.title' | t }}</h1>
+<p>{{ 'messages.user.registration.checkInbox.message' | t({ '%email_address%': email_address }) }}</p>
+{% endblock %}

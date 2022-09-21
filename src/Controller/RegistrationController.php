@@ -61,7 +61,9 @@ class RegistrationController extends AbstractController
                 $this->sendConfirmationEmail($user, '', $session, true);
                 // do anything else you need here, like send an email
     
-                return $this->redirectToRoute('app_login');
+                return $this->render('registration/post_registration.html.twig', [
+                    'email_address' => $user->getEmail()
+                ]);
             } else {
                 $form->addError(new FormError("Can't use same nickname"));
             }
