@@ -28,6 +28,17 @@
           text-transform: uppercase;
         }
       }
+
+      .ingredient-optional {
+        background-color: mix($gray-green, $white, 80%);
+        color: $white;
+        margin-inline-start: 0.5em;
+        font-size: 0.75em;
+        font-weight: 600;
+        // font-style: italic;
+        padding: 0.125em 0.25em;
+        border-radius: 0.5em;
+      }
     }
 
     .quantity {

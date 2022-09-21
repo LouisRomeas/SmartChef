@@ -4,6 +4,9 @@
           <div class="ingredient">
               <span class="ingredient-emoji">{{ recipeIngredient.ingredient.emoji ?? recipeIngredient.ingredient.category.defaultEmoji }}</span>
               <span class="ingredient-name">{{ recipeIngredient.ingredient.name }}</span>
+              {% if recipeIngredient.isOptional %}
+                <span class="ingredient-optional">{{ 'entity.recipeIngredient.isOptional' | t }}</span>
+              {% endif %}
           </div>
           <div class="quantity">
               <span class="quantity-value">{{ recipeIngredient.quantity }}</span>
