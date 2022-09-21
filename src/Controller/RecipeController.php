@@ -189,6 +189,6 @@ class RecipeController extends AbstractController
             $recipeRepository->remove($recipe, true);
         }
 
-        return $this->redirectToRoute('app_recipe_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
     }
 }
