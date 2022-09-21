@@ -49,6 +49,7 @@ form:
   resetPasswordForm:
     willSendYouLink: Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.
     sendEmail: Envoyer l'e-mail
+    emailSent: E-mail de réinitialisation de mot de passe envoyé
     checkEmail: Si un compte correspond à votre adresse e-mail, un e-mail contenant le lien de réinitialisation de mot de passe vous a été envoyé. Ce lien expire dans %expiration_delay%.
     ifNotReceived: Si vous ne recevez pas d'e-mail, vérifiez votre dossier spam ou réessayez.
     clickLinkToReset: "Pour réinitialiser votre mot de passe, cliquez sur le lien ci-dessous :"

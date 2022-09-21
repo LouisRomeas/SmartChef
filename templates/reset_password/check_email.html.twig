@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Password Reset Email Sent{% endblock %}
+{% block title %}{{ 'form.resetPasswordForm.emailSent' | t }}{% endblock %}
 
 {% block body %}
-    <p>
-        {{ 'form.resetPasswordForm.checkEmail' | t({ '%expiration_delay%': resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }) }}
-    </p>
-    <p>{{ 'form.resetPasswordForm.ifNotReceived' | t }}</p>
+<h1>{{ 'form.resetPasswordForm.emailSent' | t }}</h1>
+<p>
+    {{ 'form.resetPasswordForm.checkEmail' | t({ '%expiration_delay%': resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }) }}
+</p>
+<p>{{ 'form.resetPasswordForm.ifNotReceived' | t }}</p>
 {% endblock %}

@@ -49,6 +49,7 @@ form:
   resetPasswordForm:
     willSendYouLink: Enter your email address and we will send you a link to reset your password.
     sendEmail: Send password reset e-mail
+    emailSent: Password reset e-mail sent
     checkEmail: If an account matching your email exists, an email containing the link to reset your password has been sent to you. This link expires in %expiration_delay%.
     ifNotReceived: If you don't receive an email please check your spam folder or try again.
     clickLinkToReset: "To reset your password, please visit the following link:"
