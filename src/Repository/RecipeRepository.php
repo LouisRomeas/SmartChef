@@ -94,7 +94,9 @@ class RecipeRepository extends ServiceEntityRepository
             $index++;
 
             $quantityExpression .= "(
-                ri.ingredient = :ingredient_$index AND (ri.quantity / r.portions) > (:quantity_$index / :portions) AND ri.isOptional = 0
+                ri.ingredient = :ingredient_$index AND
+                (ri.quantity / r.portions) > (:quantity_$index / :portions) AND
+                ri.isOptional = 0
             )";
             $quantityExpression .= array_key_last($recipeIngredients) != $index ?' OR ' : ', ';
 
