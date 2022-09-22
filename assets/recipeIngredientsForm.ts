@@ -211,5 +211,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
       inputTextElement.value = '';
     }
-  })
+  });
+
+  const searchButton = document.getElementById('search-button');
+  if (searchButton) searchButton.onclick = (ev: MouseEvent) => {
+    if (!document.querySelector('input[name*=ingredient')) ev.preventDefault();
+  }
 });
