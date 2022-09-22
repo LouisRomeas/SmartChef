@@ -81,7 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Remove ingredient button
     const removeSubFormButton: HTMLElement = document.createElement('div');
     removeSubFormButton.classList.add('remove-subform');
-    removeSubFormButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
+    const removeSubFormFontAwesome = document.createElement('i');
+    removeSubFormFontAwesome.classList.add('fa-solid', 'fa-trash');
+    removeSubFormButton.append(removeSubFormFontAwesome);
     removeSubFormButton.onclick = (e: Event) => {
       e.preventDefault();
       
