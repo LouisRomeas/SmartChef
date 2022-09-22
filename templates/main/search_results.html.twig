@@ -11,7 +11,7 @@
 <hr>
 
 <section id="recipes" class="recipes">
-  <h2 class="heading">{{ recipes|length }} {{ 'form.searchForm.results' | t | lower }}</h2>
+  <h2 class="heading">{{ recipes|length }} {{ ( 'form.searchForm.results.' ~ ( recipes|length > 1 ? '_plural' : '_singular' ) ) | t | lower }}</h2>
   <div class="recipes-list">
     {% for recipe in recipes %}
       {% include "_partials/_recipe_card.html.twig" %}

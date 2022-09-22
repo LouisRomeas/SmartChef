@@ -45,7 +45,9 @@ form:
     search: Search
     search_action: Search
     searchResults: Search results
-    results: Results
+    results:
+      _singular: Result
+      _plural: Results
   resetPasswordForm:
     willSendYouLink: Enter your email address and we will send you a link to reset your password.
     sendEmail: Send password reset e-mail

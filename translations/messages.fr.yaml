@@ -45,7 +45,9 @@ form:
     search: Recherche
     search_action: Rechercher
     searchResults: Résultats de la recherche
-    results: Résultats
+    results:
+      _singular: Résultat
+      _plural: Résultats
   resetPasswordForm:
     willSendYouLink: Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.
     sendEmail: Envoyer l'e-mail
