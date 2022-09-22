@@ -72,7 +72,10 @@ class RecipeRepository extends ServiceEntityRepository
             ->andHaving('
             SUM(
                 IFELSE(
-                    ri.ingredient NOT IN(:allowedIngredients),
+                    (
+                        ri.ingredient NOT IN(:allowedIngredients) AND
+                        ri.isOptional = 0
+                    ),
                     1,
                     0
                 )
