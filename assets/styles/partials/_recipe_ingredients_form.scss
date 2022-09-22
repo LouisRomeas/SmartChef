@@ -19,14 +19,24 @@
       color: $red;
       cursor: pointer;
     }
-    
-    label.ingredient-label {
-      font-size: 1.25rem;
-      color: $dark-green;
-      font-weight: bold;
 
-      &::first-letter {
+    .ingredient-label-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+
+      .ingredient-emoji {
         margin-right: 0.125rem;
+      }
+  
+      label.ingredient-label {
+        font-size: 1.25rem;
+        color: $dark-green;
+        font-weight: bold;
+  
+        &::first-letter {
+          text-transform: uppercase;
+        }
       }
     }
     

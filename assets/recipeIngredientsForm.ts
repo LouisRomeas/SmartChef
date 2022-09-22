@@ -90,10 +90,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     subFormElement.appendChild(removeSubFormButton);
     
+    // Ingredient label wrapper
+    const ingredientLabelWrapper = document.createElement('div');
+    subFormElement.insertBefore(ingredientLabelWrapper, subFormElement.firstChild);
+    ingredientLabelWrapper.classList.add('ingredient-label-wrapper');
+
+    // Ingredient name emoji
+    const ingredientEmoji: HTMLElement = document.createElement('div');
+    ingredientLabelWrapper.append(ingredientEmoji);
+    ingredientEmoji.textContent = ingredient.emoji ?? defaultEmoji;
+    ingredientEmoji.classList.add('ingredient-emoji');
+
     // Ingredient name label
     const ingredientLabel: HTMLLabelElement = document.createElement('label');
-    subFormElement.insertBefore(ingredientLabel, subFormElement.firstChild);
-    ingredientLabel.textContent = (ingredient.emoji ?? defaultEmoji) + ingredient.label;
+    ingredientLabelWrapper.append(ingredientLabel);
+    ingredientLabel.textContent = ingredient.label;
     ingredientLabel.classList.add('ingredient-label');
   
     // Quantity Input
