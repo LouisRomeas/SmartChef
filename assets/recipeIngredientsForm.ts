@@ -114,18 +114,16 @@ document.addEventListener('DOMContentLoaded', () => {
     quantityInput.type = 'number';
     if (!quantityInput.value) quantityInput.value = quantityInput.min = String(1);
 
-    {  
-      // Add +/- buttons to quantityInput
-      addPlusMinus(quantityInput);
-    
-      // Add span with unit after quantityInput
-      const unitSpan = document.createElement('span');
-      unitSpan.classList.add('unit');
-      unitSpan.textContent = ingredient.unit;
-      quantityInput.parentElement.appendChild(unitSpan);
-    
-      quantityInput.parentElement.classList.add('quantity');
-    }
+    // Add +/- buttons to quantityInput
+    addPlusMinus(quantityInput);
+  
+    // Add span with unit after quantityInput
+    const unitSpan = document.createElement('span');
+    unitSpan.classList.add('unit');
+    unitSpan.textContent = ingredient.unit;
+    quantityInput.parentElement.appendChild(unitSpan);
+  
+    quantityInput.parentElement.classList.add('quantity');
   
     // Checkbox for optional ingredient
     const isOptionalInput: HTMLInputElement = subFormElement.querySelector('input[name*=isOptional');
